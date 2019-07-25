@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on 沉风网事</title>
+    <link>https://blog.ipds.top/tags/golang/</link>
+    <description>Recent content in Golang on 沉风网事</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 10 Jun 2019 11:58:06 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.ipds.top/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>深入分析Golang sync.pool</title>
+      <link>https://blog.ipds.top/2019/06/10/%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90golang-sync.pool/</link>
+      <pubDate>Mon, 10 Jun 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2019/06/10/%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90golang-sync.pool/</guid>
+      <description>定义 sync.Pool是一个可以存或取的临时对象池。对外提供New、Get、Put等API，利用mutex支持多线程并发。
+目标 sync.Pool解决以下问题：
+ 增加临时对象的用复用率，减少GC负担 通过对象的复用，减少内存申请开销，有利于提高一部分性能  实现 这一部分回答如何实现的问题。
+关于了解实现，最好的办法就是看代码。
+描述 type Pool struct { noCopy noCopy local unsafe.Pointer // local fixed-size per-P pool, actual type is [P]poolLocal localSize uintptr // size of the local array // New optionally specifies a function to generate // a value when Get would otherwise return nil. // It may not be changed concurrently with calls to Get. New func() interface{} }  各个成员含义如下：</description>
+    </item>
+    
+    <item>
+      <title>Golang最工程化的语言</title>
+      <link>https://blog.ipds.top/2018/07/03/golang%E6%9C%80%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E8%AF%AD%E8%A8%80/</link>
+      <pubDate>Tue, 03 Jul 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2018/07/03/golang%E6%9C%80%E5%B7%A5%E7%A8%8B%E5%8C%96%E7%9A%84%E8%AF%AD%E8%A8%80/</guid>
+      <description>Golang是什么语言 PHP是最好的语言。
+Haskell最难学的语言。
+Golang最工程化的语言。
+下面分别从语言层面及软件工程两个方面进行说明。
+语言 安全性 相比较于C/C++，golang不支持指针操作，不支持隐式类型转换，支持内存溢出与越界检查。
+并发与扩展 通过goroutine，Golang从语言层面上解决了并发与扩展的问题，而不像C/C++, JAVA通过框架来解决这个问题。Golang自适应多核运行。
+简单 语法简单，代码不涉及内存管理，上手容易。新人学习几天就可以上手写代码。
+可维护性 自带godoc统一代码格式。 一个文件夹对应一个包有利于代码模块化。
+打包一切 相比较于C/C++，动态库和静态库的依赖，Golang将所有编译成一个二进制文件。 解决依赖带来高度耦合问题，这样十分有利于交付与部署。
+可移植 支持多种体系架构与不同的操作系统以及跨平台编译。
+高效率 Golang实现了程序员开发高效率与机器运行高效率两者的有效结合，进而实现经济上高效率。
+相比较于C/C++，Golang编译速度更快了。特别是大型项目，以前用C语言的时候，在刀片服务器上时编译一个测试版本都要半个小时左右。
+生态成长 背靠Google，从09年发布已来，已经在云生态占据绝对主导地位。有不少明星开源项目。如Docker、Kubernetes、Prometheus、Hyperleder、Ethereum、Etcd等。随着云时代不断发展，Golang生态一定会越来越强大与丰富。
+软件工程 流程 一般软件工程流程分为规划、需求、设计、编码、测试、发布、维护等几个阶段。除了规划与需求阶段，Golang对其他阶段在语言层面都有强力特性支持。举例如下：
+ 设计阶段：利用interface可以进行protype编程，可以实现代码及文档。 编码阶段：godoc统一代码格式 测试阶段：自带go test便于测试，不像C/C++依赖gtest 发布阶段：上面说到可移植及打包一切，便于交付，发布，部署 维护阶段：Golang天然支持CPU扩展及其上面所说的便于交付，发布，部署  大规模协作 Golang引入interface特性，实际在语言层面支持SOLID设计原则中依赖倒置原则。再加上包的独立性，有利于大规模系统的大团队协作开发。
+编程友好 软件工程是人是关键因素。编码是核心阶段。Golang以下特性释放了程序员的生产力：
+ 还算丰富的基础库 避免内存管理 天然支持并发  后记 当然Golang也有自己的缺点，如GC问题，延时大等。但是用一个语言的策略就应该扬长避短，当然熟练应用Golang的特性得深入学习与实践。
+(End)
+欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+    </item>
+    
+    <item>
+      <title>Gorm小技巧: 如何优雅地创建多个相同的表</title>
+      <link>https://blog.ipds.top/2017/12/21/gorm%E5%B0%8F%E6%8A%80%E5%B7%A7-%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E5%88%9B%E5%BB%BA%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%90%8C%E7%9A%84%E8%A1%A8/</link>
+      <pubDate>Thu, 21 Dec 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/12/21/gorm%E5%B0%8F%E6%8A%80%E5%B7%A7-%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E5%88%9B%E5%BB%BA%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%90%8C%E7%9A%84%E8%A1%A8/</guid>
+      <description>背景 因为需要bitfinex抓取各种历史交易信息。为了实现可扩展与便于数据管理，在数据架构设计方面满足下面的需求：
+ 不同的交易对的交易数据放到不同的表上。  方案 方案1 编写sql,通过多条sql语句创建多个不同名字的表。
+优点： 1. 理解简单，最容易的方案
+缺点：
+ 如果修改表名称、调整表结构、调整索引，需要重新写sql，如果在线上部署，需要到多台机器上部署与执行，加大出错的概率
+ 需要额外维护表名称
+ 不利于docker部署，部署业务sql建立相应表
+  总之，最容易的方案，确实最难维护的方案。
+方案2 方案1种种不足，让我这个懒人实在不感兴趣。要追求优雅的实现方案。所以就发现下面的方案。
+type User struct { Name string Pwd string tableName string } func (u *User) TableName() string { return u.tableName }  看完上面的代码，大家应该会立即明白：原来只需要对表结构对应的结构体定义一种方法 TableName(),就可以实现。
+一个十分简单示例代码如下：
+package main import ( &amp;quot;fmt&amp;quot; _ &amp;quot;github.com/go-sql-driver/mysql&amp;quot; &amp;quot;github.com/jinzhu/gorm&amp;quot; ) type User struct { Name string Pwd string tableName string } func (u *User) TableName() string { // custom table name, this is default return u.</description>
+    </item>
+    
+  </channel>
+</rss>

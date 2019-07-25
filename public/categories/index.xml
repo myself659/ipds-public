@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 沉风网事</title>
+    <link>https://blog.ipds.top/categories/</link>
+    <description>Recent content in Categories on 沉风网事</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 26 Jun 2019 11:58:06 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.ipds.top/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blockchain</title>
+      <link>https://blog.ipds.top/categories/blockchain/</link>
+      <pubDate>Wed, 26 Jun 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/blockchain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Struct</title>
+      <link>https://blog.ipds.top/categories/data-struct/</link>
+      <pubDate>Wed, 21 Feb 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/data-struct/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed</title>
+      <link>https://blog.ipds.top/categories/distributed/</link>
+      <pubDate>Tue, 11 Dec 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/distributed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ethereum</title>
+      <link>https://blog.ipds.top/categories/ethereum/</link>
+      <pubDate>Tue, 15 May 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/ethereum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://blog.ipds.top/categories/golang/</link>
+      <pubDate>Mon, 10 Jun 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Internet</title>
+      <link>https://blog.ipds.top/categories/internet/</link>
+      <pubDate>Sat, 05 May 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/internet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ipfs</title>
+      <link>https://blog.ipds.top/categories/ipfs/</link>
+      <pubDate>Thu, 21 Jun 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/ipfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://blog.ipds.top/categories/kubernetes/</link>
+      <pubDate>Sat, 09 Mar 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://blog.ipds.top/categories/web/</link>
+      <pubDate>Fri, 27 Oct 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>商业</title>
+      <link>https://blog.ipds.top/categories/%E5%95%86%E4%B8%9A/</link>
+      <pubDate>Sun, 28 Apr 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/%E5%95%86%E4%B8%9A/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>成长</title>
+      <link>https://blog.ipds.top/categories/%E6%88%90%E9%95%BF/</link>
+      <pubDate>Wed, 23 Jan 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/%E6%88%90%E9%95%BF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>研发管理</title>
+      <link>https://blog.ipds.top/categories/%E7%A0%94%E5%8F%91%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Wed, 05 Sep 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/%E7%A0%94%E5%8F%91%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>闲谈乱扯</title>
+      <link>https://blog.ipds.top/categories/%E9%97%B2%E8%B0%88%E4%B9%B1%E6%89%AF/</link>
+      <pubDate>Wed, 05 Dec 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/%E9%97%B2%E8%B0%88%E4%B9%B1%E6%89%AF/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
