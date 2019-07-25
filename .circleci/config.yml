@@ -1,0 +1,13 @@
+machine:
+  services:
+    - docker
+dependencies:
+ 
+test:
+  
+deployment:
+  master:
+    branch: master
+    commands:
+      - echo 'deploying'
+      - ssh -v $BCUSER@BCHOST "cd  /root/gocode/src/github.com/myself659/ipds-blog-website/public; git pull"
