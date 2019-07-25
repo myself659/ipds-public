@@ -15,5 +15,5 @@ jobs:
 
       - checkout
       - run: echo ${BCHOST}
-			- run: echo -e "Host $BCHOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+      - run: echo -e "Host $BCHOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
       - run:  sh deploy.sh
