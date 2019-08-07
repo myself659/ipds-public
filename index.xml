@@ -368,7 +368,7 @@ package main import ( &amp;quot;fmt&amp;quot; &amp;quot;net/http&amp;quot; ) fun
  github gitlab gitee gitbucket 自建gitlab
   选择自建gitlab。主要考虑如下：
  历史原因 Gitlab自带CI 代码安全考虑 自建gitlab带来的自主控制，有利于后续的发展  编程语言 以Golang为主，其他语言为辅助。
-Why Golang  个人及其团队主要成员都有Golang经验 Golang在区块链项目中会占主导地位 更多理由见：[Golang最工程化的语言]()  运行环境 运行环境分为以下几种：
+Why Golang  个人及其团队主要成员都有Golang经验 Golang在区块链项目中会占主导地位 更多理由见：Golang最工程化的语言  运行环境 运行环境分为以下几种：
  物理主机 虚拟机 Docker  除了一些特殊的场景，现在流行的作法当然是Docker。
 Why Docker Docker是容器的事实上标准。 使用Docker带来新部署方式：build-&amp;gt;ship-&amp;gt;run，有以下好处：
  可移植性：容器与操作系统分离，基本上保证可以在不同的机器及环境的主机上运行，容器也可以在不同机器上迁移 模块化：利用容器隔离属性可以划分模块，合理拆分服务，同时容器化的一致性便于模块的复用 安全性：容器隔离属性增加了应用程序的安全性 弹性伸缩：容器化方便在负载增加扩容，在负载下降时缩容，有利于提高资源利用效率 一致性：容器为应用程序提供了一致性的运行环境。  运行平台 上云现在已经成为大众共识。AWS，azure, google cloud, aliyun及腾讯云都是选项内容。</description>
@@ -942,7 +942,13 @@ Analyze Solution class Solution { public: TreeNode *buildTree(vector&amp;lt;int&
       
       <guid>https://blog.ipds.top/1/01/01/</guid>
       <description>每周完成一个ARTS： 1.Algorithm：每周至少做一个 leetcode 的算法题 2.Review：阅读并点评至少一篇英文技术文章 3.Tip：学习至少一个技术技巧 4.Share：分享一篇有观点和思考的技术文章
- Algorithm leetcode-200 Desc Analyze Solution Deep Relation  []()  Review Tip Share 欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+ Algorithm leetcode-96 96. Unique Binary Search Trees
+Desc Given n, how many structurally unique BST&amp;rsquo;s (binary search trees) that store values 1 &amp;hellip; n?
+Analyze 问题的关键是如何将问题分解？如果是3棵树，可以分为以下几种进行计算：
+ 左边1个节点，右边2个节点 左边2个节点，右边1个节点 左边3个节点，右边0个节点  那么总数等于上面三项之和，注意的是上面三种情况根节点都视为左边的节点 这是第一步。下一步是如何从3扩展到n呢？ 这样的题目只有两种策略：
+ 从上向下 从下向上  采用从上向下，我们考虑用递归，那么需要知道结束条件，需要知道f(n)到f(n-1)的关系，在这里很难得到。 那么可以采用从下向上的方式，我们可以清楚知道，f(1) = 1, f(2) = 2,根据步骤1 可以如下：
+f(3) = f(1)*f(2) + f(2)*f(1) + f(3)*f(0)  这里就是为什么要引入f(0) = 1的原因了
+Solution class Solution { public: int numTrees(int n) { vector&amp;lt;int&amp;gt; dp(n+1, 0); dp[0] =1; dp[1] =1; for(int i = 2; i &amp;lt;= n; i++){ for(int j = 0; j &amp;lt; i; j++){ dp[i] += dp[j] * dp[i -j -1]; } } return dp[n]; } };  Deep Relation  95.</description>
     </item>
     
     <item>
