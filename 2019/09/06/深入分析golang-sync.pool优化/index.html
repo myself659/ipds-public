@@ -21,7 +21,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="深入分析Golang sync.pool优化" />
-<meta property="og:description" content="前言 最近golang的1.3版本发布了，有很多新特性与改进合入。这里主要分析sync.pool的优化。
+<meta property="og:description" content="前言 最近golang的1.13版本发布了，有很多新特性与改进合入。这里主要分析sync.pool的优化。
 本文主要解答以下几个问题：
  sync.pool优化体现在哪里？ 优化是如何实现？ 优化的好处有哪些？  优化 具体优化项如下：
  无锁化 GC策略  无锁化 sync.pool实现了无锁化，具体如下：
@@ -36,7 +36,7 @@ go1.12.1版本实现
     
     
 <meta itemprop="name" content="深入分析Golang sync.pool优化">
-<meta itemprop="description" content="前言 最近golang的1.3版本发布了，有很多新特性与改进合入。这里主要分析sync.pool的优化。
+<meta itemprop="description" content="前言 最近golang的1.13版本发布了，有很多新特性与改进合入。这里主要分析sync.pool的优化。
 本文主要解答以下几个问题：
  sync.pool优化体现在哪里？ 优化是如何实现？ 优化的好处有哪些？  优化 具体优化项如下：
  无锁化 GC策略  无锁化 sync.pool实现了无锁化，具体如下：
@@ -55,7 +55,7 @@ go1.12.1版本实现
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入分析Golang sync.pool优化"/>
-<meta name="twitter:description" content="前言 最近golang的1.3版本发布了，有很多新特性与改进合入。这里主要分析sync.pool的优化。
+<meta name="twitter:description" content="前言 最近golang的1.13版本发布了，有很多新特性与改进合入。这里主要分析sync.pool的优化。
 本文主要解答以下几个问题：
  sync.pool优化体现在哪里？ 优化是如何实现？ 优化的好处有哪些？  优化 具体优化项如下：
  无锁化 GC策略  无锁化 sync.pool实现了无锁化，具体如下：
@@ -354,7 +354,7 @@ go1.12.1版本实现
 
 <h1 id="前言">前言</h1>
 
-<p>最近golang的1.3版本发布了，有很多新特性与改进合入。这里主要分析sync.pool的优化。</p>
+<p>最近golang的1.13版本发布了，有很多新特性与改进合入。这里主要分析sync.pool的优化。</p>
 
 <p>本文主要解答以下几个问题：</p>
 
