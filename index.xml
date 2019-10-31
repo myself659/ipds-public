@@ -6,10 +6,28 @@
     <description>Recent content on 沉风网事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 06 Sep 2019 11:58:06 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 11:58:06 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.ipds.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>搭建Substrate开发云节点</title>
+      <link>https://blog.ipds.top/2019/09/18/%E6%90%AD%E5%BB%BAsubstrate%E5%BC%80%E5%8F%91%E4%BA%91%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Wed, 18 Sep 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2019/09/18/%E6%90%AD%E5%BB%BAsubstrate%E5%BC%80%E5%8F%91%E4%BA%91%E8%8A%82%E7%82%B9/</guid>
+      <description>为什么要云节点 主要由以下几个原因：
+ 国内GFW太狠，github都不能幸免，代码都不能下载，影响正常的开发 rust这个编译太占用cpu，内存，硬盘 rust编译的时候cpu一直在叫，影响个人心情，进而影响开发效率 云节点方便共享 花小钱买时间是一件很划算的事情  搭建步骤 准备节点 具体参考这篇文章Installing Substrate，各种类型的操作系统都有说明。
+运行节点 设置代理 这里我采用是caddy作为代理
+具体配置参考如下：
+yourwssaddr { proxy / http://0.0.0.0:9944 { websocket } }  启动节点 ./target/release/substrate --dev --ws-port 9944  浏览器 具体参考apps里面说明即可。
+运行如下命令即可：
+git clone https://github.com/polkadot-js/apps cd apps yarn yarn run start  在caddy中配置浏览器的代理：
+example.com { proxy / localhost:3000 { transparent } gzip }  最终具体效果如下：
+这样你就拥有一个属于自己的区块链。
+参考  Build Substrate on Ubuntu: step-by-step guide  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+    </item>
     
     <item>
       <title>深入分析Golang sync.pool优化</title>
@@ -61,6 +79,16 @@ go1.12.1版本实现
 相信这些数据会让很多人得出一个结论：中美毛衣冲突不影响中国继续崛起的进程。
 对中国十分熟悉 还有一点考虑，视频中没有明确投及，就是瑞·达利欧对中国的熟悉，作为一名美国人，其实瑞·达利欧对中国十分熟悉，他从1984年第一次来到中国后，此后35年里他不断地来到中国并熟悉中国，并且他的一个儿子曾经在中国读书。
 后记 本文只是简单介绍，关于瑞达利欧是如何看待中美毛衣冲突，更多信息请看原始视频，原始视频时长有31分钟。关注本公众帐号，输入 投资中国，获取原始视频的百度云下载链接。</description>
+    </item>
+    
+    <item>
+      <title>安装python3.7</title>
+      <link>https://blog.ipds.top/2019/08/08/%E5%AE%89%E8%A3%85python3.7/</link>
+      <pubDate>Thu, 08 Aug 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2019/08/08/%E5%AE%89%E8%A3%85python3.7/</guid>
+      <description>说明 完全是为了记录自己的操作记录，换一台新机器真是免不了要装python。记录下来，便于以后操作。
+apt-get安装 apt update apt install software-properties-common add-apt-repository ppa:deadsnakes/ppa apt install python3.7  源码安装 sudo apt update sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz tar -xf Python-3.7.3.tar.xz cd Python-3.7.3 ./configure --enable-optimizations make make altinstall  install pip apt-get install python3-pip  install virutalenv pip3 install virtualenv  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
     </item>
     
     <item>
@@ -502,7 +530,7 @@ Golang最工程化的语言。
       
       <guid>https://blog.ipds.top/2018/06/21/ipfs%E4%B8%93%E9%A2%98/</guid>
       <description> 前言 IPFS（包括filecoin）无论从技术视角还是商业视角都有很多有意思的内容（关键是自己很看好这个技术），所以要准备搞一个IPFS专题。
-文章  IPFS与下一代网络安全 下一代互联网基础：IPFS.pdf  动态  Filecoin 2017 Q4 Update Filecoin 2018 Q1 &amp;amp; Q2 Update  参考  ipfs filecoin  </description>
+文章  IPFS与下一代网络安全 下一代互联网基础：IPFS.pdf  动态  Filecoin 2017 Q4 Update Filecoin 2018 Q1 &amp;amp; Q2 Update Filecoin 2019 Q2 &amp;amp; Q3 Update  参考  ipfs filecoin  </description>
     </item>
     
     <item>
@@ -695,6 +723,33 @@ time write by index write by index: O(1)</description>
     </item>
     
     <item>
+      <title>乱扯区块链战略</title>
+      <link>https://blog.ipds.top/2018/02/21/%E4%B9%B1%E6%89%AF%E5%8C%BA%E5%9D%97%E9%93%BE%E6%88%98%E7%95%A5/</link>
+      <pubDate>Wed, 21 Feb 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2018/02/21/%E4%B9%B1%E6%89%AF%E5%8C%BA%E5%9D%97%E9%93%BE%E6%88%98%E7%95%A5/</guid>
+      <description>前言 随着数字货币大涨，带来区块链热潮，作为在这个风口的一员，也试图思考区块链与未来与战略。受埃隆·马斯克的影响：不要给自己设限，要作超出自己能力与职责范围内的事情，扩展能力的边界。梦想总是要有的，万一实现了呢。那么先假定区块链行业没有权威。
+原则 这里套用百万月薪的任泽平的表达：房地产行业，长期看人口、中期看土地、短期看金融。 区块链的发展，短期看底层技术，中期看应用场景，长期年改造社会。
+用户 这是用户侧的思考。
+DID，例如美图的区块链白皮书所提到的内容。
+钱包 基于钱包提供 WAAS服务。
+链 从类的类型划分可以分为公有链与联盟链（私有链暂不考虑）。
+公有链 这里有两个方向 ，第一个方向第三代区块链平台竞争，这里面有太多的竞争对手。 这里面有太多的选手角着。
+基于第三代区块链开发头部应用，头部应用有哪些？这里不展开，欢迎大家来与我交流与讨论。
+第二个方向是打造行业公有链，具体列举如下：
+ 能源行业，例如能源链powerledger 视频行业 内容行业  联盟链 第一种是开发像IBM hyperledger那种。
+从链的角色上看，可以有两种战略选择：
+ X+区块链 区块链+X  X+区块链 区块链是技术与工具。 例如存证与溯源
+区块链+X 区块链作为平台或者基础设施。像比特币成为一个数字黄金，一个交易网络。
+有钱愿意投入 如果认为区块链是未来，但是落地细节不能把握，也没有关系，准备钱，找到合适人就可以，然后保持耐心，耐得住寂寞，准备好本钱，穿越牛熊。
+头部应用 选择一个不断扩展区块链平台，开发头部应用的Dapp。
+结论 如果公司有能力，如果业务与场景需要，开发自己的公链是最好的选择。主要原因是公链是面向全球市场，空间最大。
+一个资金充足的企业，如果投入一个10到20人小团队（要求吗，就是每个人都能独立干好活，当然有顶尖人才那更好了）。一年投入一到二千万就可以搞起来了，快的话也就半年吧。
+参考  Decentralized Digital Identities and Blockchain – The Future as We See It 美图区块链
+  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+    </item>
+    
+    <item>
       <title>谈谈数字货币钱包</title>
       <link>https://blog.ipds.top/2018/02/21/%E8%B0%88%E8%B0%88%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E9%92%B1%E5%8C%85/</link>
       <pubDate>Wed, 21 Feb 2018 11:58:06 +0200</pubDate>
@@ -751,8 +806,8 @@ PS: 初学经济学，有不足与错误敬请指正。
       
       <guid>https://blog.ipds.top/2018/02/05/%E5%AF%B9%E4%B8%AD%E5%9B%BD%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BB%BA%E8%AE%AE/</guid>
       <description>具体以公司及产品划分。
-腾讯 微信  整理未读信息，而不是让用户去找哪条信息未读，特别是存在大量的会话的情况 公众帐号平台写作支持从本地导入markdown功能 公众帐号与小程序帐号能否统一
-  腾讯云  优化一下linux包下载速度，直接走内部镜像   微博  支持像twitter那样截图直接上传功能 继续像twitter学习，让用户来决定关注什么 (Tips: 建议用户遇到这种情况，直接将被动主动帐号屏蔽)  百度 hao123  让hao123回到它最初的形式  搜索  收录网站体验太差了，与google，bing比较这方面相差10倍以上 贴吧广告太多，自作死，支持内容电商也比插入广告要好  字节跳动 今日头条  希望推荐算法不止是迎合用户还有引导用户  飞聊  飞聊应该与今日头条打通，让头条号作者与读者之间更高层次的互动  (未完，持续更新)</description>
+腾讯  打通帐号系统，如qq与微信在其他腾讯产品的功能不一致  微信  整理未读信息，而不是让用户去找哪条信息未读，特别是存在大量的会话的情况 公众帐号平台写作支持从本地导入markdown功能 公众帐号与小程序帐号能否统一
+  腾讯云  优化一下linux包下载速度，直接走内部镜像   微博  支持像twitter那样截图直接上传功能 继续像twitter学习，让用户来决定关注什么 (Tips: 建议用户遇到这种情况，直接将被动主动帐号屏蔽)  百度 hao123  让hao123回到它最初的形式  搜索  收录网站体验太差了，与google，bing比较这方面相差10倍以上 贴吧广告太多，自作死，支持内容电商也比插入广告要好  字节跳动 今日头条  希望推荐算法不止是迎合用户还有引导用户  飞聊  飞聊应该与今日头条打通，让头条号作者与读者之间更高层次的互动  网易 网易云音乐  ios版本闪退问题需要加快解决，概率达到百分之一吧  (未完，持续更新)</description>
     </item>
     
     <item>
@@ -894,7 +949,7 @@ hugo server --baseUrl=https://blog.ipds.top/ --appendPort=false  小结 这里�
 ☆☆☆，三星 不错，看个人口味与需求
 ☆☆，二星 不推荐
 ☆，一星 强烈不推荐，得不偿失，存在严重误导
-C/C++方面  《C与指针》 ☆☆☆☆☆，五星 入门推荐，不要上国产参考书的当 《 C陷阱与缺陷》 ☆☆☆☆☆，五星 帮你避开常见C语言坑 《C专家编程》 ☆☆☆☆，四星 《C++沉思录》 ☆☆☆☆，四星 C++ 进阶之道 《C++ Prime Plus》 ☆☆☆☆，四星 C++ 入门必备，讲解详细  Python  《Python 基础教程》☆☆☆☆☆，五星 个人觉得最佳Python入门学习材料，打好基础就用google，github来解决问题  Go  《Go程序设计语言 英文版》☆☆☆☆，四星  设计模式  《Head First 设计模式 中文版》  计算机基础  《深入理解计算机系统 第2版》 ☆☆☆☆☆，五星 请精读且多读几遍，计算机基础方面读这一本书就可以了。 《计算机程序的构造和解释》 ☆☆☆☆☆，五星 2018  网络编程  《TCP/IP 详解 卷1：协议》 ☆☆☆☆☆，五星 《UNIX 网络编程》 ☆☆☆☆，四星 《Linux 网络编程》 ☆☆☆，三星  数据结构与算法  《算法导论》 《数据结构 C语言版》  Linux  《鸟哥的Linux私房菜》 ☆☆☆☆，四星 Linux操作入门参考 《深入理解Linux 内核架构》 《精通Linux驱动程序开发》 《Linux内核设计艺术》 《The Linux Programming Interface Handbook》  云计算  《Software Defined Networks》 ☆☆☆☆，四星 偏架构，需要一定基础与背景 《腾云 云计算和大数据时代网络技术揭秘》 ☆☆☆☆，四星 通俗易懂地解释网络新技术</description>
+C/C++方面  《C与指针》 ☆☆☆☆☆，五星 入门推荐，不要上国产参考书的当 《 C陷阱与缺陷》 ☆☆☆☆☆，五星 帮你避开常见C语言坑 《C专家编程》 ☆☆☆☆，四星 《C++沉思录》 ☆☆☆☆，四星 C++ 进阶之道 《C++ Prime Plus》 ☆☆☆☆，四星 C++ 入门必备，讲解详细  Python  《Python 基础教程》☆☆☆☆☆，五星 个人觉得最佳Python入门学习材料，打好基础就用google，github来解决问题  Go  《Go程序设计语言 英文版》☆☆☆☆，四星  Rust  《The Rust Programming Language》 ☆☆☆☆，四星 2019  设计模式  《Head First 设计模式 中文版》  计算机基础  《深入理解计算机系统 第2版》 ☆☆☆☆☆，五星 请精读且多读几遍，计算机基础方面读这一本书就可以了。 《计算机程序的构造和解释》 ☆☆☆☆☆，五星 2018  网络编程  《TCP/IP 详解 卷1：协议》 ☆☆☆☆☆，五星 《UNIX 网络编程》 ☆☆☆☆，四星 《Linux 网络编程》 ☆☆☆，三星  数据结构与算法  《算法导论》 《数据结构 C语言版》  Linux  《鸟哥的Linux私房菜》 ☆☆☆☆，四星 Linux操作入门参考 《深入理解Linux 内核架构》 《精通Linux驱动程序开发》 《Linux内核设计艺术》 《The Linux Programming Interface Handbook》  云计算  《Software Defined Networks》 ☆☆☆☆，四星 偏架构，需要一定基础与背景 《腾云 云计算和大数据时代网络技术揭秘》 ☆☆☆☆，四星 通俗易懂地解释网络新技术</description>
     </item>
     
     <item>
@@ -903,7 +958,7 @@ C/C++方面  《C与指针》 ☆☆☆☆☆，五星 入门推荐，不要上�
       <pubDate>Mon, 02 Oct 2017 21:49:20 +0200</pubDate>
       
       <guid>https://blog.ipds.top/2017/10/02/share/</guid>
-      <description>科普  图解计算机科学 Why does time pass? | The Economist A MUST SEE!!! The Most Eye Opening 10 Minutes Of Your Life | Dr. Bruce Lipton  数据  The Map of Mathematics  经济  经济机器是怎样运行的(文字版) 经济机器是怎样运行的 (时长30分钟) Ray Dalio  工具 VS Code  VS Code Top-Ten Pro Tips VS Code: The Last Editor You&amp;rsquo;ll Ever Need  chrome  vimium Google Translate Plus   信息 搜索  15 Ways to Search Google 96% of People Don’t Know About  网站  10 Useful Websites You Wish You Knew Earlier!</description>
+      <description>科普  图解计算机科学 Why does time pass? | The Economist A MUST SEE!!! The Most Eye Opening 10 Minutes Of Your Life | Dr. Bruce Lipton  数学  The Map of Mathematics  经济  经济机器是怎样运行的(文字版) 经济机器是怎样运行的 (时长30分钟) Ray Dalio  工具 VS Code  VS Code Top-Ten Pro Tips VS Code: The Last Editor You&amp;rsquo;ll Ever Need  chrome  vimium Google Translate Plus   信息 搜索  15 Ways to Search Google 96% of People Don’t Know About  网站  10 Useful Websites You Wish You Knew Earlier!</description>
     </item>
     
     <item>
@@ -916,6 +971,15 @@ C/C++方面  《C与指针》 ☆☆☆☆☆，五星 入门推荐，不要上�
     </item>
     
     <item>
+      <title>LeetCode</title>
+      <link>https://blog.ipds.top/2017/03/18/leetcode/</link>
+      <pubDate>Sat, 18 Mar 2017 21:49:20 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/03/18/leetcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://blog.ipds.top/1/01/01/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -924,6 +988,18 @@ C/C++方面  《C与指针》 ☆☆☆☆☆，五星 入门推荐，不要上�
       <description>每周完成一个ARTS： 1.Algorithm：每周至少做一个 leetcode 的算法题 2.Review：阅读并点评至少一篇英文技术文章 3.Tip：学习至少一个技术技巧 4.Share：分享一篇有观点和思考的技术文章 +++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;DataStruct&amp;rdquo;] date = &amp;ldquo;2019-03-08T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;DataStruct&amp;rdquo;] title = &amp;ldquo;作恶的矿工们&amp;rdquo; draft = true +++
  Algorithm leetcode-42 42. Trapping Rain Water
 Desc Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://blog.ipds.top/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.ipds.top/1/01/01/</guid>
+      <description>banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Substrate&amp;rdquo;] date = &amp;ldquo;2019-09-19T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Substrate&amp;rdquo;, &amp;ldquo;BlockChain&amp;rdquo;] title = &amp;ldquo;Substrate Runtime实践&amp;rdquo; draft = true +++
+install substrate 安装substrate有以下两种方式：
+ 快速安装
+ 完全安装  快速安装 curl https://getsubstrate.io -sSf | bash -s -- --fast  完全安装 curl https://getsubstrate.io -sSf | bash  更新环境变量 source ~/.cargo/env  检查版本 root@IA:~/rust/install-substrate# substrate --version substrate 2.0.0-37bc8c545-x86_64-linux-gnu root@IA:~/rust/install-substrate# subkey --version subkey 2.</description>
     </item>
     
   </channel>

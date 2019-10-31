@@ -6,10 +6,28 @@
     <description>Recent content in Blockchain on 沉风网事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Jun 2019 11:58:06 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 11:58:06 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.ipds.top/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>搭建Substrate开发云节点</title>
+      <link>https://blog.ipds.top/2019/09/18/%E6%90%AD%E5%BB%BAsubstrate%E5%BC%80%E5%8F%91%E4%BA%91%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Wed, 18 Sep 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2019/09/18/%E6%90%AD%E5%BB%BAsubstrate%E5%BC%80%E5%8F%91%E4%BA%91%E8%8A%82%E7%82%B9/</guid>
+      <description>为什么要云节点 主要由以下几个原因：
+ 国内GFW太狠，github都不能幸免，代码都不能下载，影响正常的开发 rust这个编译太占用cpu，内存，硬盘 rust编译的时候cpu一直在叫，影响个人心情，进而影响开发效率 云节点方便共享 花小钱买时间是一件很划算的事情  搭建步骤 准备节点 具体参考这篇文章Installing Substrate，各种类型的操作系统都有说明。
+运行节点 设置代理 这里我采用是caddy作为代理
+具体配置参考如下：
+yourwssaddr { proxy / http://0.0.0.0:9944 { websocket } }  启动节点 ./target/release/substrate --dev --ws-port 9944  浏览器 具体参考apps里面说明即可。
+运行如下命令即可：
+git clone https://github.com/polkadot-js/apps cd apps yarn yarn run start  在caddy中配置浏览器的代理：
+example.com { proxy / localhost:3000 { transparent } gzip }  最终具体效果如下：
+这样你就拥有一个属于自己的区块链。
+参考  Build Substrate on Ubuntu: step-by-step guide  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+    </item>
     
     <item>
       <title>Facebook libra是昙花一现还是星星之火</title>
@@ -315,6 +333,33 @@ Tether业务层，Tether业务层主要功能如下： 1. 法币兑换Tether(USD
 &amp;gt;&amp;gt;&amp;gt; int(&#39;0x000002ba7def3000&#39;,16) 3000000000000L  图中显示的Tether的交易的信息，这些交易信息来自比特币交易信息。
 omni封装OP_RETURN信息代码如下：
 UniValue omni_createpayload_simplesend(const UniValue&amp;amp; params, bool fHelp) { if (fHelp || params.size() != 2) throw runtime_error( &amp;quot;omni_createpayload_simplesend propertyid \&amp;quot;amount\&amp;quot;\n&amp;quot; &amp;quot;\nCreate the payload for a simple send transaction.\n&amp;quot; &amp;quot;\nArguments:\n&amp;quot; &amp;quot;1.</description>
+    </item>
+    
+    <item>
+      <title>乱扯区块链战略</title>
+      <link>https://blog.ipds.top/2018/02/21/%E4%B9%B1%E6%89%AF%E5%8C%BA%E5%9D%97%E9%93%BE%E6%88%98%E7%95%A5/</link>
+      <pubDate>Wed, 21 Feb 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2018/02/21/%E4%B9%B1%E6%89%AF%E5%8C%BA%E5%9D%97%E9%93%BE%E6%88%98%E7%95%A5/</guid>
+      <description>前言 随着数字货币大涨，带来区块链热潮，作为在这个风口的一员，也试图思考区块链与未来与战略。受埃隆·马斯克的影响：不要给自己设限，要作超出自己能力与职责范围内的事情，扩展能力的边界。梦想总是要有的，万一实现了呢。那么先假定区块链行业没有权威。
+原则 这里套用百万月薪的任泽平的表达：房地产行业，长期看人口、中期看土地、短期看金融。 区块链的发展，短期看底层技术，中期看应用场景，长期年改造社会。
+用户 这是用户侧的思考。
+DID，例如美图的区块链白皮书所提到的内容。
+钱包 基于钱包提供 WAAS服务。
+链 从类的类型划分可以分为公有链与联盟链（私有链暂不考虑）。
+公有链 这里有两个方向 ，第一个方向第三代区块链平台竞争，这里面有太多的竞争对手。 这里面有太多的选手角着。
+基于第三代区块链开发头部应用，头部应用有哪些？这里不展开，欢迎大家来与我交流与讨论。
+第二个方向是打造行业公有链，具体列举如下：
+ 能源行业，例如能源链powerledger 视频行业 内容行业  联盟链 第一种是开发像IBM hyperledger那种。
+从链的角色上看，可以有两种战略选择：
+ X+区块链 区块链+X  X+区块链 区块链是技术与工具。 例如存证与溯源
+区块链+X 区块链作为平台或者基础设施。像比特币成为一个数字黄金，一个交易网络。
+有钱愿意投入 如果认为区块链是未来，但是落地细节不能把握，也没有关系，准备钱，找到合适人就可以，然后保持耐心，耐得住寂寞，准备好本钱，穿越牛熊。
+头部应用 选择一个不断扩展区块链平台，开发头部应用的Dapp。
+结论 如果公司有能力，如果业务与场景需要，开发自己的公链是最好的选择。主要原因是公链是面向全球市场，空间最大。
+一个资金充足的企业，如果投入一个10到20人小团队（要求吗，就是每个人都能独立干好活，当然有顶尖人才那更好了）。一年投入一到二千万就可以搞起来了，快的话也就半年吧。
+参考  Decentralized Digital Identities and Blockchain – The Future as We See It 美图区块链
+  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
     </item>
     
     <item>
