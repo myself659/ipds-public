@@ -25,7 +25,7 @@ yourwssaddr { proxy / http://0.0.0.0:9944 { websocket } }  启动节点 ./target
 运行如下命令即可：
 git clone https://github.com/polkadot-js/apps cd apps yarn yarn run start  在caddy中配置浏览器的代理：
 example.com { proxy / localhost:3000 { transparent } gzip }  最终具体效果如下：
-这样你就拥有一个属于自己的区块链。
+这样你就拥有一个属于自己的区块链。具体代码参考hello-node
 参考  Build Substrate on Ubuntu: step-by-step guide  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
     </item>
     
