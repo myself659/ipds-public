@@ -6,10 +6,54 @@
     <description>Recent content on 沉风网事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 18 Sep 2019 11:58:06 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 21 Nov 2019 11:58:06 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.ipds.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>苹果微软亚马逊谷歌Facebook五大科技巨头是如何赚钱的</title>
+      <link>https://blog.ipds.top/2019/11/21/%E8%8B%B9%E6%9E%9C%E5%BE%AE%E8%BD%AF%E4%BA%9A%E9%A9%AC%E9%80%8A%E8%B0%B7%E6%AD%8Cfacebook%E4%BA%94%E5%A4%A7%E7%A7%91%E6%8A%80%E5%B7%A8%E5%A4%B4%E6%98%AF%E5%A6%82%E4%BD%95%E8%B5%9A%E9%92%B1%E7%9A%84/</link>
+      <pubDate>Thu, 21 Nov 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2019/11/21/%E8%8B%B9%E6%9E%9C%E5%BE%AE%E8%BD%AF%E4%BA%9A%E9%A9%AC%E9%80%8A%E8%B0%B7%E6%AD%8Cfacebook%E4%BA%94%E5%A4%A7%E7%A7%91%E6%8A%80%E5%B7%A8%E5%A4%B4%E6%98%AF%E5%A6%82%E4%BD%95%E8%B5%9A%E9%92%B1%E7%9A%84/</guid>
+      <description>苹果微软亚马逊谷歌Facebook这五大科技巨头在2018年的收入总和超过了8000亿美元。 如果总体保证超过了30%的增长率，这五大科技巨头在2019年的收入总各会超过10000万亿美元。
+下面具体看看每个公司的收入结构：
+苹果 从上图可知：
+总收入： 2656亿美元，排名第一
+净利润： 595亿美元，排名第一
+业务收入结构：
+ iPhone占比为62.8％ Mac电脑占比为9.6％ iPad占比为7.1％ 其他Apple产品和服务（包括Apple Watch，Apple TV，Beats设备，Apple Pay和AppleCare）占比为20.6％  区域收入结构：
+ 美洲区占比为42% 欧洲区占比为24% 大中华区占比为20% 日本占比为7% 亚太区（不包括中国与日本）占比为7%  思考 居然没有非洲的统计，非洲也太惨。苹果未来增长区域会是非洲吗？ 手机取代电脑，成为第一终端。
+亚马逊 从上图可知：
+总收入： 2329亿美元，排名第二
+净利润： 101亿美元，排名第五
+业务收入结构：
+ 在线零售占比为52.8% 第三卖家服务占比为18.4% AWS占比为11.0% 线下实体零售占比为7.4% Amazon Prime占比为6.1% 其他收入占比为4.3%  区域收入结构：
+ 美国占比为69% 英国占比为6% 德国占比为9% 日本占比为6% 其他国家和地区占比为11%  amazon线下实体2018年增长率为197%，利益于amazon go快速增长
+Alphabet 说明一下，Alphabet是Google的母公司。
+从上图可知：
+总收入： 1368亿美元，排名第三
+净利润： 307亿美元，排名第二
+业务收入结构：
+ 广告(来自Google搜索, YouTube, GooglePlay, gmail, Google Map等)占比为70.</description>
+    </item>
+    
+    <item>
+      <title>DoH FAQ</title>
+      <link>https://blog.ipds.top/2019/11/08/doh-faq/</link>
+      <pubDate>Fri, 08 Nov 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2019/11/08/doh-faq/</guid>
+      <description>什么是DoH DoH是DNS over HTTPS。
+传统DNS相当于DNS over UDP。
+DoH带来哪些好处？ 采用DoH对用户来说有如下好处：
+ DoH协议不允许其他用户，服务提供商或第三方查看您访问的网站并收集数据，保护了用户的隐私 DoH协议有利于防止欺骗与钓鱼攻击，保护在线数据的安全和隐私 加速DNS解析，提高网页访问速度  DoH现在可以使用吗？ We&#39;ve enabled an experiment in Chrome 79 for a fraction of our users.  Chrome 79版本对部分用户开启。
+firefox 70版本已经支持DoH。
+如何使用DoH? 以firefox为例：
+在地址输入：about:preferences#general，找到Network Settings选项，点击Settings即可进入设置，具体如下：
+参考  DNS over HTTPS Google Public DNS over HTTPS (DoH) supports RFC 8484 standard  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+    </item>
     
     <item>
       <title>搭建Substrate开发云节点</title>
@@ -958,7 +1002,7 @@ C/C++方面  《C与指针》 ☆☆☆☆☆，五星 入门推荐，不要上�
       <pubDate>Mon, 02 Oct 2017 21:49:20 +0200</pubDate>
       
       <guid>https://blog.ipds.top/2017/10/02/share/</guid>
-      <description>科普  图解计算机科学 Why does time pass? | The Economist A MUST SEE!!! The Most Eye Opening 10 Minutes Of Your Life | Dr. Bruce Lipton  数学  The Map of Mathematics  经济  经济机器是怎样运行的(文字版) 经济机器是怎样运行的 (时长30分钟) Ray Dalio  工具 VS Code  VS Code Top-Ten Pro Tips VS Code: The Last Editor You&amp;rsquo;ll Ever Need  chrome  vimium Google Translate Plus   信息 搜索  15 Ways to Search Google 96% of People Don’t Know About  网站  10 Useful Websites You Wish You Knew Earlier!</description>
+      <description>科普  图解计算机科学 Why does time pass? | The Economist A MUST SEE!!! The Most Eye Opening 10 Minutes Of Your Life | Dr. Bruce Lipton Why Do Computers Use 1s and 0s? Binary and Transistors Explained. See How a CPU Works  数学  The Map of Mathematics  经济  经济机器是怎样运行的(文字版) 经济机器是怎样运行的 (时长30分钟) Ray Dalio  工具 VS Code  VS Code Top-Ten Pro Tips VS Code: The Last Editor You&amp;rsquo;ll Ever Need  chrome  vimium Google Translate Plus   信息 搜索  15 Ways to Search Google 96% of People Don’t Know About  网站  10 Useful Websites You Wish You Knew Earlier!</description>
     </item>
     
     <item>
