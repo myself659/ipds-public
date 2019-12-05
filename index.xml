@@ -132,7 +132,7 @@ go1.12.1版本实现
       
       <guid>https://blog.ipds.top/2019/08/08/%E5%AE%89%E8%A3%85python3.7/</guid>
       <description>说明 完全是为了记录自己的操作记录，换一台新机器真是免不了要装python。记录下来，便于以后操作。
-apt-get安装 apt update apt install software-properties-common add-apt-repository ppa:deadsnakes/ppa apt install python3.7  源码安装 sudo apt update sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz tar -xf Python-3.7.3.tar.xz cd Python-3.7.3 ./configure --enable-optimizations make make altinstall  install pip apt-get install python3-pip  install virutalenv pip3 install virtualenv  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+apt-get安装 apt update apt install software-properties-common add-apt-repository ppa:deadsnakes/ppa apt install python3.7  源码安装 sudo apt update sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz tar -xf Python-3.7.3.tar.xz cd Python-3.7.3 ./configure --enable-optimizations make make altinstall  install pip apt-get install python3-pip  install virutalenv pip3 install virtualenv  install jupyter python3 -m pip install --upgrade pip python3 -m pip install jupyter  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
     </item>
     
     <item>
@@ -560,7 +560,7 @@ Golang最工程化的语言。
 相比较于C/C++，Golang编译速度更快了。特别是大型项目，以前用C语言的时候，在刀片服务器上时编译一个测试版本都要半个小时左右。
 生态成长 背靠Google，从09年发布已来，已经在云生态占据绝对主导地位。有不少明星开源项目。如Docker、Kubernetes、Prometheus、Hyperleder、Ethereum、Etcd等。随着云时代不断发展，Golang生态一定会越来越强大与丰富。
 软件工程 流程 一般软件工程流程分为规划、需求、设计、编码、测试、发布、维护等几个阶段。除了规划与需求阶段，Golang对其他阶段在语言层面都有强力特性支持。举例如下：
- 设计阶段：利用interface可以进行protype编程，可以实现代码及文档。 编码阶段：godoc统一代码格式 测试阶段：自带go test便于测试，不像C/C++依赖gtest 发布阶段：上面说到可移植及打包一切，便于交付，发布，部署 维护阶段：Golang天然支持CPU扩展及其上面所说的便于交付，发布，部署  大规模协作 Golang引入interface特性，实际在语言层面支持SOLID设计原则中依赖倒置原则。再加上包的独立性，有利于大规模系统的大团队协作开发。
+ 设计阶段：利用interface可以进行protype编程，可以实现代码及文档。 编码阶段：go fmt统一代码格式 测试阶段：自带go test便于测试，不像C/C++依赖gtest 发布阶段：上面说到可移植及打包一切，便于交付，发布，部署 维护阶段：Golang天然支持CPU扩展及其上面所说的便于交付，发布，部署  大规模协作 Golang引入interface特性，实际在语言层面支持SOLID设计原则中依赖倒置原则。再加上包的独立性，有利于大规模系统的大团队协作开发。
 编程友好 软件工程是人是关键因素。编码是核心阶段。Golang以下特性释放了程序员的生产力：
  还算丰富的基础库 避免内存管理 天然支持并发  后记 当然Golang也有自己的缺点，如GC问题，延时大等。但是用一个语言的策略就应该扬长避短，当然熟练应用Golang的特性得深入学习与实践。
 (End)
@@ -855,6 +855,15 @@ PS: 初学经济学，有不足与错误敬请指正。
     </item>
     
     <item>
+      <title>英文学习材料</title>
+      <link>https://blog.ipds.top/2018/01/25/%E8%8B%B1%E6%96%87%E5%AD%A6%E4%B9%A0%E6%9D%90%E6%96%99/</link>
+      <pubDate>Thu, 25 Jan 2018 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2018/01/25/%E8%8B%B1%E6%96%87%E5%AD%A6%E4%B9%A0%E6%9D%90%E6%96%99/</guid>
+      <description> Golang  Let&amp;rsquo;s Talk Locks! Maintaining the Go Crypto Libraries  Blockchain  CoinTalk  Arch  Life of a Packet through Istio Algorithms behind Modern Storage Systems Aurora Serverless: The Good, the Bad and the Scalable  rust  How Rust Views Tradeoffs Rust&amp;rsquo;s Journey to Async/await  More  infoq Presentations  </description>
+    </item>
+    
+    <item>
       <title>区块链项目点评3-去中心化交易所</title>
       <link>https://blog.ipds.top/2017/12/22/%E5%8C%BA%E5%9D%97%E9%93%BE%E9%A1%B9%E7%9B%AE%E7%82%B9%E8%AF%843-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E4%BA%A4%E6%98%93%E6%89%80/</link>
       <pubDate>Fri, 22 Dec 2017 11:58:06 +0200</pubDate>
@@ -1002,7 +1011,7 @@ C/C++方面  《C与指针》 ☆☆☆☆☆，五星 入门推荐，不要上�
       <pubDate>Mon, 02 Oct 2017 21:49:20 +0200</pubDate>
       
       <guid>https://blog.ipds.top/2017/10/02/share/</guid>
-      <description>科普  图解计算机科学 Why does time pass? | The Economist A MUST SEE!!! The Most Eye Opening 10 Minutes Of Your Life | Dr. Bruce Lipton Why Do Computers Use 1s and 0s? Binary and Transistors Explained. See How a CPU Works  数学  The Map of Mathematics  经济  经济机器是怎样运行的(文字版) 经济机器是怎样运行的 (时长30分钟) Ray Dalio  工具 VS Code  VS Code Top-Ten Pro Tips VS Code: The Last Editor You&amp;rsquo;ll Ever Need  chrome  vimium Google Translate Plus   信息 搜索  15 Ways to Search Google 96% of People Don’t Know About  网站  10 Useful Websites You Wish You Knew Earlier!</description>
+      <description>科普  图解计算机科学 Why does time pass? | The Economist A MUST SEE!!! The Most Eye Opening 10 Minutes Of Your Life | Dr. Bruce Lipton Why Do Computers Use 1s and 0s? Binary and Transistors Explained. See How a CPU Works How do computers read code?  数学  The Map of Mathematics  经济  经济机器是怎样运行的(文字版) 经济机器是怎样运行的 (时长30分钟) Ray Dalio  工具 VS Code  VS Code Top-Ten Pro Tips VS Code: The Last Editor You&amp;rsquo;ll Ever Need  chrome  vimium Google Translate Plus   信息 搜索  15 Ways to Search Google 96% of People Don’t Know About  网站  10 Useful Websites You Wish You Knew Earlier!</description>
     </item>
     
     <item>
