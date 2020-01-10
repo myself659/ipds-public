@@ -6,10 +6,30 @@
     <description>Recent content in Blockchain on 沉风网事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Jun 2019 11:58:06 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jan 2020 11:58:06 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.ipds.top/categories/blockchain/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gartner预测2020年区块链的发展</title>
+      <link>https://blog.ipds.top/2020/01/08/gartner%E9%A2%84%E6%B5%8B2020%E5%B9%B4%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E5%8F%91%E5%B1%95/</link>
+      <pubDate>Wed, 08 Jan 2020 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2020/01/08/gartner%E9%A2%84%E6%B5%8B2020%E5%B9%B4%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E5%8F%91%E5%B1%95/</guid>
+      <description>Gartner 首先介绍一下Gartner。 Gartner全球最具权威的IT研究与顾问咨询公司。同时也是魔力四象限与技术成熟度曲线提出者。所以Gartner报告值得一看，权威性比一般技术报告及预测强很多。
+十大技术趋势 Gartner对2020技术发展作了预测，列出十大技术趋势，具体如下：
+ Hyperautomation超级自动化 Multiexperience多元体验 Democratization民主化 Human Augmentation人类增强 Transparency and Traceability透明与可追溯性 The Empowered Edge边缘计算 Distributed Cloud分布式云 Autonomous Things自主设备 Practical Blockchain实用区块链 AI Security人工智能安全
+  从上可知区块链也在榜上。下面具体看一下区块链部分分析。
+Gartner预计区块链可扩展性将在2023年取得突破 区块链技术应用现在面临的主要体现以下两个方面：
+ 可扩展性 互操作性  可扩展性方面主流公链如比特币每秒支持七笔交易，以太坊每秒支持15笔交易；同时交易成本高。 互操作性方面私钥管理基本上原地踏步，助记词这种形式提高了用户的门槛的要求，同时丢失助记词是常有发生。
+报告中并没有说明哪种技术方案会取得突破。个人以为主要看点有两个：
+ 分片 layer2  重点期待以太坊, Harmony,Near, plokadot等公链。
+区块链应用场景 区块链是一个充满想像力的技术，但是现在主要落地应用在于数字货币领域。在其他的领域区块链落地比较少。Gartner在报告中列出区块链在企业应用领域有哪些呢？具体如下：
+1.资产跟踪。 2.索赔。 3.身份管理/KYC。 4.内部记录保存。 5.积分和奖励。 6.支付/结算。 7.溯源。 8.共享记录保存。 9.智能城市/物联网。 10.贸易融资。 11.交易。 此外Garnter还看好以下三个应用（不同于上面的企业应用领域）：
+ 基于区块链的投票 基于区块链的自我主权的数字身份 数字加密货币的支付和转帐  建议 Gartner对于企业场景下应用区块链技术的建议：
+ 深入理解商业应用领域的问题和潜在的机会 深入理解区块链的功能和局限性 重新评估企业和行业信任架构 将技术作为核心业务战略的一部分 提高客户应用区块链运营架构的意愿和能力  参考  top-10-strategic-technology-trends-for-2020  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+    </item>
     
     <item>
       <title>Facebook libra是昙花一现还是星星之火</title>
@@ -419,14 +439,14 @@ PS: 初学经济学，有不足与错误敬请指正。
       <pubDate>Sat, 21 Oct 2017 11:58:06 +0200</pubDate>
       
       <guid>https://blog.ipds.top/2017/10/21/%E5%8C%BA%E5%9D%97%E9%93%BE%E9%A1%B9%E7%9B%AE%E7%82%B9%E8%AF%842-%E4%BB%A5%E5%A4%AA%E5%9D%8A/</guid>
-      <description> 以太坊  一台超级计算机 现阶段最好的数字货币 继承比特币的区块链技术，同时引入了超级亮点：智能合约，让信任成为可能 以太币正在成为区块链经济中的石油 按交易次数计算数字货币交易市场一半以上，如下图所示  有以下问题： 交易速度慢，最大的问题，也是被容易被EOS挑战与冲击的地方 帐本体积大 隐私问题 链上的可信数据太单一，只有交易数据，制约智能合约的应用范围
+      <description>以太坊  一台超级计算机 现阶段最好的数字货币 继承比特币的区块链技术，同时引入了超级亮点：智能合约，让信任成为可能 以太币正在成为区块链经济中的石油 按交易次数计算数字货币交易市场一半以上，如下图所示  有以下问题： 交易速度慢，最大的问题，也是被容易被EOS挑战与冲击的地方 帐本体积大 隐私问题 链上的可信数据太单一，只有交易数据，制约智能合约的应用范围
  以太坊sharding方案，加大了系统的复杂性，也带来了一些安全问题
  不得不关注与小心的以太坊安全问题，例如DAO问题
  ICO是以太坊上最成功的应用
  CryptoKitties是以太坊上最让人鼓舞的Dapp
  以太坊有优秀团队与成熟开放的社区
  以太坊会不断地进化与成熟，以太坊未来可期
-  参考  ethereum CryptoKitties plasma  </description>
+  参考  ethereum CryptoKitties plasma  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
     </item>
     
     <item>
