@@ -191,12 +191,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        64
+        65
         <span>Posts</span>
       </div>
       <div class="article-info-block">
         
-          26
+          27
         
         <span>
             Tags
@@ -277,6 +277,121 @@
     <section id="main">
     
     
+
+<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <a href="https://blog.ipds.top/2017/10/02/share/" itemprop="url">
+            <img src="https://blog.ipds.top/banners/share-banner.webp" class="article-banner">
+        
+        </a>
+
+        <header class="article-header">
+    <a href="https://blog.ipds.top/2017/10/02/share/">
+    <h1 class="article-title" itemprop="name">
+        Share
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2017-10-02 21:49:20 &#43;0200 &#43;0200" itemprop="datePublished">2017-10-02</time>
+            &middot;
+            123
+            words
+            &middot;
+            1
+            minute read
+        </div>
+        
+        
+
+        
+    </div>
+</header>
+
+        
+        <footer class="article-footer">
+    <a data-url="https://blog.ipds.top/2017/10/02/share/" data-id="b873d5c6ee98b0963c8a3b7efcc9e884" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://blog.ipds.top/2017/10/02/share/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+</article>
 
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
@@ -761,6 +876,32 @@
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="https://blog.ipds.top/2020/01/22/2020%E5%B9%B4%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E9%BE%99%E5%A4%B4%E5%9C%B0%E4%BD%8D%E8%BF%98%E4%BC%9A%E7%BB%A7%E7%BB%AD%E5%8A%A0%E5%BC%BA%E5%90%97/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://blog.ipds.top/categories/blockchain">
+                        BlockChain
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://blog.ipds.top/2020/01/22/2020%E5%B9%B4%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E9%BE%99%E5%A4%B4%E5%9C%B0%E4%BD%8D%E8%BF%98%E4%BC%9A%E7%BB%A7%E7%BB%AD%E5%8A%A0%E5%BC%BA%E5%90%97/" class="title">2020年比特币的龙头地位还会继续加强吗？</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-01-22 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2020-01-22</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="https://blog.ipds.top/2020/01/16/%E8%AF%B4%E8%AF%B4%E5%BE%AE%E4%BF%A1%E4%BB%98%E8%B4%B9%E9%98%85%E8%AF%BB/" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
@@ -863,32 +1004,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="https://blog.ipds.top/2019/11/08/doh-faq/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="https://blog.ipds.top/categories/sec">
-                        Sec
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="https://blog.ipds.top/2019/11/08/doh-faq/" class="title">DoH FAQ</a></p>
-                    <p class="item-date">
-                        <time datetime="2019-11-08 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2019-11-08</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -907,7 +1022,7 @@
                 <a class="category-list-link" href="https://blog.ipds.top/categories/blockchain">
                     blockchain
                 </a>
-                <span class="category-list-count">22</span>
+                <span class="category-list-count">23</span>
             </li>
             
             <li class="category-list-item">
@@ -1100,7 +1215,15 @@
                 <a class="category-list-link" href="https://blog.ipds.top/tags/blockchain">
                     blockchain
                 </a>
-                <span class="category-list-count">26</span>
+                <span class="category-list-count">27</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://blog.ipds.top/tags/btc">
+                    btc
+                </a>
+                <span class="category-list-count">1</span>
             </li>
             
             <li class="category-list-item">
@@ -1316,6 +1439,9 @@
         
         
         <a href="https://blog.ipds.top/tags/blockchain" style="font-size: 12px;">blockchain</a>
+        
+        
+        <a href="https://blog.ipds.top/tags/btc" style="font-size: 12px;">btc</a>
         
         
         <a href="https://blog.ipds.top/tags/cryptography" style="font-size: 12px;">cryptography</a>

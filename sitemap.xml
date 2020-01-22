@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.ipds.top/2020/01/22/2020%E5%B9%B4%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E9%BE%99%E5%A4%B4%E5%9C%B0%E4%BD%8D%E8%BF%98%E4%BC%9A%E7%BB%A7%E7%BB%AD%E5%8A%A0%E5%BC%BA%E5%90%97/</loc>
+    <lastmod>2020-01-22T11:58:06+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.ipds.top/2020/01/16/%E8%AF%B4%E8%AF%B4%E5%BE%AE%E4%BF%A1%E4%BB%98%E8%B4%B9%E9%98%85%E8%AF%BB/</loc>
     <lastmod>2020-01-16T11:58:06+02:00</lastmod>
   </url>
@@ -333,19 +338,25 @@
   
   <url>
     <loc>https://blog.ipds.top/tags/blockchain/</loc>
-    <lastmod>2020-01-08T11:58:06+02:00</lastmod>
+    <lastmod>2020-01-22T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.ipds.top/categories/blockchain/</loc>
-    <lastmod>2020-01-08T11:58:06+02:00</lastmod>
+    <lastmod>2020-01-22T11:58:06+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ipds.top/tags/btc/</loc>
+    <lastmod>2020-01-22T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.ipds.top/categories/</loc>
-    <lastmod>2020-01-08T11:58:06+02:00</lastmod>
+    <lastmod>2020-01-22T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -477,7 +488,7 @@
   
   <url>
     <loc>https://blog.ipds.top/post/</loc>
-    <lastmod>2020-01-16T11:58:06+02:00</lastmod>
+    <lastmod>2020-01-22T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -585,7 +596,7 @@
   
   <url>
     <loc>https://blog.ipds.top/</loc>
-    <lastmod>2020-01-16T11:58:06+02:00</lastmod>
+    <lastmod>2020-01-22T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
