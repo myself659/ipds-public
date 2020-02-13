@@ -6,10 +6,30 @@
     <description>Recent content in Posts on 沉风网事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 30 Jan 2020 11:58:06 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 11:58:06 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.ipds.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>投资美股，先从数据分析开始</title>
+      <link>https://blog.ipds.top/2020/02/06/%E6%8A%95%E8%B5%84%E7%BE%8E%E8%82%A1%E5%85%88%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E5%A7%8B/</link>
+      <pubDate>Thu, 06 Feb 2020 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2020/02/06/%E6%8A%95%E8%B5%84%E7%BE%8E%E8%82%A1%E5%85%88%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E5%A7%8B/</guid>
+      <description>背景 川大爷，常在twitter上吆喝美股多次创造历史高点。美股确实是一个资产配置的重要选项。
+在进入市场之前，研究先行，作好功课。
+获取数据 对于一个公司的股票的研究与分析有多个方面。这里只看股票的数据情况。 既然是分析数据，那么如何获取获取呢？
+这个问题可以拆为以下问题：
+ 从哪里找数据？ 如何得到这些数据？  先从第一个问题开始：从哪里找数据？美股的数据来源来很多，这里我直接选择了yahoo财经数据。 主要原因如下：
+ yahoo财经数据详细 yahoo财经可以直接通过api获取，使用方便 最重要地一点，yahoo财经的api没有被墙 yahoo财经数据实时性也不错，除了交易日当天的数据无法获取，其他的都可以获取  下面我们就看如何调用api获取数据。不多说了，直接上代码。
+import pandas as pd import yfinance as yf tsla_df = yf.download(&#39;TSLA&#39;, start=&#39;2020-01-01&#39;, end=&#39;2020-02-06&#39;, progress=False) tsla_df.tail()  具体结果如下：
+获取ticker数据：
+%matplotlib notebook ticker = yf.Ticker(&#39;TSLA&#39;) tsla_df = ticker.history(period=&amp;quot;max&amp;quot;) tsla_df.head() tsla_df[&#39;Close&#39;].plot(title=&amp;quot;Telsa&#39;s stock price&amp;quot;)  具体结果如下：
+这些数据都可以股票软件都可以看到。 对的，下面说一下通过api获取原始数据的好处。
+灵活地获取ticker数据：
+%matplotlib notebook tsla_df = yf.download(&amp;quot;TSLA&amp;quot;, start=&amp;quot;2020-02-01&amp;quot;, end=&amp;quot;2020-02-06&amp;quot;, interval = &amp;quot;15m&amp;quot;) tsla_df[&#39;Close&#39;].plot(title=&amp;quot;TSLA FROM 2020-02-01 TO 2020-02-06 &amp;quot;)  具体结果如下： 股票对比分析：</description>
+    </item>
     
     <item>
       <title>说说我眼中的科比</title>
@@ -41,7 +61,7 @@
 美国时间2020年1月26号，中国春节初三，科比却以意想不到方式离开了这个世界。Mamba farewell！ 留给世界是悲伤，是难以相信，是永远的记忆。多希望他还能活跃在多个领域，希望他能够出一期有关英格拉姆的《detail》节目，希望他能指导Gigi成为一名女曼巴，希望他能生一个儿子。。。
 科比度过他短暂的一生，他的一生是奋斗不息、不断挑战、实现梦想的一生。感谢科比给这个世界带来的精彩，在生活与工作中用行动来纪念科比（欧文就是一个好参考，狂砍54分，用属于他自己的方式纪念科比）。
 一千读者心中有一千个哈姆雷特，欢迎大家说一说自己心中的科比
-欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)，您的关注是我更新的动力</description>
     </item>
     
     <item>
@@ -797,7 +817,7 @@ Golang最工程化的语言。
 随机是一种保护与安全方式 一滴水只有放进大海才永远不会干涸。在Algorand中通过VRF保护记账节点，将记帐节点隐藏在于众多节点当中。在数字货币钱包利用随机性生产私钥来保护私钥；除了这些以外，更多随机数在在区块链有许多利用随机来保证公链安全的应用，可以参考这篇文章区块链中的随机数
 随机是一种需求 小道消息的抽奖助手将随机这一需求产品化。
 小结 总之，随机在生活中无处不在。随机以上用途来自随机的不确定性。随机的本质是不确性。 随机当中还有很多可以挖掘的认识与理解。
-参考  随机性 一文搞懂HMM（隐马尔可夫模型）  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+参考  随机性 一文搞懂HMM（隐马尔可夫模型） Random numbers and decentralized networks: implementation  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
     </item>
     
     <item>
