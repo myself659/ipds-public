@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>谈谈数字货币钱包 &middot; 沉风网事</title>
+    <title>通过数据分析预测股票价格变化靠谱吗？ &middot; 沉风网事</title>
     <meta name="generator" content="Hugo 0.54.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,7 +10,7 @@
       <meta name="description" content="与爱相伴，与智慧共舞，创造属于自己的精彩！">
     
     
-    <link rel="canonical" href="https://blog.ipds.top/2018/02/21/%E8%B0%88%E8%B0%88%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E9%92%B1%E5%8C%85/"/>
+    <link rel="canonical" href="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/"/>
     <link rel="icon" href="https://blog.ipds.top/favicon.ico">
     <link rel="apple-touch-icon" href="https://blog.ipds.top/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://blog.ipds.top/css/style.css">
@@ -20,72 +20,42 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="谈谈数字货币钱包" />
-<meta property="og:description" content=" 战略地位 基于区块链的价值互联网，离不开token经济。数字货币钱包在整个区块链生态的地位如同互联网的支付宝与微信支付。其重要性不用多说了。
-功能 从价值的角度来看，主要有以下三个功能：
- 价值确权 价值存储 价值IO  价值IO，以Wallet as a Service方式有以下业务：
- 金融（理财，期货等等） 交易（接入去中心化交易，中心化交易所，场外交易） Dapp平台，支持第三方Dapp接入  本质 从技术上看，本质上是私钥，私钥，私钥。重要的事情说三遍。
-价值确权通过私钥来完成，谁拥有私钥谁就拥有对应的价值。
-价值存储就是存储私钥。
-价值IO对应的功能都需要私钥配合实现。
-分类 数字货币钱包从形态有如下类型：
- 硬件钱包，如Trezo 移动App，如imtoken，bitpay，58wallet Web网站，如myetherwallet 浏览器扩展应用，如MetaMask 桌面应用程序 中心化交易所 代码，完成私钥管理与交易功能即可  从私钥是否连网可以分为：
- 冷钱包 不联网 热钱包 联网  安全 钱包的安全性无须多说。
-钱包的安全性由用户自己负责。
-最重要理解原理，提高安全意识。
-钱包与交易所 钱包&#43;撮合引擎=交易所
-附加功能  IM 资讯 行情 增值服务  （PS: 币圈一日，世上一年，更有各种新技术层出不穷，需要深入学习，恕没有展开说明，望见谅）。
-参考  Choose your Bitcoin wallet 比特币冷热钱包教学 知乎：比特币用哪一种钱包比较靠谱，如何保障交易安全？  " />
+    <meta property="og:title" content="通过数据分析预测股票价格变化靠谱吗？" />
+<meta property="og:description" content="前言 在投资美股，先从数据分析开始这篇文章解决两个问题：
+ 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以telsa为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
+步骤 获取数据 直接调用api如下：
+import yfinance as yf tlsa_df = yf.download(&#39;TSLA&#39;, start=&#39;2015-01-01&#39;, end=&#39;2020-02-16&#39;, progress=False) tlsa_df.head()  绘制价格变化图 #plot %matplotlib notebook from IPython.core.interactiveshell import InteractiveShell InteractiveShell.ast_node_interactivity = &quot;all&quot; plt.figure(figsize=(10,6)) plt.grid(True) plt.xlabel(&#39;Dates&#39;) plt.ylabel(&#39;Close Prices&#39;) plt.plot(tlsa_df[&#39;Close&#39;]) plt.title(&#39;Tesla Close Price&#39;) plt.show()  得到从2015年起telsa收盘价格变化图：
+分析数据的统计特征信息 tsla_df_close = tlsa_df[&#39;Close&#39;] df_log = np.log(tsla_df_close) moving_avg = df_log.rolling(12).mean() std_dev = df_log.rolling(12).std() plt.title(&#39;Moving Average&#39;) plt.plot(std_dev, color =&quot;black&quot;, label = &quot;Standard Deviation&quot;) plt.plot(moving_avg, color=&quot;red&quot;, label = &quot;Mean&quot;) plt." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ipds.top/2018/02/21/%E8%B0%88%E8%B0%88%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E9%92%B1%E5%8C%85/" />
-<meta property="article:published_time" content="2018-02-21T11:58:06&#43;02:00"/>
-<meta property="article:modified_time" content="2018-02-21T11:58:06&#43;02:00"/>
+<meta property="og:url" content="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/" />
+<meta property="article:published_time" content="2020-02-17T11:58:06&#43;02:00"/>
+<meta property="article:modified_time" content="2020-02-17T11:58:06&#43;02:00"/>
 
     
     
-<meta itemprop="name" content="谈谈数字货币钱包">
-<meta itemprop="description" content=" 战略地位 基于区块链的价值互联网，离不开token经济。数字货币钱包在整个区块链生态的地位如同互联网的支付宝与微信支付。其重要性不用多说了。
-功能 从价值的角度来看，主要有以下三个功能：
- 价值确权 价值存储 价值IO  价值IO，以Wallet as a Service方式有以下业务：
- 金融（理财，期货等等） 交易（接入去中心化交易，中心化交易所，场外交易） Dapp平台，支持第三方Dapp接入  本质 从技术上看，本质上是私钥，私钥，私钥。重要的事情说三遍。
-价值确权通过私钥来完成，谁拥有私钥谁就拥有对应的价值。
-价值存储就是存储私钥。
-价值IO对应的功能都需要私钥配合实现。
-分类 数字货币钱包从形态有如下类型：
- 硬件钱包，如Trezo 移动App，如imtoken，bitpay，58wallet Web网站，如myetherwallet 浏览器扩展应用，如MetaMask 桌面应用程序 中心化交易所 代码，完成私钥管理与交易功能即可  从私钥是否连网可以分为：
- 冷钱包 不联网 热钱包 联网  安全 钱包的安全性无须多说。
-钱包的安全性由用户自己负责。
-最重要理解原理，提高安全意识。
-钱包与交易所 钱包&#43;撮合引擎=交易所
-附加功能  IM 资讯 行情 增值服务  （PS: 币圈一日，世上一年，更有各种新技术层出不穷，需要深入学习，恕没有展开说明，望见谅）。
-参考  Choose your Bitcoin wallet 比特币冷热钱包教学 知乎：比特币用哪一种钱包比较靠谱，如何保障交易安全？  ">
+<meta itemprop="name" content="通过数据分析预测股票价格变化靠谱吗？">
+<meta itemprop="description" content="前言 在投资美股，先从数据分析开始这篇文章解决两个问题：
+ 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以telsa为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
+步骤 获取数据 直接调用api如下：
+import yfinance as yf tlsa_df = yf.download(&#39;TSLA&#39;, start=&#39;2015-01-01&#39;, end=&#39;2020-02-16&#39;, progress=False) tlsa_df.head()  绘制价格变化图 #plot %matplotlib notebook from IPython.core.interactiveshell import InteractiveShell InteractiveShell.ast_node_interactivity = &quot;all&quot; plt.figure(figsize=(10,6)) plt.grid(True) plt.xlabel(&#39;Dates&#39;) plt.ylabel(&#39;Close Prices&#39;) plt.plot(tlsa_df[&#39;Close&#39;]) plt.title(&#39;Tesla Close Price&#39;) plt.show()  得到从2015年起telsa收盘价格变化图：
+分析数据的统计特征信息 tsla_df_close = tlsa_df[&#39;Close&#39;] df_log = np.log(tsla_df_close) moving_avg = df_log.rolling(12).mean() std_dev = df_log.rolling(12).std() plt.title(&#39;Moving Average&#39;) plt.plot(std_dev, color =&quot;black&quot;, label = &quot;Standard Deviation&quot;) plt.plot(moving_avg, color=&quot;red&quot;, label = &quot;Mean&quot;) plt.">
 
 
-<meta itemprop="datePublished" content="2018-02-21T11:58:06&#43;02:00" />
-<meta itemprop="dateModified" content="2018-02-21T11:58:06&#43;02:00" />
-<meta itemprop="wordCount" content="53">
+<meta itemprop="datePublished" content="2020-02-17T11:58:06&#43;02:00" />
+<meta itemprop="dateModified" content="2020-02-17T11:58:06&#43;02:00" />
+<meta itemprop="wordCount" content="529">
 
 
 
-<meta itemprop="keywords" content="BlockChain," />
+<meta itemprop="keywords" content="Data," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="谈谈数字货币钱包"/>
-<meta name="twitter:description" content=" 战略地位 基于区块链的价值互联网，离不开token经济。数字货币钱包在整个区块链生态的地位如同互联网的支付宝与微信支付。其重要性不用多说了。
-功能 从价值的角度来看，主要有以下三个功能：
- 价值确权 价值存储 价值IO  价值IO，以Wallet as a Service方式有以下业务：
- 金融（理财，期货等等） 交易（接入去中心化交易，中心化交易所，场外交易） Dapp平台，支持第三方Dapp接入  本质 从技术上看，本质上是私钥，私钥，私钥。重要的事情说三遍。
-价值确权通过私钥来完成，谁拥有私钥谁就拥有对应的价值。
-价值存储就是存储私钥。
-价值IO对应的功能都需要私钥配合实现。
-分类 数字货币钱包从形态有如下类型：
- 硬件钱包，如Trezo 移动App，如imtoken，bitpay，58wallet Web网站，如myetherwallet 浏览器扩展应用，如MetaMask 桌面应用程序 中心化交易所 代码，完成私钥管理与交易功能即可  从私钥是否连网可以分为：
- 冷钱包 不联网 热钱包 联网  安全 钱包的安全性无须多说。
-钱包的安全性由用户自己负责。
-最重要理解原理，提高安全意识。
-钱包与交易所 钱包&#43;撮合引擎=交易所
-附加功能  IM 资讯 行情 增值服务  （PS: 币圈一日，世上一年，更有各种新技术层出不穷，需要深入学习，恕没有展开说明，望见谅）。
-参考  Choose your Bitcoin wallet 比特币冷热钱包教学 知乎：比特币用哪一种钱包比较靠谱，如何保障交易安全？  "/>
+<meta name="twitter:title" content="通过数据分析预测股票价格变化靠谱吗？"/>
+<meta name="twitter:description" content="前言 在投资美股，先从数据分析开始这篇文章解决两个问题：
+ 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以telsa为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
+步骤 获取数据 直接调用api如下：
+import yfinance as yf tlsa_df = yf.download(&#39;TSLA&#39;, start=&#39;2015-01-01&#39;, end=&#39;2020-02-16&#39;, progress=False) tlsa_df.head()  绘制价格变化图 #plot %matplotlib notebook from IPython.core.interactiveshell import InteractiveShell InteractiveShell.ast_node_interactivity = &quot;all&quot; plt.figure(figsize=(10,6)) plt.grid(True) plt.xlabel(&#39;Dates&#39;) plt.ylabel(&#39;Close Prices&#39;) plt.plot(tlsa_df[&#39;Close&#39;]) plt.title(&#39;Tesla Close Price&#39;) plt.show()  得到从2015年起telsa收盘价格变化图：
+分析数据的统计特征信息 tsla_df_close = tlsa_df[&#39;Close&#39;] df_log = np.log(tsla_df_close) moving_avg = df_log.rolling(12).mean() std_dev = df_log.rolling(12).std() plt.title(&#39;Moving Average&#39;) plt.plot(std_dev, color =&quot;black&quot;, label = &quot;Standard Deviation&quot;) plt.plot(moving_avg, color=&quot;red&quot;, label = &quot;Mean&quot;) plt."/>
 
     
 
@@ -328,9 +298,9 @@
         
 
         <header class="article-header">
-    <a href="https://blog.ipds.top/2018/02/21/%E8%B0%88%E8%B0%88%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E9%92%B1%E5%8C%85/">
+    <a href="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/">
     <h1 class="article-title" itemprop="name">
-        谈谈数字货币钱包
+        通过数据分析预测股票价格变化靠谱吗？
     </h1>
     </a>
     <div class="article-meta">
@@ -338,12 +308,12 @@
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2018-02-21 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2018-02-21</time>
+            <time datetime="2020-02-17 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2020-02-17</time>
             &middot;
-            53
+            529
             words
             &middot;
-            1
+            3
             minute read
         </div>
         
@@ -354,7 +324,7 @@
                 <i class="fa fa-folder"></i>
                 
                 
-                <a class="article-category-link" href="https://blog.ipds.top/categories/blockchain">BlockChain</a>
+                <a class="article-category-link" href="https://blog.ipds.top/categories/data">Data</a>
                 
                 
             </div>
@@ -368,7 +338,7 @@
                 <i class="fa fa-tags"></i>
                 
                 
-                <a class="article-category-link" href="https://blog.ipds.top/tags/blockchain">BlockChain</a>
+                <a class="article-category-link" href="https://blog.ipds.top/tags/data">Data</a>
                 
                 
             </div>
@@ -380,98 +350,251 @@
         <div class="article-entry" itemprop="articleBody">
             
 
-<h1 id="战略地位">战略地位</h1>
+<h1 id="前言">前言</h1>
 
-<p>基于区块链的价值互联网，离不开token经济。数字货币钱包在整个区块链生态的地位如同互联网的支付宝与微信支付。其重要性不用多说了。</p>
-
-<h1 id="功能">功能</h1>
-
-<p>从价值的角度来看，主要有以下三个功能：</p>
+<p>在<a href="https://mp.weixin.qq.com/s/t8LAkhXEY0zkKZ_dhIXHdA">投资美股，先从数据分析开始</a>这篇文章解决两个问题：</p>
 
 <ol>
-<li>价值确权</li>
-<li>价值存储</li>
-<li>价值IO</li>
+<li>从哪里找数据？</li>
+<li>如何得到这些数据？</li>
 </ol>
 
-<p>价值IO，以Wallet as a Service方式有以下业务：</p>
+<p>在此基础这篇主要解决一个问题：以telsa为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？</p>
+
+<h1 id="步骤">步骤</h1>
+
+<h2 id="获取数据">获取数据</h2>
+
+<p>直接调用api如下：</p>
+
+<pre><code>import yfinance as yf 
+tlsa_df =  yf.download('TSLA', 
+                      start='2015-01-01', 
+                      end='2020-02-16', 
+                      progress=False)
+tlsa_df.head()
+</code></pre>
+
+<h2 id="绘制价格变化图">绘制价格变化图</h2>
+
+<pre><code>#plot  
+%matplotlib notebook 
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = &quot;all&quot; 
+plt.figure(figsize=(10,6))
+plt.grid(True)
+plt.xlabel('Dates')
+plt.ylabel('Close Prices')
+plt.plot(tlsa_df['Close'])
+plt.title('Tesla Close Price')
+plt.show()
+</code></pre>
+
+<p>得到从2015年起telsa收盘价格变化图：</p>
+
+<p><img src="/images/economy/stock-telsa-2015.png" alt="" /></p>
+
+<h2 id="分析数据的统计特征信息">分析数据的统计特征信息</h2>
+
+<pre><code>tsla_df_close = tlsa_df['Close']
+df_log = np.log(tsla_df_close)
+moving_avg = df_log.rolling(12).mean()
+std_dev = df_log.rolling(12).std()
+
+plt.title('Moving Average')
+plt.plot(std_dev, color =&quot;black&quot;, label = &quot;Standard Deviation&quot;)
+plt.plot(moving_avg, color=&quot;red&quot;, label = &quot;Mean&quot;)
+plt.show()
+</code></pre>
+
+<p>具体如下：</p>
+
+<p><img src="/images/economy/stock-telsa-mean.png" alt="" /></p>
+
+<h2 id="处理数据">处理数据</h2>
+
+<p>处理数据是为了满足模型的数据输入的要求。</p>
+
+<pre><code>train_data, test_data = df_log[3:int(len(df_log)*0.9)], df_log[int(len(df_log)*0.9):]
+plt.figure(figsize=(10,6))
+plt.grid(True)
+plt.xlabel('Dates')
+plt.ylabel('Closing Prices')
+plt.plot(df_log, 'green', label='Train data')
+plt.plot(test_data, 'blue', label='Test data')
+plt.legend()
+</code></pre>
+
+<p>这里将原始数据分为训练数据和测试数据。</p>
+
+<p><img src="/images/economy/stock-telsa-traintest.png" alt="" /></p>
+
+<h2 id="建立模型">建立模型</h2>
+
+<pre><code>import os 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.seasonal import seasonal_decompose
+from statsmodels.tsa.arima_model import ARIMA
+from pmdarima.arima import auto_arima
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+import math
+
+model_autoARIMA = auto_arima(train_data, 
+                             start_p=0, 
+                             start_q=0,
+                      test='adf',       # use adftest to find             optimal 'd'
+                      max_p=3, max_q=3, # maximum p and q
+                      m=1,              # frequency of series
+                      d=None,           # let model determine 'd'
+                      seasonal=False,   # No Seasonality
+                      start_P=0, 
+                      D=0, 
+                      trace=True,
+                      error_action='ignore',  
+                      suppress_warnings=True, 
+                      stepwise=True)
+print(model_autoARIMA.summary())
+</code></pre>
+
+<p>得到模型参数如下：</p>
+
+<pre><code>Performing stepwise search to minimize aic
+Fit ARIMA: (0, 1, 0)x(0, 0, 0, 0) (constant=True); AIC=-4980.147, BIC=-4970.040, Time=2.357 seconds
+Fit ARIMA: (1, 1, 0)x(0, 0, 0, 0) (constant=True); AIC=-4978.315, BIC=-4963.154, Time=0.297 seconds
+Fit ARIMA: (0, 1, 1)x(0, 0, 0, 0) (constant=True); AIC=-4978.308, BIC=-4963.147, Time=0.475 seconds
+Fit ARIMA: (0, 1, 0)x(0, 0, 0, 0) (constant=False); AIC=-4982.140, BIC=-4977.087, Time=0.189 seconds
+Fit ARIMA: (1, 1, 1)x(0, 0, 0, 0) (constant=True); AIC=-4976.958, BIC=-4956.743, Time=0.493 seconds
+Total fit time: 5.619 seconds
+                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 1158
+Model:               SARIMAX(0, 1, 0)   Log Likelihood                2492.070
+Date:                Mon, 17 Feb 2020   AIC                          -4982.140
+Time:                        20:29:52   BIC                          -4977.087
+Sample:                             0   HQIC                         -4980.233
+                               - 1158                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+sigma2         0.0008   1.84e-05     42.731      0.000       0.001       0.001
+===============================================================================
+Ljung-Box (Q):                       43.17   Jarque-Bera (JB):               898.42
+Prob(Q):                              0.34   Prob(JB):                         0.00
+Heteroskedasticity (H):               1.84   Skew:                            -0.13
+Prob(H) (two-sided):                  0.00   Kurtosis:                         7.31
+===============================================================================
+</code></pre>
+
+<h2 id="对模型诊断">对模型诊断</h2>
+
+<p>在进行预测之前先进行模型诊断。</p>
+
+<pre><code>model_autoARIMA.plot_diagnostics(figsize=(15,8))
+plt.show()
+model = ARIMA(train_data, order=(3, 1, 2))  
+fitted = model.fit(disp=-1)  
+print(fitted.summary())
+</code></pre>
+
+<pre><code>   ARIMA Model Results                              
+==============================================================================
+Dep. Variable:                D.Close   No. Observations:                 1157
+Model:                 ARIMA(3, 1, 2)   Log Likelihood                2494.608
+Method:                       css-mle   S.D. of innovations              0.028
+Date:                Mon, 17 Feb 2020   AIC                          -4975.215
+Time:                        20:30:59   BIC                          -4939.840
+Sample:                             1   HQIC                         -4961.866
+                                                                              
+=================================================================================
+                    coef    std err          z      P&gt;|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             0.0002      0.000      1.274      0.203      -0.000       0.001
+ar.L1.D.Close     0.1523      0.251      0.607      0.544      -0.339       0.644
+ar.L2.D.Close     0.8380      0.235      3.562      0.000       0.377       1.299
+ar.L3.D.Close    -0.0097      0.032     -0.305      0.760      -0.072       0.053
+ma.L1.D.Close    -0.1689      0.249     -0.678      0.498      -0.657       0.320
+ma.L2.D.Close    -0.8311      0.249     -3.334      0.001      -1.320      -0.343
+                                    Roots                                    
+=============================================================================
+                  Real          Imaginary           Modulus         Frequency
+-----------------------------------------------------------------------------
+AR.1            1.0107           +0.0000j            1.0107            0.0000
+AR.2           -1.1784           +0.0000j            1.1784            0.5000
+AR.3           86.4971           +0.0000j           86.4971            0.0000
+MA.1            1.0000           +0.0000j            1.0000            0.0000
+MA.2           -1.2033           +0.0000j            1.2033            0.5000
+-----------------------------------------------------------------------------
+</code></pre>
+
+<h2 id="利用模型进行预测">利用模型进行预测</h2>
+
+<pre><code>fc, se, conf = fitted.forecast(129, alpha=0.05)  
+fc_series = pd.Series(fc, index=test_data.index)
+lower_series = pd.Series(conf[:, 0], index=test_data.index)
+upper_series = pd.Series(conf[:, 1], index=test_data.index)
+plt.figure(figsize=(12,5), dpi=100)
+plt.plot(train_data, label='training')
+plt.plot(test_data, color = 'blue', label='Actual Stock Price')
+plt.plot(fc_series, color = 'orange',label='Predicted Stock Price')
+plt.fill_between(lower_series.index, lower_series, upper_series, 
+                 color='k', alpha=.10)
+plt.title('Tesla Stock Price Prediction')
+plt.xlabel('Time')
+plt.ylabel('Tesla Stock  Price')
+plt.legend(loc='upper left', fontsize=8)
+plt.show()
+</code></pre>
+
+<p>得到预测结果如下：</p>
+
+<p><img src="/images/economy/stock-telsa-predict.png" alt="" /></p>
+
+<h2 id="分析预测结果">分析预测结果</h2>
+
+<p>从上面预测结果可以看出：</p>
 
 <ol>
-<li>金融（理财，期货等等）</li>
-<li>交易（接入去中心化交易，中心化交易所，场外交易）</li>
-<li>Dapp平台，支持第三方Dapp接入</li>
+<li>预测结果与实际股票的上涨趋势相同，但是其中的路径还是相差很多，直接说明不适合指导具体交易，只能做为长期趋势判断的参考</li>
+<li>这个模型还需要大量进行测试，如调整数据，调整模型参数</li>
 </ol>
 
-<h1 id="本质">本质</h1>
+<h1 id="总结">总结</h1>
 
-<p>从技术上看，本质上是私钥，私钥，私钥。重要的事情说三遍。</p>
+<p>这里是简单介绍一下利用numpy与pmdarima来预测股票变化趋势。实际上应用过程上需要充分的测试与验证，还需要大量的工作。像这上面这样的方式来预测股票价格是不靠谱的。有靠谱的模型也需要自己大量投入时间与大量的数据以及不断的验证与调整才可以的（别人靠谱的模型是不会免费分享的）。对于个人来说，投入这个成本是否值得又是另一个问题。</p>
 
-<p>价值确权通过私钥来完成，谁拥有私钥谁就拥有对应的价值。</p>
+<p>下一篇会具体讨论一下预测股票变化的数学原理。再根据这些数学原理如何优化模型。</p>
 
-<p>价值存储就是存储私钥。</p>
-
-<p>价值IO对应的功能都需要私钥配合实现。</p>
-
-<h1 id="分类">分类</h1>
-
-<p>数字货币钱包从形态有如下类型：</p>
+<p>说明：</p>
 
 <ol>
-<li>硬件钱包，如<a href="https://trezor.io/">Trezo</a></li>
-<li>移动App，如imtoken，bitpay，58wallet</li>
-<li>Web网站，如<a href="https://www.myetherwallet.com/">myetherwallet</a></li>
-<li>浏览器扩展应用，如<a href="https://github.com/MetaMask">MetaMask</a></li>
-<li>桌面应用程序</li>
-<li>中心化交易所</li>
-<li>代码，完成私钥管理与交易功能即可</li>
+<li>本文只是进行一个过程展示</li>
+<li>本文中的模型只供参考，不能用于实际的股票投资与交易。股市有风险，入市当小心。</li>
 </ol>
 
-<p>从私钥是否连网可以分为：</p>
+<h1 id="欢迎关注">欢迎关注</h1>
 
-<ol>
-<li>冷钱包  不联网</li>
-<li>热钱包  联网</li>
-</ol>
+<p>欢迎关注微信公众帐号：沉风网事(savewind)</p>
 
-<h1 id="安全">安全</h1>
-
-<p>钱包的安全性无须多说。</p>
-
-<p>钱包的安全性由用户自己负责。</p>
-
-<p>最重要理解原理，提高安全意识。</p>
-
-<h1 id="钱包与交易所">钱包与交易所</h1>
-
-<p>钱包+撮合引擎=交易所</p>
-
-<h1 id="附加功能">附加功能</h1>
-
-<ol>
-<li>IM</li>
-<li>资讯</li>
-<li>行情</li>
-<li>增值服务</li>
-</ol>
-
-<p>（PS: 币圈一日，世上一年，更有各种新技术层出不穷，需要深入学习，恕没有展开说明，望见谅）。</p>
+<p><img src="/images/cfws.jpg" alt="沉风网事" /></p>
 
 <h1 id="参考">参考</h1>
 
 <ol>
-<li><a href="https://bitcoin.org/en/choose-your-wallet">Choose your Bitcoin wallet</a></li>
-<li><a href="https://www.youtube.com/watch?v=8iNPTp_kQNA">比特币冷热钱包教学</a></li>
-<li><a href="https://www.zhihu.com/question/21478404">知乎：比特币用哪一种钱包比较靠谱，如何保障交易安全？</a></li>
+<li><a href="https://pypi.org/project/pmdarima/">pmdarima</a></li>
 </ol>
 
         </div>
         <footer class="article-footer">
-    <a data-url="https://blog.ipds.top/2018/02/21/%E8%B0%88%E8%B0%88%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E9%92%B1%E5%8C%85/" data-id="307a4da2c9288a0b5119a2f149ca10ee" class="article-share-link">
+    <a data-url="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/" data-id="3b2f12509e2721f3219c32f444dada0f" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://blog.ipds.top/2018/02/21/%E8%B0%88%E8%B0%88%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E9%92%B1%E5%8C%85/#disqus_thread" class="article-comment-link">
+    <a href="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -547,21 +670,14 @@
     
 <nav id="article-nav">
     
-    <a href="https://blog.ipds.top/2018/02/05/%E4%BB%8E%E8%B4%A7%E5%B8%81%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%AF%94%E7%89%B9%E5%B8%81/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="https://blog.ipds.top/2020/02/06/%E6%8A%95%E8%B5%84%E7%BE%8E%E8%82%A1%E5%85%88%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E5%A7%8B/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Older
       </strong>
-      <div class="article-nav-title">从货币的角度看比特币</div>
+      <div class="article-nav-title">投资美股，先从数据分析开始</div>
     </a>
     
 
-    
-    <a href="https://blog.ipds.top/2018/02/21/%E4%B9%B1%E6%89%AF%E5%8C%BA%E5%9D%97%E9%93%BE%E6%88%98%E7%95%A5/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-          Newer
-      </strong>
-      <div class="article-nav-title">乱扯区块链战略</div>
-    </a>
     
 </nav>
 
