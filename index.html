@@ -28,7 +28,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.ipds.top/" />
 
-<meta property="og:updated_time" content="2020-02-06T11:58:06&#43;02:00"/>
+<meta property="og:updated_time" content="2020-02-17T11:58:06&#43;02:00"/>
 
     
     
@@ -191,7 +191,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        68
+        69
         <span>Posts</span>
       </div>
       <div class="article-info-block">
@@ -277,6 +277,142 @@
     <section id="main">
     
     
+
+<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        </a>
+
+        <header class="article-header">
+    <a href="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E7%89%B9%E6%96%AF%E6%8B%89%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/">
+    <h1 class="article-title" itemprop="name">
+        通过数据分析预测特斯拉股票价格变化靠谱吗？
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2020-02-17 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2020-02-17</time>
+            &middot;
+            529
+            words
+            &middot;
+            3
+            minute read
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="https://blog.ipds.top/categories/data">Data</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://blog.ipds.top/tags/data">Data</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        
+        <footer class="article-footer">
+    <a data-url="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E7%89%B9%E6%96%AF%E6%8B%89%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/" data-id="3b2f12509e2721f3219c32f444dada0f" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E7%89%B9%E6%96%AF%E6%8B%89%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+</article>
 
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
@@ -1260,7 +1396,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2019-11-08 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2019-11-08</time>
             &middot;
-            51
+            59
             words
             &middot;
             1
@@ -3328,7 +3464,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2018-12-11 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2018-12-11</time>
             &middot;
-            235
+            236
             words
             &middot;
             2
@@ -4286,146 +4422,6 @@
     </div>
 </article>
 
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="https://blog.ipds.top/2018/10/16/%E5%9F%BA%E4%BA%8Egitlab-kubernetes%E5%AE%9E%E7%8E%B0ci/cd/">
-    <h1 class="article-title" itemprop="name">
-        基于Gitlab&#43;Kubernetes实现CI/CD
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2018-10-16 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2018-10-16</time>
-            &middot;
-            351
-            words
-            &middot;
-            2
-            minute read
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="https://blog.ipds.top/categories/kubernetes">Kubernetes</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="https://blog.ipds.top/tags/docker">Docker</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="https://blog.ipds.top/tags/kubernetes">Kubernetes</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        
-        <footer class="article-footer">
-    <a data-url="https://blog.ipds.top/2018/10/16/%E5%9F%BA%E4%BA%8Egitlab-kubernetes%E5%AE%9E%E7%8E%B0ci/cd/" data-id="3b75cebb5f8e05181b40d0891ffcbcc7" class="article-share-link">
-        <i class="fa fa-share"></i>
-        Share
-    </a>
-    
-    <a href="https://blog.ipds.top/2018/10/16/%E5%9F%BA%E4%BA%8Egitlab-kubernetes%E5%AE%9E%E7%8E%B0ci/cd/#disqus_thread" class="article-comment-link">
-        Comments
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
 
 <nav id="page-nav">
 
@@ -4452,6 +4448,32 @@
     </h3>
     <div class="widget">
         <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E7%89%B9%E6%96%AF%E6%8B%89%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://blog.ipds.top/categories/data">
+                        Data
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E7%89%B9%E6%96%AF%E6%8B%89%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/" class="title">通过数据分析预测特斯拉股票价格变化靠谱吗？</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-02-17 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2020-02-17</time>
+                    </p>
+                </div>
+            </li>
             
             <li>
                 <div class="item-thumbnail">
@@ -4557,32 +4579,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="https://blog.ipds.top/2020/01/08/gartner%E9%A2%84%E6%B5%8B2020%E5%B9%B4%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E5%8F%91%E5%B1%95/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="https://blog.ipds.top/categories/blockchain">
-                        BlockChain
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="https://blog.ipds.top/2020/01/08/gartner%E9%A2%84%E6%B5%8B2020%E5%B9%B4%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E5%8F%91%E5%B1%95/" class="title">Gartner预测2020年区块链的发展</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-01-08 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2020-01-08</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -4617,7 +4613,7 @@
                 <a class="category-list-link" href="https://blog.ipds.top/categories/data">
                     data
                 </a>
-                <span class="category-list-count">1</span>
+                <span class="category-list-count">2</span>
             </li>
             
             <li class="category-list-item">
@@ -4826,7 +4822,7 @@
                 <a class="category-list-link" href="https://blog.ipds.top/tags/data">
                     data
                 </a>
-                <span class="category-list-count">1</span>
+                <span class="category-list-count">2</span>
             </li>
             
             <li class="category-list-item">
