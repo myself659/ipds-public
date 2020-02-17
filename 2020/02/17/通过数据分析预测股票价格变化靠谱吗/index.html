@@ -22,7 +22,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="通过数据分析预测股票价格变化靠谱吗？" />
 <meta property="og:description" content="前言 在投资美股，先从数据分析开始这篇文章解决两个问题：
- 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以telsa为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
+ 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以特斯拉为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
 步骤 获取数据 直接调用api如下：
 import yfinance as yf tlsa_df = yf.download(&#39;TSLA&#39;, start=&#39;2015-01-01&#39;, end=&#39;2020-02-16&#39;, progress=False) tlsa_df.head()  绘制价格变化图 #plot %matplotlib notebook from IPython.core.interactiveshell import InteractiveShell InteractiveShell.ast_node_interactivity = &quot;all&quot; plt.figure(figsize=(10,6)) plt.grid(True) plt.xlabel(&#39;Dates&#39;) plt.ylabel(&#39;Close Prices&#39;) plt.plot(tlsa_df[&#39;Close&#39;]) plt.title(&#39;Tesla Close Price&#39;) plt.show()  得到从2015年起telsa收盘价格变化图：
 分析数据的统计特征信息 tsla_df_close = tlsa_df[&#39;Close&#39;] df_log = np.log(tsla_df_close) moving_avg = df_log.rolling(12).mean() std_dev = df_log.rolling(12).std() plt.title(&#39;Moving Average&#39;) plt.plot(std_dev, color =&quot;black&quot;, label = &quot;Standard Deviation&quot;) plt.plot(moving_avg, color=&quot;red&quot;, label = &quot;Mean&quot;) plt." />
@@ -35,7 +35,7 @@ import yfinance as yf tlsa_df = yf.download(&#39;TSLA&#39;, start=&#39;2015-01-0
     
 <meta itemprop="name" content="通过数据分析预测股票价格变化靠谱吗？">
 <meta itemprop="description" content="前言 在投资美股，先从数据分析开始这篇文章解决两个问题：
- 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以telsa为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
+ 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以特斯拉为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
 步骤 获取数据 直接调用api如下：
 import yfinance as yf tlsa_df = yf.download(&#39;TSLA&#39;, start=&#39;2015-01-01&#39;, end=&#39;2020-02-16&#39;, progress=False) tlsa_df.head()  绘制价格变化图 #plot %matplotlib notebook from IPython.core.interactiveshell import InteractiveShell InteractiveShell.ast_node_interactivity = &quot;all&quot; plt.figure(figsize=(10,6)) plt.grid(True) plt.xlabel(&#39;Dates&#39;) plt.ylabel(&#39;Close Prices&#39;) plt.plot(tlsa_df[&#39;Close&#39;]) plt.title(&#39;Tesla Close Price&#39;) plt.show()  得到从2015年起telsa收盘价格变化图：
 分析数据的统计特征信息 tsla_df_close = tlsa_df[&#39;Close&#39;] df_log = np.log(tsla_df_close) moving_avg = df_log.rolling(12).mean() std_dev = df_log.rolling(12).std() plt.title(&#39;Moving Average&#39;) plt.plot(std_dev, color =&quot;black&quot;, label = &quot;Standard Deviation&quot;) plt.plot(moving_avg, color=&quot;red&quot;, label = &quot;Mean&quot;) plt.">
@@ -52,7 +52,7 @@ import yfinance as yf tlsa_df = yf.download(&#39;TSLA&#39;, start=&#39;2015-01-0
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过数据分析预测股票价格变化靠谱吗？"/>
 <meta name="twitter:description" content="前言 在投资美股，先从数据分析开始这篇文章解决两个问题：
- 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以telsa为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
+ 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以特斯拉为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
 步骤 获取数据 直接调用api如下：
 import yfinance as yf tlsa_df = yf.download(&#39;TSLA&#39;, start=&#39;2015-01-01&#39;, end=&#39;2020-02-16&#39;, progress=False) tlsa_df.head()  绘制价格变化图 #plot %matplotlib notebook from IPython.core.interactiveshell import InteractiveShell InteractiveShell.ast_node_interactivity = &quot;all&quot; plt.figure(figsize=(10,6)) plt.grid(True) plt.xlabel(&#39;Dates&#39;) plt.ylabel(&#39;Close Prices&#39;) plt.plot(tlsa_df[&#39;Close&#39;]) plt.title(&#39;Tesla Close Price&#39;) plt.show()  得到从2015年起telsa收盘价格变化图：
 分析数据的统计特征信息 tsla_df_close = tlsa_df[&#39;Close&#39;] df_log = np.log(tsla_df_close) moving_avg = df_log.rolling(12).mean() std_dev = df_log.rolling(12).std() plt.title(&#39;Moving Average&#39;) plt.plot(std_dev, color =&quot;black&quot;, label = &quot;Standard Deviation&quot;) plt.plot(moving_avg, color=&quot;red&quot;, label = &quot;Mean&quot;) plt."/>
@@ -359,7 +359,7 @@ import yfinance as yf tlsa_df = yf.download(&#39;TSLA&#39;, start=&#39;2015-01-0
 <li>如何得到这些数据？</li>
 </ol>
 
-<p>在此基础这篇主要解决一个问题：以telsa为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？</p>
+<p>在此基础这篇主要解决一个问题：以特斯拉为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？</p>
 
 <h1 id="步骤">步骤</h1>
 
@@ -564,7 +564,7 @@ plt.show()
 
 <h1 id="总结">总结</h1>
 
-<p>这里是简单介绍一下利用numpy与pmdarima来预测股票变化趋势。实际上应用过程上需要充分的测试与验证，还需要大量的工作。像这上面这样的方式来预测股票价格是不靠谱的。有靠谱的模型也需要自己大量投入时间与大量的数据以及不断的验证与调整才可以的（别人靠谱的模型是不会免费分享的）。对于个人来说，投入这个成本是否值得又是另一个问题。</p>
+<p>这里是简单介绍一下利用numpy与pmdarima来预测股票变化趋势。实际上应用过程上需要充分的测试与验证，还需要大量的工作。像这上面这样的方式来预测股票价格是不靠谱的。有靠谱的模型也需要自己大量投入时间与大量的数据以及不断的验证与调整才可以的（别人靠谱的模型是不会免费分享的）。对于个人来说，投入这个成本是否值得又是另一个问题。对于大部分来说没有必要投入这个成本通过机器学习来预测股票价格变化。这个进入门槛比较高，获得收益的门槛更高。</p>
 
 <p>下一篇会具体讨论一下预测股票变化的数学原理。再根据这些数学原理如何优化模型。</p>
 

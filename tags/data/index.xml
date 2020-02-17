@@ -18,7 +18,7 @@
       
       <guid>https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/</guid>
       <description>前言 在投资美股，先从数据分析开始这篇文章解决两个问题：
- 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以telsa为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
+ 从哪里找数据？ 如何得到这些数据？  在此基础这篇主要解决一个问题：以特斯拉为例说明如何利用这些数据预测股票价格的变化。同时关注一个问题：投入成本进行预测股票价格是否靠谱与必要？
 步骤 获取数据 直接调用api如下：
 import yfinance as yf tlsa_df = yf.download(&#39;TSLA&#39;, start=&#39;2015-01-01&#39;, end=&#39;2020-02-16&#39;, progress=False) tlsa_df.head()  绘制价格变化图 #plot %matplotlib notebook from IPython.core.interactiveshell import InteractiveShell InteractiveShell.ast_node_interactivity = &amp;quot;all&amp;quot; plt.figure(figsize=(10,6)) plt.grid(True) plt.xlabel(&#39;Dates&#39;) plt.ylabel(&#39;Close Prices&#39;) plt.plot(tlsa_df[&#39;Close&#39;]) plt.title(&#39;Tesla Close Price&#39;) plt.show()  得到从2015年起telsa收盘价格变化图：
 分析数据的统计特征信息 tsla_df_close = tlsa_df[&#39;Close&#39;] df_log = np.log(tsla_df_close) moving_avg = df_log.rolling(12).mean() std_dev = df_log.rolling(12).std() plt.title(&#39;Moving Average&#39;) plt.plot(std_dev, color =&amp;quot;black&amp;quot;, label = &amp;quot;Standard Deviation&amp;quot;) plt.plot(moving_avg, color=&amp;quot;red&amp;quot;, label = &amp;quot;Mean&amp;quot;) plt.</description>
