@@ -210,7 +210,7 @@ DoH带来哪些好处？ 采用DoH对用户来说有如下好处：
 firefox 70版本已经支持DoH。
 如何使用DoH? 以firefox为例：
 在地址输入：about:preferences#general，找到Network Settings选项，点击Settings即可进入设置，具体如下：
-参考  DNS over HTTPS Google Public DNS over HTTPS (DoH) supports RFC 8484 standard Moving to an era of Decentralized DNS registry  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+参考  DNS over HTTPS Google Public DNS over HTTPS (DoH) supports RFC 8484 standard Moving to an era of Decentralized DNS registry Running a DNS over HTTPS Client  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
     </item>
     
     <item>
@@ -830,7 +830,7 @@ Golang最工程化的语言。
 随机是一种保护与安全方式 一滴水只有放进大海才永远不会干涸。在Algorand中通过VRF保护记账节点，将记帐节点隐藏在于众多节点当中。在数字货币钱包利用随机性生产私钥来保护私钥；除了这些以外，更多随机数在在区块链有许多利用随机来保证公链安全的应用，可以参考这篇文章区块链中的随机数
 随机是一种需求 小道消息的抽奖助手将随机这一需求产品化。
 小结 总之，随机在生活中无处不在。随机以上用途来自随机的不确定性。随机的本质是不确性。 随机当中还有很多可以挖掘的认识与理解。
-参考  随机性 一文搞懂HMM（隐马尔可夫模型） Random numbers and decentralized networks: implementation  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+参考  随机性 一文搞懂HMM（隐马尔可夫模型） Random numbers and decentralized networks: implementation Random numbers and decentralized networks: practical application  欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
     </item>
     
     <item>
