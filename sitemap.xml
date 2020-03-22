@@ -377,13 +377,13 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/blockchain/</loc>
+    <loc>https://blog.ipds.top/categories/blockchain/</loc>
     <lastmod>2020-01-22T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/categories/blockchain/</loc>
+    <loc>https://blog.ipds.top/tags/blockchain/</loc>
     <lastmod>2020-01-22T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -401,20 +401,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/cryptography/</loc>
-    <lastmod>2018-10-21T11:58:06+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ipds.top/categories/cryptography/</loc>
     <lastmod>2018-10-21T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/data/</loc>
-    <lastmod>2020-02-17T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/cryptography/</loc>
+    <lastmod>2018-10-21T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -425,8 +419,8 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/data-struct/</loc>
-    <lastmod>2018-02-21T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/data/</loc>
+    <lastmod>2020-02-17T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -437,8 +431,8 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/distributed/</loc>
-    <lastmod>2018-12-24T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/data-struct/</loc>
+    <lastmod>2018-02-21T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -449,14 +443,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/docker/</loc>
-    <lastmod>2019-03-09T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/distributed/</loc>
+    <lastmod>2018-12-24T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/economics/</loc>
-    <lastmod>2020-03-15T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/docker/</loc>
+    <lastmod>2019-03-09T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -467,8 +461,8 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/english/</loc>
-    <lastmod>2018-01-25T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/economics/</loc>
+    <lastmod>2020-03-15T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -479,8 +473,8 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/ethereum/</loc>
-    <lastmod>2018-05-15T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/english/</loc>
+    <lastmod>2018-01-25T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -491,8 +485,8 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/golang/</loc>
-    <lastmod>2019-09-06T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/ethereum/</loc>
+    <lastmod>2018-05-15T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -503,8 +497,8 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/internet/</loc>
-    <lastmod>2020-03-22T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/golang/</loc>
+    <lastmod>2019-09-06T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -515,8 +509,8 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/ipfs/</loc>
-    <lastmod>2018-06-21T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/internet/</loc>
+    <lastmod>2020-03-22T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -527,13 +521,19 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/kubernetes/</loc>
-    <lastmod>2019-03-09T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/ipfs/</loc>
+    <lastmod>2018-06-21T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.ipds.top/categories/kubernetes/</loc>
+    <lastmod>2019-03-09T11:58:06+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ipds.top/tags/kubernetes/</loc>
     <lastmod>2019-03-09T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -551,20 +551,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/python/</loc>
-    <lastmod>2019-08-08T11:58:06+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ipds.top/categories/python/</loc>
     <lastmod>2019-08-08T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/rust/</loc>
-    <lastmod>2019-08-11T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/python/</loc>
+    <lastmod>2019-08-08T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -575,13 +569,19 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/sec/</loc>
-    <lastmod>2019-11-08T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/rust/</loc>
+    <lastmod>2019-08-11T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.ipds.top/categories/sec/</loc>
+    <lastmod>2019-11-08T11:58:06+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ipds.top/tags/sec/</loc>
     <lastmod>2019-11-08T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -599,13 +599,13 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/substrate/</loc>
+    <loc>https://blog.ipds.top/categories/substrate/</loc>
     <lastmod>2019-09-18T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/categories/substrate/</loc>
+    <loc>https://blog.ipds.top/tags/substrate/</loc>
     <lastmod>2019-09-18T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -617,20 +617,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/web/</loc>
-    <lastmod>2017-10-27T11:58:06+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ipds.top/categories/web/</loc>
     <lastmod>2017-10-27T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/%E5%95%86%E4%B8%9A/</loc>
-    <lastmod>2020-01-16T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/web/</loc>
+    <lastmod>2017-10-27T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -641,8 +635,8 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/%E6%88%90%E9%95%BF/</loc>
-    <lastmod>2020-03-08T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/%E5%95%86%E4%B8%9A/</loc>
+    <lastmod>2020-01-16T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -653,7 +647,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/</loc>
+    <loc>https://blog.ipds.top/tags/%E6%88%90%E9%95%BF/</loc>
     <lastmod>2020-03-08T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -665,14 +659,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/</loc>
-    <lastmod>2020-03-22T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2020-03-08T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/%E7%A0%94%E5%8F%91%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2018-12-05T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/</loc>
+    <lastmod>2020-03-22T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -683,13 +677,19 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2020-01-02T11:58:06+02:00</lastmod>
+    <loc>https://blog.ipds.top/tags/%E7%A0%94%E5%8F%91%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2018-12-05T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.ipds.top/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2020-01-02T11:58:06+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ipds.top/tags/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2020-01-02T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -701,13 +701,13 @@
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/tags/%E9%97%B2%E8%B0%88%E4%B9%B1%E6%89%AF/</loc>
+    <loc>https://blog.ipds.top/categories/%E9%97%B2%E8%B0%88%E4%B9%B1%E6%89%AF/</loc>
     <lastmod>2020-01-30T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.ipds.top/categories/%E9%97%B2%E8%B0%88%E4%B9%B1%E6%89%AF/</loc>
+    <loc>https://blog.ipds.top/tags/%E9%97%B2%E8%B0%88%E4%B9%B1%E6%89%AF/</loc>
     <lastmod>2020-01-30T11:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
