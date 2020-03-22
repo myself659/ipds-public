@@ -21,7 +21,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="说说私钥保护技术" />
-<meta property="og:description" content=" 前言 私钥在区块链系统中代表是什么？私钥是钱。钱包的本质就是私钥。谁控制了私钥谁就控制对应钱包的数字资产，谁丢失了私钥也就相当于丢了对应钱包的数字资产。
+<meta property="og:description" content="前言 私钥在区块链系统中代表是什么？私钥是钱。钱包的本质就是私钥。谁控制了私钥谁就控制对应钱包的数字资产，谁丢失了私钥也就相当于丢了对应钱包的数字资产。
 因此，在区块链系统中如何保护私钥一直都是重要的问题。
 保护私钥一直都要解决以下问题：
  用户体验 私钥备份与存储 私钥安全（攻击、泄漏、盗取）  私钥助记词化 私钥数学本质是一串数字：
@@ -30,8 +30,14 @@
 共用私钥 这里面的技术主要是BIP-44。在数字货币钱包里面得到应用， 避免每一个数字货币地址都要维护一个私钥。如果数字货币满足BIP-44规范， 就可以通过一个私钥来控制多个钱包。
 私钥隔离 用冷钱包来实现与网络隔离，避免私钥被盗取或泄漏。
 私钥分片 私钥分片主要采用Shamir&rsquo;s Secret Sharing技术。其技术原理如同藏宝图分成好几分份,这是多少电影与电视剧中出现的情节。
-参考  Shamir&rsquo;s Secret Sharing
- Divide and Manage Secret Data Securely With Shamir&rsquo;s Secret Sharing zeropass Threshold Signatures: The Future of Private Keys  " />
+原理：
+一个数学公式：y*y = a*x*x &#43; b * x &#43; c
+其中，c为私钥，当然中实际过程可以认为是保密的数据。 a，b这两个参数作为具体分片规则的描述。
+由上面公式可知，该公式对应一个双曲线。如果知道这个双曲线三个点的坐标，通过解方程组得出a，b，c的值。
+该技术有以下优点：
+ 该方案允许私钥拥有制定分片的规则。可以对同一个私钥采用不同的分片规则。拥有分片规则制定权，可以对分片对象加以管理，如添加分片，删除分片。 在没有不知道分片规则之下，通过任何一个分片都不能破解获取私钥。只有对应数量的分片在一起才能获取私钥和分片的规则。  具体应用如下：
+ 私钥等敏感数据分割保护 多方验证 数据分享  参考  Shamir&rsquo;s Secret Sharing
+ Divide and Manage Secret Data Securely With Shamir&rsquo;s Secret Sharing zeropass Threshold Signatures: The Future of Private Keys A beginner’s guide to Shamir’s Secret Sharing 私鑰分割 — Shamir’s Secret Sharing" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ipds.top/2018/10/21/%E8%AF%B4%E8%AF%B4%E7%A7%81%E9%92%A5%E4%BF%9D%E6%8A%A4%E6%8A%80%E6%9C%AF/" />
 <meta property="article:published_time" content="2018-10-21T11:58:06&#43;02:00"/>
@@ -40,7 +46,7 @@
     
     
 <meta itemprop="name" content="说说私钥保护技术">
-<meta itemprop="description" content=" 前言 私钥在区块链系统中代表是什么？私钥是钱。钱包的本质就是私钥。谁控制了私钥谁就控制对应钱包的数字资产，谁丢失了私钥也就相当于丢了对应钱包的数字资产。
+<meta itemprop="description" content="前言 私钥在区块链系统中代表是什么？私钥是钱。钱包的本质就是私钥。谁控制了私钥谁就控制对应钱包的数字资产，谁丢失了私钥也就相当于丢了对应钱包的数字资产。
 因此，在区块链系统中如何保护私钥一直都是重要的问题。
 保护私钥一直都要解决以下问题：
  用户体验 私钥备份与存储 私钥安全（攻击、泄漏、盗取）  私钥助记词化 私钥数学本质是一串数字：
@@ -49,13 +55,19 @@
 共用私钥 这里面的技术主要是BIP-44。在数字货币钱包里面得到应用， 避免每一个数字货币地址都要维护一个私钥。如果数字货币满足BIP-44规范， 就可以通过一个私钥来控制多个钱包。
 私钥隔离 用冷钱包来实现与网络隔离，避免私钥被盗取或泄漏。
 私钥分片 私钥分片主要采用Shamir&rsquo;s Secret Sharing技术。其技术原理如同藏宝图分成好几分份,这是多少电影与电视剧中出现的情节。
-参考  Shamir&rsquo;s Secret Sharing
- Divide and Manage Secret Data Securely With Shamir&rsquo;s Secret Sharing zeropass Threshold Signatures: The Future of Private Keys  ">
+原理：
+一个数学公式：y*y = a*x*x &#43; b * x &#43; c
+其中，c为私钥，当然中实际过程可以认为是保密的数据。 a，b这两个参数作为具体分片规则的描述。
+由上面公式可知，该公式对应一个双曲线。如果知道这个双曲线三个点的坐标，通过解方程组得出a，b，c的值。
+该技术有以下优点：
+ 该方案允许私钥拥有制定分片的规则。可以对同一个私钥采用不同的分片规则。拥有分片规则制定权，可以对分片对象加以管理，如添加分片，删除分片。 在没有不知道分片规则之下，通过任何一个分片都不能破解获取私钥。只有对应数量的分片在一起才能获取私钥和分片的规则。  具体应用如下：
+ 私钥等敏感数据分割保护 多方验证 数据分享  参考  Shamir&rsquo;s Secret Sharing
+ Divide and Manage Secret Data Securely With Shamir&rsquo;s Secret Sharing zeropass Threshold Signatures: The Future of Private Keys A beginner’s guide to Shamir’s Secret Sharing 私鑰分割 — Shamir’s Secret Sharing">
 
 
 <meta itemprop="datePublished" content="2018-10-21T11:58:06&#43;02:00" />
 <meta itemprop="dateModified" content="2018-10-21T11:58:06&#43;02:00" />
-<meta itemprop="wordCount" content="45">
+<meta itemprop="wordCount" content="77">
 
 
 
@@ -63,7 +75,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="说说私钥保护技术"/>
-<meta name="twitter:description" content=" 前言 私钥在区块链系统中代表是什么？私钥是钱。钱包的本质就是私钥。谁控制了私钥谁就控制对应钱包的数字资产，谁丢失了私钥也就相当于丢了对应钱包的数字资产。
+<meta name="twitter:description" content="前言 私钥在区块链系统中代表是什么？私钥是钱。钱包的本质就是私钥。谁控制了私钥谁就控制对应钱包的数字资产，谁丢失了私钥也就相当于丢了对应钱包的数字资产。
 因此，在区块链系统中如何保护私钥一直都是重要的问题。
 保护私钥一直都要解决以下问题：
  用户体验 私钥备份与存储 私钥安全（攻击、泄漏、盗取）  私钥助记词化 私钥数学本质是一串数字：
@@ -72,8 +84,14 @@
 共用私钥 这里面的技术主要是BIP-44。在数字货币钱包里面得到应用， 避免每一个数字货币地址都要维护一个私钥。如果数字货币满足BIP-44规范， 就可以通过一个私钥来控制多个钱包。
 私钥隔离 用冷钱包来实现与网络隔离，避免私钥被盗取或泄漏。
 私钥分片 私钥分片主要采用Shamir&rsquo;s Secret Sharing技术。其技术原理如同藏宝图分成好几分份,这是多少电影与电视剧中出现的情节。
-参考  Shamir&rsquo;s Secret Sharing
- Divide and Manage Secret Data Securely With Shamir&rsquo;s Secret Sharing zeropass Threshold Signatures: The Future of Private Keys  "/>
+原理：
+一个数学公式：y*y = a*x*x &#43; b * x &#43; c
+其中，c为私钥，当然中实际过程可以认为是保密的数据。 a，b这两个参数作为具体分片规则的描述。
+由上面公式可知，该公式对应一个双曲线。如果知道这个双曲线三个点的坐标，通过解方程组得出a，b，c的值。
+该技术有以下优点：
+ 该方案允许私钥拥有制定分片的规则。可以对同一个私钥采用不同的分片规则。拥有分片规则制定权，可以对分片对象加以管理，如添加分片，删除分片。 在没有不知道分片规则之下，通过任何一个分片都不能破解获取私钥。只有对应数量的分片在一起才能获取私钥和分片的规则。  具体应用如下：
+ 私钥等敏感数据分割保护 多方验证 数据分享  参考  Shamir&rsquo;s Secret Sharing
+ Divide and Manage Secret Data Securely With Shamir&rsquo;s Secret Sharing zeropass Threshold Signatures: The Future of Private Keys A beginner’s guide to Shamir’s Secret Sharing 私鑰分割 — Shamir’s Secret Sharing"/>
 
     
 
@@ -226,7 +244,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        72
+        73
         <span>Posts</span>
       </div>
       <div class="article-info-block">
@@ -328,7 +346,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2018-10-21 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2018-10-21</time>
             &middot;
-            45
+            77
             words
             &middot;
             1
@@ -411,6 +429,30 @@
 
 <p>私钥分片主要采用Shamir&rsquo;s Secret Sharing技术。其技术原理如同藏宝图分成好几分份,这是多少电影与电视剧中出现的情节。</p>
 
+<p>原理：</p>
+
+<p>一个数学公式：y*y = a*x*x + b * x + c</p>
+
+<p>其中，c为私钥，当然中实际过程可以认为是保密的数据。
+a，b这两个参数作为具体分片规则的描述。</p>
+
+<p>由上面公式可知，该公式对应一个双曲线。如果知道这个双曲线三个点的坐标，通过解方程组得出a，b，c的值。</p>
+
+<p>该技术有以下优点：</p>
+
+<ol>
+<li>该方案允许私钥拥有制定分片的规则。可以对同一个私钥采用不同的分片规则。拥有分片规则制定权，可以对分片对象加以管理，如添加分片，删除分片。</li>
+<li>在没有不知道分片规则之下，通过任何一个分片都不能破解获取私钥。只有对应数量的分片在一起才能获取私钥和分片的规则。</li>
+</ol>
+
+<p>具体应用如下：</p>
+
+<ol>
+<li>私钥等敏感数据分割保护</li>
+<li>多方验证</li>
+<li>数据分享</li>
+</ol>
+
 <h1 id="参考">参考</h1>
 
 <ol>
@@ -418,6 +460,8 @@
 <li><a href="https://kimh.github.io/blog/en/security/protect-your-secret-key-with-shamirs-secret-sharing/">Divide and Manage Secret Data Securely With Shamir&rsquo;s Secret Sharing</a></li>
 <li><a href="https://www.zeropass.io/">zeropass</a></li>
 <li><a href="https://www.kzencorp.com/post/threshold-signatures-private-key-the-next-generation">Threshold Signatures: The Future of Private Keys</a></li>
+<li><a href="https://medium.com/keylesstech/a-beginners-guide-to-shamir-s-secret-sharing-e864efbf3648">A beginner’s guide to Shamir’s Secret Sharing</a></li>
+<li><a href="https://medium.com/taipei-ethereum-meetup/%E7%A7%81%E9%91%B0%E5%88%86%E5%89%B2-shamirs-secret-sharing-7a70c8abf664">私鑰分割 — Shamir’s Secret Sharing</a><br /></li>
 </ol>
 
         </div>
@@ -575,6 +619,32 @@
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="https://blog.ipds.top/2020/03/22/%E5%87%8F%E5%B0%91%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE%E6%B3%84%E6%BC%8F%E7%9A%84%E5%87%A0%E7%82%B9%E5%BB%BA%E8%AE%AE/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://blog.ipds.top/categories/internet">
+                        Internet
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://blog.ipds.top/2020/03/22/%E5%87%8F%E5%B0%91%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE%E6%B3%84%E6%BC%8F%E7%9A%84%E5%87%A0%E7%82%B9%E5%BB%BA%E8%AE%AE/" class="title">减少个人隐私数据泄漏的几点建议</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-03-22 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2020-03-22</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="https://blog.ipds.top/2020/03/15/%E4%B8%80%E5%91%A8%E7%BB%8F%E5%8E%86%E4%B8%A4%E6%AC%A1%E7%86%94%E6%96%AD%E7%BE%8E%E8%82%A1%E4%BC%9A%E8%B7%8C%E5%A4%9A%E5%B0%91/" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
@@ -677,32 +747,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="https://blog.ipds.top/2020/02/06/%E6%8A%95%E8%B5%84%E7%BE%8E%E8%82%A1%E5%85%88%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E5%A7%8B/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="https://blog.ipds.top/categories/data">
-                        Data
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="https://blog.ipds.top/2020/02/06/%E6%8A%95%E8%B5%84%E7%BE%8E%E8%82%A1%E5%85%88%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E5%A7%8B/" class="title">投资美股，先从数据分析开始</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-02-06 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2020-02-06</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -793,7 +837,7 @@
                 <a class="category-list-link" href="https://blog.ipds.top/categories/internet">
                     internet
                 </a>
-                <span class="category-list-count">3</span>
+                <span class="category-list-count">4</span>
             </li>
             
             <li class="category-list-item">
@@ -1018,7 +1062,7 @@
                 <a class="category-list-link" href="https://blog.ipds.top/tags/internet">
                     internet
                 </a>
-                <span class="category-list-count">9</span>
+                <span class="category-list-count">10</span>
             </li>
             
             <li class="category-list-item">
@@ -1281,7 +1325,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2020
-      copyright@沉风网事 <a href="http://www.beian.miit.gov.cn/">浙ICP备19035943号</a>
+      copyright@沉风网事 <a href="http://www.beian.miit.gov.cn/">浙ICP备19035943号-2</a>
     </div>
   </div>
 </footer>
