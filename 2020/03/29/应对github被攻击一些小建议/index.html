@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>数字货币交易所安全体系-资产篇 &middot; 沉风网事</title>
+    <title>应对Github被攻击一些小建议 &middot; 沉风网事</title>
     <meta name="generator" content="Hugo 0.54.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,7 +10,7 @@
       <meta name="description" content="与爱相伴，与智慧共舞，创造属于自己的精彩！">
     
     
-    <link rel="canonical" href="https://blog.ipds.top/2018/10/19/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E4%BA%A4%E6%98%93%E6%89%80%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB-%E8%B5%84%E4%BA%A7%E7%AF%87/"/>
+    <link rel="canonical" href="https://blog.ipds.top/2020/03/29/%E5%BA%94%E5%AF%B9github%E8%A2%AB%E6%94%BB%E5%87%BB%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%BB%BA%E8%AE%AE/"/>
     <link rel="icon" href="https://blog.ipds.top/favicon.ico">
     <link rel="apple-touch-icon" href="https://blog.ipds.top/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://blog.ipds.top/css/style.css">
@@ -20,65 +20,68 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="数字货币交易所安全体系-资产篇" />
-<meta property="og:description" content="前面，简单介绍了数字货币交易所的安全体系，这一篇主要说说一下资产安全的一些要点。
-如果将一条公链比作一个银行的话，当然这个银行是去中心化银行，那个各个交易所的节点就相当于银行的网点。这个节点有以下功能：
- 帐本数据同步 用户资产托管 充币与提币  资产安全主要分为以下几个方面展开说明，具体如下：
-意识 意识，意识，意识！其实意识就是一种天赋，只是我们没有注意到吧。
-有些区块链的项目居然不知道私钥是何物。很多人会说这是不是搞技术不知道而已。 其实这是安全意识不到位。
-意识教育与培养一定要先行。
-帐本数据同步 帐本数据主要是节点数据同步，具体关注点如下：
- 节点连接节点的确认 避免站错队 分叉 重放攻击防护 孤块 网络分化 帐本同步节点故障，多节点备份  资产托管 资产托管的核心就是私钥，要点如下：
- 采用冷钱包管理私钥 热钱包管理策略（存活周期，资金金额控制，密钥管理） 私钥存储管理（多人多份多地） 多地址分散（不要把鸡蛋放在一个篮子里）  充币与提币 充币与提币都是有关托管资产的交易。
- 合理的交易确认数 充币提币的用户验证 交易的不确定性处理办法如交易得不到确认 分叉时关闭充提币功能  监控 资金动向监控也是不可或缺的，要点如下：
- 对首次提币地址及用户监控 保证监控的高可靠性 充币与提币数据分析 大额充提币的监控及确认  差异化 对于不同类型的资产需要具体问题具体分析。 如以太坊专门对基于智能合约的数字资产进行审计与防范，具体参考ERC20，这里不展开。
-后记 对于资产安全，有什么新的想法与意见，欢迎交流！
+    <meta property="og:title" content="应对Github被攻击一些小建议" />
+<meta property="og:description" content="2020年3月27日，全世界最大的同性交友网站github被攻击了，连正常的首页都打不开。
+Https并不是100%安全 github被攻击说明Https并不是100%安全，Https也有自己的阿喀琉斯之踵-Https证书。Https不能解决以下五种情况的攻击：
+ 证书颁发机构被入侵 破坏任何证书颁发机构附近的路由器 破坏证书颁发机构的递归DNS服务器 攻击网络协议如TCP或者BGP 证书颁发机构作恶，恶意修改与替换证书  这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。
+即然https并不是100%安全，那么怎么应对https证书攻击呢？
+发现网站Https证书被攻击 首先第一步发现网站Https证书被攻击。拿这次github被网站Https证书被攻击为例，github证书被攻击时，在chrome浏览品上访问github，会提示如下错误：
+从上图可以看出，不是通常HTTP的错误码，也不是超时错误，而是直接提示了证书错误。
+正常的Https证书是这样的：
+Https证书被攻击如何正常的访问github 由于github证书出现了问题，用户是无法解决的。那么怎么正常访问github呢？
+由于这类攻击往往具有地域性特点，如这次攻击大部分发生在国内，可以将本地的github访问流量通过代理导到其他没有受到攻击的地方，再由代理返回访问结果。科学上网就是属于这类方式。由于各种原因，这里不展开说明。
+如何解决go get不能正常工作 作为一名golang程序员，发现go get出现错误：
+出现上面的问题的原因同样是因为github网站的证书被攻击导致。解决方法是不走Https，走ssh下载github的代码库。在终端上进行如下配置即可：
+git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;  查看配置结果如下：
+$ cat ~/.gitconfig [user] email = myself659@163.com name = myself659 [url &quot;git@github.com:&quot;] insteadOf = https://github.com/  作了这些，程序员的基本工作没有受到影响。
 欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ipds.top/2018/10/19/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E4%BA%A4%E6%98%93%E6%89%80%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB-%E8%B5%84%E4%BA%A7%E7%AF%87/" />
-<meta property="article:published_time" content="2018-10-19T11:58:06&#43;02:00"/>
-<meta property="article:modified_time" content="2018-10-19T11:58:06&#43;02:00"/>
+<meta property="og:url" content="https://blog.ipds.top/2020/03/29/%E5%BA%94%E5%AF%B9github%E8%A2%AB%E6%94%BB%E5%87%BB%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%BB%BA%E8%AE%AE/" />
+<meta property="article:published_time" content="2020-03-29T11:58:06&#43;02:00"/>
+<meta property="article:modified_time" content="2020-03-29T11:58:06&#43;02:00"/>
 
     
     
-<meta itemprop="name" content="数字货币交易所安全体系-资产篇">
-<meta itemprop="description" content="前面，简单介绍了数字货币交易所的安全体系，这一篇主要说说一下资产安全的一些要点。
-如果将一条公链比作一个银行的话，当然这个银行是去中心化银行，那个各个交易所的节点就相当于银行的网点。这个节点有以下功能：
- 帐本数据同步 用户资产托管 充币与提币  资产安全主要分为以下几个方面展开说明，具体如下：
-意识 意识，意识，意识！其实意识就是一种天赋，只是我们没有注意到吧。
-有些区块链的项目居然不知道私钥是何物。很多人会说这是不是搞技术不知道而已。 其实这是安全意识不到位。
-意识教育与培养一定要先行。
-帐本数据同步 帐本数据主要是节点数据同步，具体关注点如下：
- 节点连接节点的确认 避免站错队 分叉 重放攻击防护 孤块 网络分化 帐本同步节点故障，多节点备份  资产托管 资产托管的核心就是私钥，要点如下：
- 采用冷钱包管理私钥 热钱包管理策略（存活周期，资金金额控制，密钥管理） 私钥存储管理（多人多份多地） 多地址分散（不要把鸡蛋放在一个篮子里）  充币与提币 充币与提币都是有关托管资产的交易。
- 合理的交易确认数 充币提币的用户验证 交易的不确定性处理办法如交易得不到确认 分叉时关闭充提币功能  监控 资金动向监控也是不可或缺的，要点如下：
- 对首次提币地址及用户监控 保证监控的高可靠性 充币与提币数据分析 大额充提币的监控及确认  差异化 对于不同类型的资产需要具体问题具体分析。 如以太坊专门对基于智能合约的数字资产进行审计与防范，具体参考ERC20，这里不展开。
-后记 对于资产安全，有什么新的想法与意见，欢迎交流！
+<meta itemprop="name" content="应对Github被攻击一些小建议">
+<meta itemprop="description" content="2020年3月27日，全世界最大的同性交友网站github被攻击了，连正常的首页都打不开。
+Https并不是100%安全 github被攻击说明Https并不是100%安全，Https也有自己的阿喀琉斯之踵-Https证书。Https不能解决以下五种情况的攻击：
+ 证书颁发机构被入侵 破坏任何证书颁发机构附近的路由器 破坏证书颁发机构的递归DNS服务器 攻击网络协议如TCP或者BGP 证书颁发机构作恶，恶意修改与替换证书  这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。
+即然https并不是100%安全，那么怎么应对https证书攻击呢？
+发现网站Https证书被攻击 首先第一步发现网站Https证书被攻击。拿这次github被网站Https证书被攻击为例，github证书被攻击时，在chrome浏览品上访问github，会提示如下错误：
+从上图可以看出，不是通常HTTP的错误码，也不是超时错误，而是直接提示了证书错误。
+正常的Https证书是这样的：
+Https证书被攻击如何正常的访问github 由于github证书出现了问题，用户是无法解决的。那么怎么正常访问github呢？
+由于这类攻击往往具有地域性特点，如这次攻击大部分发生在国内，可以将本地的github访问流量通过代理导到其他没有受到攻击的地方，再由代理返回访问结果。科学上网就是属于这类方式。由于各种原因，这里不展开说明。
+如何解决go get不能正常工作 作为一名golang程序员，发现go get出现错误：
+出现上面的问题的原因同样是因为github网站的证书被攻击导致。解决方法是不走Https，走ssh下载github的代码库。在终端上进行如下配置即可：
+git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;  查看配置结果如下：
+$ cat ~/.gitconfig [user] email = myself659@163.com name = myself659 [url &quot;git@github.com:&quot;] insteadOf = https://github.com/  作了这些，程序员的基本工作没有受到影响。
 欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)">
 
 
-<meta itemprop="datePublished" content="2018-10-19T11:58:06&#43;02:00" />
-<meta itemprop="dateModified" content="2018-10-19T11:58:06&#43;02:00" />
-<meta itemprop="wordCount" content="45">
+<meta itemprop="datePublished" content="2020-03-29T11:58:06&#43;02:00" />
+<meta itemprop="dateModified" content="2020-03-29T11:58:06&#43;02:00" />
+<meta itemprop="wordCount" content="46">
 
 
 
-<meta itemprop="keywords" content="BlockChain,Secure," />
+<meta itemprop="keywords" content="编程," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="数字货币交易所安全体系-资产篇"/>
-<meta name="twitter:description" content="前面，简单介绍了数字货币交易所的安全体系，这一篇主要说说一下资产安全的一些要点。
-如果将一条公链比作一个银行的话，当然这个银行是去中心化银行，那个各个交易所的节点就相当于银行的网点。这个节点有以下功能：
- 帐本数据同步 用户资产托管 充币与提币  资产安全主要分为以下几个方面展开说明，具体如下：
-意识 意识，意识，意识！其实意识就是一种天赋，只是我们没有注意到吧。
-有些区块链的项目居然不知道私钥是何物。很多人会说这是不是搞技术不知道而已。 其实这是安全意识不到位。
-意识教育与培养一定要先行。
-帐本数据同步 帐本数据主要是节点数据同步，具体关注点如下：
- 节点连接节点的确认 避免站错队 分叉 重放攻击防护 孤块 网络分化 帐本同步节点故障，多节点备份  资产托管 资产托管的核心就是私钥，要点如下：
- 采用冷钱包管理私钥 热钱包管理策略（存活周期，资金金额控制，密钥管理） 私钥存储管理（多人多份多地） 多地址分散（不要把鸡蛋放在一个篮子里）  充币与提币 充币与提币都是有关托管资产的交易。
- 合理的交易确认数 充币提币的用户验证 交易的不确定性处理办法如交易得不到确认 分叉时关闭充提币功能  监控 资金动向监控也是不可或缺的，要点如下：
- 对首次提币地址及用户监控 保证监控的高可靠性 充币与提币数据分析 大额充提币的监控及确认  差异化 对于不同类型的资产需要具体问题具体分析。 如以太坊专门对基于智能合约的数字资产进行审计与防范，具体参考ERC20，这里不展开。
-后记 对于资产安全，有什么新的想法与意见，欢迎交流！
+<meta name="twitter:title" content="应对Github被攻击一些小建议"/>
+<meta name="twitter:description" content="2020年3月27日，全世界最大的同性交友网站github被攻击了，连正常的首页都打不开。
+Https并不是100%安全 github被攻击说明Https并不是100%安全，Https也有自己的阿喀琉斯之踵-Https证书。Https不能解决以下五种情况的攻击：
+ 证书颁发机构被入侵 破坏任何证书颁发机构附近的路由器 破坏证书颁发机构的递归DNS服务器 攻击网络协议如TCP或者BGP 证书颁发机构作恶，恶意修改与替换证书  这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。
+即然https并不是100%安全，那么怎么应对https证书攻击呢？
+发现网站Https证书被攻击 首先第一步发现网站Https证书被攻击。拿这次github被网站Https证书被攻击为例，github证书被攻击时，在chrome浏览品上访问github，会提示如下错误：
+从上图可以看出，不是通常HTTP的错误码，也不是超时错误，而是直接提示了证书错误。
+正常的Https证书是这样的：
+Https证书被攻击如何正常的访问github 由于github证书出现了问题，用户是无法解决的。那么怎么正常访问github呢？
+由于这类攻击往往具有地域性特点，如这次攻击大部分发生在国内，可以将本地的github访问流量通过代理导到其他没有受到攻击的地方，再由代理返回访问结果。科学上网就是属于这类方式。由于各种原因，这里不展开说明。
+如何解决go get不能正常工作 作为一名golang程序员，发现go get出现错误：
+出现上面的问题的原因同样是因为github网站的证书被攻击导致。解决方法是不走Https，走ssh下载github的代码库。在终端上进行如下配置即可：
+git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;  查看配置结果如下：
+$ cat ~/.gitconfig [user] email = myself659@163.com name = myself659 [url &quot;git@github.com:&quot;] insteadOf = https://github.com/  作了这些，程序员的基本工作没有受到影响。
 欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)"/>
 
     
@@ -322,9 +325,9 @@
         
 
         <header class="article-header">
-    <a href="https://blog.ipds.top/2018/10/19/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E4%BA%A4%E6%98%93%E6%89%80%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB-%E8%B5%84%E4%BA%A7%E7%AF%87/">
+    <a href="https://blog.ipds.top/2020/03/29/%E5%BA%94%E5%AF%B9github%E8%A2%AB%E6%94%BB%E5%87%BB%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%BB%BA%E8%AE%AE/">
     <h1 class="article-title" itemprop="name">
-        数字货币交易所安全体系-资产篇
+        应对Github被攻击一些小建议
     </h1>
     </a>
     <div class="article-meta">
@@ -332,9 +335,9 @@
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2018-10-19 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2018-10-19</time>
+            <time datetime="2020-03-29 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2020-03-29</time>
             &middot;
-            45
+            46
             words
             &middot;
             1
@@ -348,7 +351,7 @@
                 <i class="fa fa-folder"></i>
                 
                 
-                <a class="article-category-link" href="https://blog.ipds.top/categories/blockchain">BlockChain</a>
+                <a class="article-category-link" href="https://blog.ipds.top/categories/%E7%BC%96%E7%A8%8B">编程</a>
                 
                 
             </div>
@@ -362,11 +365,7 @@
                 <i class="fa fa-tags"></i>
                 
                 
-                <a class="article-category-link" href="https://blog.ipds.top/tags/blockchain">BlockChain</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="https://blog.ipds.top/tags/secure">Secure</a>
+                <a class="article-category-link" href="https://blog.ipds.top/tags/%E7%BC%96%E7%A8%8B">编程</a>
                 
                 
             </div>
@@ -378,97 +377,86 @@
         <div class="article-entry" itemprop="articleBody">
             
 
-<p>前面，简单介绍了数字货币交易所的安全体系，这一篇主要说说一下资产安全的一些要点。</p>
+<p>2020年3月27日，全世界最大的同性交友网站github被攻击了，连正常的首页都打不开。</p>
 
-<p>如果将一条公链比作一个银行的话，当然这个银行是去中心化银行，那个各个交易所的节点就相当于银行的网点。这个节点有以下功能：</p>
+<p><img src="/images/sec/github-attack-timeline.jpg" alt="" /></p>
 
-<ol>
-<li>帐本数据同步</li>
-<li>用户资产托管</li>
-<li>充币与提币</li>
-</ol>
+<h1 id="https并不是100-安全">Https并不是100%安全</h1>
 
-<p>资产安全主要分为以下几个方面展开说明，具体如下：</p>
-
-<h2 id="意识">意识</h2>
-
-<p><strong>意识，意识，意识</strong>！其实意识就是一种天赋，只是我们没有注意到吧。</p>
-
-<p>有些区块链的项目居然不知道私钥是何物。很多人会说这是不是搞技术不知道而已。
-其实这是安全意识不到位。</p>
-
-<p>意识教育与培养一定要先行。</p>
-
-<h2 id="帐本数据同步">帐本数据同步</h2>
-
-<p>帐本数据主要是节点数据同步，具体关注点如下：</p>
+<p>github被攻击说明Https并不是100%安全，Https也有自己的阿喀琉斯之踵-Https证书。Https不能解决以下五种情况的攻击：</p>
 
 <ol>
-<li>节点连接节点的确认</li>
-<li>避免站错队</li>
-<li>分叉</li>
-<li>重放攻击防护</li>
-<li>孤块</li>
-<li>网络分化</li>
-<li>帐本同步节点故障，多节点备份</li>
+<li>证书颁发机构被入侵</li>
+<li>破坏任何证书颁发机构附近的路由器</li>
+<li>破坏证书颁发机构的递归DNS服务器</li>
+<li>攻击网络协议如TCP或者BGP</li>
+<li>证书颁发机构作恶，恶意修改与替换证书</li>
 </ol>
 
-<h2 id="资产托管">资产托管</h2>
+<p>这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。</p>
 
-<p>资产托管的核心就是私钥，要点如下：</p>
+<p>即然https并不是100%安全，那么怎么应对https证书攻击呢？</p>
 
-<ol>
-<li>采用冷钱包管理私钥</li>
-<li>热钱包管理策略（存活周期，资金金额控制，密钥管理）</li>
-<li>私钥存储管理（多人多份多地）</li>
-<li>多地址分散（不要把鸡蛋放在一个篮子里）</li>
-</ol>
+<h1 id="发现网站https证书被攻击">发现网站Https证书被攻击</h1>
 
-<h2 id="充币与提币">充币与提币</h2>
+<p>首先第一步发现网站Https证书被攻击。拿这次github被网站Https证书被攻击为例，github证书被攻击时，在chrome浏览品上访问github，会提示如下错误：</p>
 
-<p>充币与提币都是有关托管资产的交易。</p>
+<p><img src="/images/sec/github-attack-tip.png" alt="" /></p>
 
-<ol>
-<li>合理的交易确认数</li>
-<li>充币提币的用户验证</li>
-<li>交易的不确定性处理办法如交易得不到确认</li>
-<li>分叉时关闭充提币功能</li>
-</ol>
+<p>从上图可以看出，不是通常HTTP的错误码，也不是超时错误，而是直接提示了证书错误。</p>
 
-<h2 id="监控">监控</h2>
+<p>正常的Https证书是这样的：</p>
 
-<p>资金动向监控也是不可或缺的，要点如下：</p>
+<p><img src="/images/sec/github-ca.png" alt="" /></p>
 
-<ol>
-<li>对首次提币地址及用户监控</li>
-<li>保证监控的高可靠性</li>
-<li>充币与提币数据分析</li>
-<li>大额充提币的监控及确认</li>
-</ol>
+<h1 id="https证书被攻击如何正常的访问github">Https证书被攻击如何正常的访问github</h1>
 
-<h2 id="差异化">差异化</h2>
+<p>由于github证书出现了问题，用户是无法解决的。那么怎么正常访问github呢？</p>
 
-<p>对于不同类型的资产需要具体问题具体分析。
-如以太坊专门对基于智能合约的数字资产进行审计与防范，具体参考ERC20，这里不展开。</p>
+<p>由于这类攻击往往具有地域性特点，如这次攻击大部分发生在国内，可以将本地的github访问流量通过代理导到其他没有受到攻击的地方，再由代理返回访问结果。科学上网就是属于这类方式。由于各种原因，这里不展开说明。</p>
 
-<h1 id="后记">后记</h1>
+<h1 id="如何解决go-get不能正常工作">如何解决go get不能正常工作</h1>
 
-<p>对于资产安全，有什么新的想法与意见，欢迎交流！</p>
+<p>作为一名golang程序员，发现go get出现错误：</p>
 
-<h2 id="欢迎关注">欢迎关注</h2>
+<p><img src="/images/sec/github-ssh-goget.png" alt="" /></p>
+
+<p>出现上面的问题的原因同样是因为github网站的证书被攻击导致。解决方法是不走Https，走ssh下载github的代码库。在终端上进行如下配置即可：</p>
+
+<pre><code>git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;
+</code></pre>
+
+<p>查看配置结果如下：</p>
+
+<pre><code>$ cat  ~/.gitconfig
+[user]
+        email = myself659@163.com
+        name = myself659
+[url &quot;git@github.com:&quot;]
+        insteadOf = https://github.com/
+</code></pre>
+
+<p>作了这些，程序员的基本工作没有受到影响。</p>
+
+<h1 id="欢迎关注">欢迎关注</h1>
 
 <p>欢迎关注微信公众帐号：沉风网事(savewind)</p>
 
 <p><img src="/images/cfws.jpg" alt="沉风网事" /></p>
 
+<!-- # 参考 
+
+1. [一些网站https证书出现问题的情况分析](https://blog.netlab.360.com/ongoing-websites-hijacking/)
+2. [How HTTPS Works to Keep You Secure 🔐 and How it Differs From HTTP](https://love2dev.com/blog/how-https-works/) -->
+
         </div>
         <footer class="article-footer">
-    <a data-url="https://blog.ipds.top/2018/10/19/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E4%BA%A4%E6%98%93%E6%89%80%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB-%E8%B5%84%E4%BA%A7%E7%AF%87/" data-id="a166fcd401aabbfb12b63d28a2c988f1" class="article-share-link">
+    <a data-url="https://blog.ipds.top/2020/03/29/%E5%BA%94%E5%AF%B9github%E8%A2%AB%E6%94%BB%E5%87%BB%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%BB%BA%E8%AE%AE/" data-id="0c24a9077511a99daf04203dc8c1f49e" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://blog.ipds.top/2018/10/19/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81%E4%BA%A4%E6%98%93%E6%89%80%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB-%E8%B5%84%E4%BA%A7%E7%AF%87/#disqus_thread" class="article-comment-link">
+    <a href="https://blog.ipds.top/2020/03/29/%E5%BA%94%E5%AF%B9github%E8%A2%AB%E6%94%BB%E5%87%BB%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%BB%BA%E8%AE%AE/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -544,21 +532,14 @@
     
 <nav id="article-nav">
     
-    <a href="https://blog.ipds.top/2018/10/17/%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BA%94%E7%94%A8prometheus%E7%9B%91%E6%8E%A7kubernetes%E9%9B%86%E7%BE%A4/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="https://blog.ipds.top/2020/03/22/%E6%8F%90%E9%AB%98%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E7%9A%84%E5%87%A0%E7%82%B9%E5%BB%BA%E8%AE%AE/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Older
       </strong>
-      <div class="article-nav-title">安装与应用Prometheus监控Kubernetes集群</div>
+      <div class="article-nav-title">提高个人隐私数据安全的几点建议</div>
     </a>
     
 
-    
-    <a href="https://blog.ipds.top/2018/10/21/%E8%AF%B4%E8%AF%B4%E7%A7%81%E9%92%A5%E4%BF%9D%E6%8A%A4%E6%8A%80%E6%9C%AF/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-          Newer
-      </strong>
-      <div class="article-nav-title">说说私钥保护技术</div>
-    </a>
     
 </nav>
 

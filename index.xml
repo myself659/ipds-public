@@ -6,10 +6,32 @@
     <description>Recent content on 沉风网事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 22 Mar 2020 11:58:06 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2020 11:58:06 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.ipds.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>应对Github被攻击一些小建议</title>
+      <link>https://blog.ipds.top/2020/03/29/%E5%BA%94%E5%AF%B9github%E8%A2%AB%E6%94%BB%E5%87%BB%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%BB%BA%E8%AE%AE/</link>
+      <pubDate>Sun, 29 Mar 2020 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2020/03/29/%E5%BA%94%E5%AF%B9github%E8%A2%AB%E6%94%BB%E5%87%BB%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%BB%BA%E8%AE%AE/</guid>
+      <description>2020年3月27日，全世界最大的同性交友网站github被攻击了，连正常的首页都打不开。
+Https并不是100%安全 github被攻击说明Https并不是100%安全，Https也有自己的阿喀琉斯之踵-Https证书。Https不能解决以下五种情况的攻击：
+ 证书颁发机构被入侵 破坏任何证书颁发机构附近的路由器 破坏证书颁发机构的递归DNS服务器 攻击网络协议如TCP或者BGP 证书颁发机构作恶，恶意修改与替换证书  这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。
+即然https并不是100%安全，那么怎么应对https证书攻击呢？
+发现网站Https证书被攻击 首先第一步发现网站Https证书被攻击。拿这次github被网站Https证书被攻击为例，github证书被攻击时，在chrome浏览品上访问github，会提示如下错误：
+从上图可以看出，不是通常HTTP的错误码，也不是超时错误，而是直接提示了证书错误。
+正常的Https证书是这样的：
+Https证书被攻击如何正常的访问github 由于github证书出现了问题，用户是无法解决的。那么怎么正常访问github呢？
+由于这类攻击往往具有地域性特点，如这次攻击大部分发生在国内，可以将本地的github访问流量通过代理导到其他没有受到攻击的地方，再由代理返回访问结果。科学上网就是属于这类方式。由于各种原因，这里不展开说明。
+如何解决go get不能正常工作 作为一名golang程序员，发现go get出现错误：
+出现上面的问题的原因同样是因为github网站的证书被攻击导致。解决方法是不走Https，走ssh下载github的代码库。在终端上进行如下配置即可：
+git config --global url.&amp;quot;git@github.com:&amp;quot;.insteadOf &amp;quot;https://github.com/&amp;quot;  查看配置结果如下：
+$ cat ~/.gitconfig [user] email = myself659@163.com name = myself659 [url &amp;quot;git@github.com:&amp;quot;] insteadOf = https://github.com/  作了这些，程序员的基本工作没有受到影响。
+欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
+    </item>
     
     <item>
       <title>提高个人隐私数据安全的几点建议</title>
