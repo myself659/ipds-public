@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>投资美股，先从数据分析开始 &middot; 沉风网事</title>
+    <title>github被攻击，程序员该怎么办 &middot; 沉风网事</title>
     <meta name="generator" content="Hugo 0.54.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,7 +10,7 @@
       <meta name="description" content="与爱相伴，与智慧共舞，创造属于自己的精彩！">
     
     
-    <link rel="canonical" href="https://blog.ipds.top/2020/02/06/%E6%8A%95%E8%B5%84%E7%BE%8E%E8%82%A1%E5%85%88%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E5%A7%8B/"/>
+    <link rel="canonical" href="https://blog.ipds.top/2020/03/29/github%E8%A2%AB%E6%94%BB%E5%87%BB%E7%A8%8B%E5%BA%8F%E5%91%98%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E/"/>
     <link rel="icon" href="https://blog.ipds.top/favicon.ico">
     <link rel="apple-touch-icon" href="https://blog.ipds.top/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://blog.ipds.top/css/style.css">
@@ -20,63 +20,69 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="投资美股，先从数据分析开始" />
-<meta property="og:description" content="背景 川大爷，常在twitter上吆喝美股多次创造历史高点。美股确实是一个资产配置的重要选项。
-在进入市场之前，研究先行，作好功课。
-获取数据 对于一个公司的股票的研究与分析有多个方面。这里只看股票的数据情况。 既然是分析数据，那么如何获取获取呢？
-这个问题可以拆为以下问题：
- 从哪里找数据？ 如何得到这些数据？  先从第一个问题开始：从哪里找数据？美股的数据来源来很多，这里我直接选择了yahoo财经数据。 主要原因如下：
- yahoo财经数据详细 yahoo财经可以直接通过api获取，使用方便 最重要地一点，yahoo财经的api没有被墙，如果被墙了，也支持代理 yahoo财经数据实时性也不错，除了交易日当天的数据无法获取，其他的都可以获取  下面我们就看如何调用api获取数据。不多说了，直接上代码。
-import pandas as pd import yfinance as yf tsla_df = yf.download(&#39;TSLA&#39;, start=&#39;2020-01-01&#39;, end=&#39;2020-02-06&#39;, progress=False) tsla_df.tail()  具体结果如下：
-获取ticker数据：
-%matplotlib notebook ticker = yf.Ticker(&#39;TSLA&#39;) tsla_df = ticker.history(period=&quot;max&quot;) tsla_df.head() tsla_df[&#39;Close&#39;].plot(title=&quot;Telsa&#39;s stock price&quot;)  具体结果如下：
-这些数据都可以股票软件都可以看到。 对的，下面说一下通过api获取原始数据的好处。
-灵活地获取ticker数据：
-%matplotlib notebook tsla_df = yf.download(&quot;TSLA&quot;, start=&quot;2020-02-01&quot;, end=&quot;2020-02-06&quot;, interval = &quot;15m&quot;) tsla_df[&#39;Close&#39;].plot(title=&quot;TSLA FROM 2020-02-01 TO 2020-02-06 &quot;)  具体结果如下： 股票对比分析：" />
+    <meta property="og:title" content="github被攻击，程序员该怎么办" />
+<meta property="og:description" content="2020年3月27日，全世界最大的同性交友网站github被攻击了，连正常的首页都打不开。
+Https并不是100%安全 github被攻击说明Https并不是100%安全，Https也有自己的阿喀琉斯之踵-Https证书。Https不能解决以下五种情况的攻击：
+ 证书颁发机构被入侵 攻击任何证书颁发机构附近的路由器 攻击证书颁发机构的递归DNS服务器 攻击网络协议如TCP或者BGP 证书颁发机构作恶，恶意修改与替换证书  这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。
+即然https并不是100%安全，那么怎么应对https证书攻击呢？
+发现网站Https证书被攻击 首先第一步发现网站Https证书被攻击。拿这次github被网站Https证书被攻击为例，github证书被攻击时，在chrome浏览品上访问github，会提示如下错误：
+从上图可以看出，不是通常HTTP的错误码，也不是超时错误，而是直接提示了证书错误。
+正常的Https证书是这样的：
+Https证书被攻击如何正常的访问github 由于github证书出现了问题，用户是无法解决的。那么怎么正常访问github呢？
+由于这类攻击往往具有地域性特点，如这次攻击大部分发生在国内，可以将本地的github访问流量通过代理导到其他没有受到攻击的地方，再由代理返回访问结果。科学上网就是属于这类方式。由于各种原因，这里不展开说明。
+如何解决go get不能正常工作 作为一名golang程序员，发现go get出现错误：
+出现上面的问题的原因同样是因为github网站的证书被攻击导致。解决方法是不走Https，走ssh下载github的代码库。在终端上进行如下配置即可：
+git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;  查看配置结果如下：
+$ cat ~/.gitconfig [user] email = myself659@163.com name = myself659 [url &quot;git@github.com:&quot;] insteadOf = https://github.com/  小结 Https证书虽然被攻击，但是互联网有去中心化特点，可以改变网络访问路径来避免问题。 Https证书被攻击，影响是http协议，可以换成ssh协议来解决git下载的问题。 总之，遇到问题对症下药，也要跳出框架，think out the box，从另一个角度或层次来解决问题。
+欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ipds.top/2020/02/06/%E6%8A%95%E8%B5%84%E7%BE%8E%E8%82%A1%E5%85%88%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E5%A7%8B/" />
-<meta property="article:published_time" content="2020-02-06T11:58:06&#43;02:00"/>
-<meta property="article:modified_time" content="2020-02-06T11:58:06&#43;02:00"/>
+<meta property="og:url" content="https://blog.ipds.top/2020/03/29/github%E8%A2%AB%E6%94%BB%E5%87%BB%E7%A8%8B%E5%BA%8F%E5%91%98%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E/" />
+<meta property="article:published_time" content="2020-03-29T11:58:06&#43;02:00"/>
+<meta property="article:modified_time" content="2020-03-29T11:58:06&#43;02:00"/>
 
     
     
-<meta itemprop="name" content="投资美股，先从数据分析开始">
-<meta itemprop="description" content="背景 川大爷，常在twitter上吆喝美股多次创造历史高点。美股确实是一个资产配置的重要选项。
-在进入市场之前，研究先行，作好功课。
-获取数据 对于一个公司的股票的研究与分析有多个方面。这里只看股票的数据情况。 既然是分析数据，那么如何获取获取呢？
-这个问题可以拆为以下问题：
- 从哪里找数据？ 如何得到这些数据？  先从第一个问题开始：从哪里找数据？美股的数据来源来很多，这里我直接选择了yahoo财经数据。 主要原因如下：
- yahoo财经数据详细 yahoo财经可以直接通过api获取，使用方便 最重要地一点，yahoo财经的api没有被墙，如果被墙了，也支持代理 yahoo财经数据实时性也不错，除了交易日当天的数据无法获取，其他的都可以获取  下面我们就看如何调用api获取数据。不多说了，直接上代码。
-import pandas as pd import yfinance as yf tsla_df = yf.download(&#39;TSLA&#39;, start=&#39;2020-01-01&#39;, end=&#39;2020-02-06&#39;, progress=False) tsla_df.tail()  具体结果如下：
-获取ticker数据：
-%matplotlib notebook ticker = yf.Ticker(&#39;TSLA&#39;) tsla_df = ticker.history(period=&quot;max&quot;) tsla_df.head() tsla_df[&#39;Close&#39;].plot(title=&quot;Telsa&#39;s stock price&quot;)  具体结果如下：
-这些数据都可以股票软件都可以看到。 对的，下面说一下通过api获取原始数据的好处。
-灵活地获取ticker数据：
-%matplotlib notebook tsla_df = yf.download(&quot;TSLA&quot;, start=&quot;2020-02-01&quot;, end=&quot;2020-02-06&quot;, interval = &quot;15m&quot;) tsla_df[&#39;Close&#39;].plot(title=&quot;TSLA FROM 2020-02-01 TO 2020-02-06 &quot;)  具体结果如下： 股票对比分析：">
+<meta itemprop="name" content="github被攻击，程序员该怎么办">
+<meta itemprop="description" content="2020年3月27日，全世界最大的同性交友网站github被攻击了，连正常的首页都打不开。
+Https并不是100%安全 github被攻击说明Https并不是100%安全，Https也有自己的阿喀琉斯之踵-Https证书。Https不能解决以下五种情况的攻击：
+ 证书颁发机构被入侵 攻击任何证书颁发机构附近的路由器 攻击证书颁发机构的递归DNS服务器 攻击网络协议如TCP或者BGP 证书颁发机构作恶，恶意修改与替换证书  这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。
+即然https并不是100%安全，那么怎么应对https证书攻击呢？
+发现网站Https证书被攻击 首先第一步发现网站Https证书被攻击。拿这次github被网站Https证书被攻击为例，github证书被攻击时，在chrome浏览品上访问github，会提示如下错误：
+从上图可以看出，不是通常HTTP的错误码，也不是超时错误，而是直接提示了证书错误。
+正常的Https证书是这样的：
+Https证书被攻击如何正常的访问github 由于github证书出现了问题，用户是无法解决的。那么怎么正常访问github呢？
+由于这类攻击往往具有地域性特点，如这次攻击大部分发生在国内，可以将本地的github访问流量通过代理导到其他没有受到攻击的地方，再由代理返回访问结果。科学上网就是属于这类方式。由于各种原因，这里不展开说明。
+如何解决go get不能正常工作 作为一名golang程序员，发现go get出现错误：
+出现上面的问题的原因同样是因为github网站的证书被攻击导致。解决方法是不走Https，走ssh下载github的代码库。在终端上进行如下配置即可：
+git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;  查看配置结果如下：
+$ cat ~/.gitconfig [user] email = myself659@163.com name = myself659 [url &quot;git@github.com:&quot;] insteadOf = https://github.com/  小结 Https证书虽然被攻击，但是互联网有去中心化特点，可以改变网络访问路径来避免问题。 Https证书被攻击，影响是http协议，可以换成ssh协议来解决git下载的问题。 总之，遇到问题对症下药，也要跳出框架，think out the box，从另一个角度或层次来解决问题。
+欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)">
 
 
-<meta itemprop="datePublished" content="2020-02-06T11:58:06&#43;02:00" />
-<meta itemprop="dateModified" content="2020-02-06T11:58:06&#43;02:00" />
-<meta itemprop="wordCount" content="240">
+<meta itemprop="datePublished" content="2020-03-29T11:58:06&#43;02:00" />
+<meta itemprop="dateModified" content="2020-03-29T11:58:06&#43;02:00" />
+<meta itemprop="wordCount" content="52">
 
 
 
-<meta itemprop="keywords" content="Data," />
+<meta itemprop="keywords" content="编程," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="投资美股，先从数据分析开始"/>
-<meta name="twitter:description" content="背景 川大爷，常在twitter上吆喝美股多次创造历史高点。美股确实是一个资产配置的重要选项。
-在进入市场之前，研究先行，作好功课。
-获取数据 对于一个公司的股票的研究与分析有多个方面。这里只看股票的数据情况。 既然是分析数据，那么如何获取获取呢？
-这个问题可以拆为以下问题：
- 从哪里找数据？ 如何得到这些数据？  先从第一个问题开始：从哪里找数据？美股的数据来源来很多，这里我直接选择了yahoo财经数据。 主要原因如下：
- yahoo财经数据详细 yahoo财经可以直接通过api获取，使用方便 最重要地一点，yahoo财经的api没有被墙，如果被墙了，也支持代理 yahoo财经数据实时性也不错，除了交易日当天的数据无法获取，其他的都可以获取  下面我们就看如何调用api获取数据。不多说了，直接上代码。
-import pandas as pd import yfinance as yf tsla_df = yf.download(&#39;TSLA&#39;, start=&#39;2020-01-01&#39;, end=&#39;2020-02-06&#39;, progress=False) tsla_df.tail()  具体结果如下：
-获取ticker数据：
-%matplotlib notebook ticker = yf.Ticker(&#39;TSLA&#39;) tsla_df = ticker.history(period=&quot;max&quot;) tsla_df.head() tsla_df[&#39;Close&#39;].plot(title=&quot;Telsa&#39;s stock price&quot;)  具体结果如下：
-这些数据都可以股票软件都可以看到。 对的，下面说一下通过api获取原始数据的好处。
-灵活地获取ticker数据：
-%matplotlib notebook tsla_df = yf.download(&quot;TSLA&quot;, start=&quot;2020-02-01&quot;, end=&quot;2020-02-06&quot;, interval = &quot;15m&quot;) tsla_df[&#39;Close&#39;].plot(title=&quot;TSLA FROM 2020-02-01 TO 2020-02-06 &quot;)  具体结果如下： 股票对比分析："/>
+<meta name="twitter:title" content="github被攻击，程序员该怎么办"/>
+<meta name="twitter:description" content="2020年3月27日，全世界最大的同性交友网站github被攻击了，连正常的首页都打不开。
+Https并不是100%安全 github被攻击说明Https并不是100%安全，Https也有自己的阿喀琉斯之踵-Https证书。Https不能解决以下五种情况的攻击：
+ 证书颁发机构被入侵 攻击任何证书颁发机构附近的路由器 攻击证书颁发机构的递归DNS服务器 攻击网络协议如TCP或者BGP 证书颁发机构作恶，恶意修改与替换证书  这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。
+即然https并不是100%安全，那么怎么应对https证书攻击呢？
+发现网站Https证书被攻击 首先第一步发现网站Https证书被攻击。拿这次github被网站Https证书被攻击为例，github证书被攻击时，在chrome浏览品上访问github，会提示如下错误：
+从上图可以看出，不是通常HTTP的错误码，也不是超时错误，而是直接提示了证书错误。
+正常的Https证书是这样的：
+Https证书被攻击如何正常的访问github 由于github证书出现了问题，用户是无法解决的。那么怎么正常访问github呢？
+由于这类攻击往往具有地域性特点，如这次攻击大部分发生在国内，可以将本地的github访问流量通过代理导到其他没有受到攻击的地方，再由代理返回访问结果。科学上网就是属于这类方式。由于各种原因，这里不展开说明。
+如何解决go get不能正常工作 作为一名golang程序员，发现go get出现错误：
+出现上面的问题的原因同样是因为github网站的证书被攻击导致。解决方法是不走Https，走ssh下载github的代码库。在终端上进行如下配置即可：
+git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;  查看配置结果如下：
+$ cat ~/.gitconfig [user] email = myself659@163.com name = myself659 [url &quot;git@github.com:&quot;] insteadOf = https://github.com/  小结 Https证书虽然被攻击，但是互联网有去中心化特点，可以改变网络访问路径来避免问题。 Https证书被攻击，影响是http协议，可以换成ssh协议来解决git下载的问题。 总之，遇到问题对症下药，也要跳出框架，think out the box，从另一个角度或层次来解决问题。
+欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)"/>
 
     
 
@@ -319,9 +325,9 @@ import pandas as pd import yfinance as yf tsla_df = yf.download(&#39;TSLA&#39;, 
         
 
         <header class="article-header">
-    <a href="https://blog.ipds.top/2020/02/06/%E6%8A%95%E8%B5%84%E7%BE%8E%E8%82%A1%E5%85%88%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E5%A7%8B/">
+    <a href="https://blog.ipds.top/2020/03/29/github%E8%A2%AB%E6%94%BB%E5%87%BB%E7%A8%8B%E5%BA%8F%E5%91%98%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E/">
     <h1 class="article-title" itemprop="name">
-        投资美股，先从数据分析开始
+        github被攻击，程序员该怎么办
     </h1>
     </a>
     <div class="article-meta">
@@ -329,12 +335,12 @@ import pandas as pd import yfinance as yf tsla_df = yf.download(&#39;TSLA&#39;, 
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2020-02-06 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2020-02-06</time>
+            <time datetime="2020-03-29 11:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2020-03-29</time>
             &middot;
-            240
+            52
             words
             &middot;
-            2
+            1
             minute read
         </div>
         
@@ -345,7 +351,7 @@ import pandas as pd import yfinance as yf tsla_df = yf.download(&#39;TSLA&#39;, 
                 <i class="fa fa-folder"></i>
                 
                 
-                <a class="article-category-link" href="https://blog.ipds.top/categories/data">Data</a>
+                <a class="article-category-link" href="https://blog.ipds.top/categories/%E7%BC%96%E7%A8%8B">编程</a>
                 
                 
             </div>
@@ -359,7 +365,7 @@ import pandas as pd import yfinance as yf tsla_df = yf.download(&#39;TSLA&#39;, 
                 <i class="fa fa-tags"></i>
                 
                 
-                <a class="article-category-link" href="https://blog.ipds.top/tags/data">Data</a>
+                <a class="article-category-link" href="https://blog.ipds.top/tags/%E7%BC%96%E7%A8%8B">编程</a>
                 
                 
             </div>
@@ -371,138 +377,70 @@ import pandas as pd import yfinance as yf tsla_df = yf.download(&#39;TSLA&#39;, 
         <div class="article-entry" itemprop="articleBody">
             
 
-<!-- TELSA股票数据分析  -->
+<p>2020年3月27日，全世界最大的同性交友网站github被攻击了，连正常的首页都打不开。</p>
 
-<h1 id="背景">背景</h1>
+<p><img src="/images/sec/github-attack-timeline.jpg" alt="" /></p>
 
-<p>川大爷，常在twitter上吆喝美股多次创造历史高点。美股确实是一个资产配置的重要选项。</p>
+<h1 id="https并不是100-安全">Https并不是100%安全</h1>
 
-<p>在进入市场之前，研究先行，作好功课。</p>
-
-<h1 id="获取数据">获取数据</h1>
-
-<p>对于一个公司的股票的研究与分析有多个方面。这里只看股票的数据情况。 既然是分析数据，那么如何获取获取呢？</p>
-
-<p>这个问题可以拆为以下问题：</p>
+<p>github被攻击说明Https并不是100%安全，Https也有自己的阿喀琉斯之踵-Https证书。Https不能解决以下五种情况的攻击：</p>
 
 <ol>
-<li>从哪里找数据？</li>
-<li>如何得到这些数据？</li>
+<li>证书颁发机构被入侵</li>
+<li>攻击任何证书颁发机构附近的路由器</li>
+<li>攻击证书颁发机构的递归DNS服务器</li>
+<li>攻击网络协议如TCP或者BGP</li>
+<li>证书颁发机构作恶，恶意修改与替换证书</li>
 </ol>
 
-<p>先从第一个问题开始：从哪里找数据？美股的数据来源来很多，这里我直接选择了yahoo财经数据。
-主要原因如下：</p>
+<p>这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。</p>
 
-<ol>
-<li>yahoo财经数据详细</li>
-<li>yahoo财经可以直接通过api获取，使用方便</li>
-<li>最重要地一点，yahoo财经的api没有被墙，如果被墙了，也支持代理</li>
-<li>yahoo财经数据实时性也不错，除了交易日当天的数据无法获取，其他的都可以获取</li>
-</ol>
+<p>即然https并不是100%安全，那么怎么应对https证书攻击呢？</p>
 
-<p>下面我们就看如何调用api获取数据。不多说了，直接上代码。</p>
+<h1 id="发现网站https证书被攻击">发现网站Https证书被攻击</h1>
 
-<pre><code>import pandas as pd
-import yfinance as yf
+<p>首先第一步发现网站Https证书被攻击。拿这次github被网站Https证书被攻击为例，github证书被攻击时，在chrome浏览品上访问github，会提示如下错误：</p>
 
-tsla_df = yf.download('TSLA', 
-                      start='2020-01-01', 
-                      end='2020-02-06', 
-                      progress=False)
+<p><img src="/images/sec/github-attack-tip.png" alt="" /></p>
 
-tsla_df.tail()
+<p>从上图可以看出，不是通常HTTP的错误码，也不是超时错误，而是直接提示了证书错误。</p>
+
+<p>正常的Https证书是这样的：</p>
+
+<p><img src="/images/sec/github-ca.png" alt="" /></p>
+
+<h1 id="https证书被攻击如何正常的访问github">Https证书被攻击如何正常的访问github</h1>
+
+<p>由于github证书出现了问题，用户是无法解决的。那么怎么正常访问github呢？</p>
+
+<p>由于这类攻击往往具有地域性特点，如这次攻击大部分发生在国内，可以将本地的github访问流量通过代理导到其他没有受到攻击的地方，再由代理返回访问结果。科学上网就是属于这类方式。由于各种原因，这里不展开说明。</p>
+
+<h1 id="如何解决go-get不能正常工作">如何解决go get不能正常工作</h1>
+
+<p>作为一名golang程序员，发现go get出现错误：</p>
+
+<p><img src="/images/sec/github-http-goget.png" alt="" /></p>
+
+<p>出现上面的问题的原因同样是因为github网站的证书被攻击导致。解决方法是不走Https，走ssh下载github的代码库。在终端上进行如下配置即可：</p>
+
+<pre><code>git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;
 </code></pre>
 
-<p>具体结果如下：</p>
+<p>查看配置结果如下：</p>
 
-<p><img src="/images/economy/stock-telsa1.png" alt="" /></p>
-
-<p>获取ticker数据：</p>
-
-<pre><code>%matplotlib notebook
-ticker = yf.Ticker('TSLA')
-
-tsla_df = ticker.history(period=&quot;max&quot;)
-tsla_df.head()
-tsla_df['Close'].plot(title=&quot;Telsa's stock price&quot;)
+<pre><code>$ cat  ~/.gitconfig
+[user]
+        email = myself659@163.com
+        name = myself659
+[url &quot;git@github.com:&quot;]
+        insteadOf = https://github.com/
 </code></pre>
 
-<p>具体结果如下：</p>
+<h1 id="小结">小结</h1>
 
-<p><img src="/images/economy/stock-telsa-max.png" alt="" /></p>
-
-<p>这些数据都可以股票软件都可以看到。
-对的，下面说一下通过api获取原始数据的好处。</p>
-
-<p>灵活地获取ticker数据：</p>
-
-<pre><code>%matplotlib notebook
-tsla_df = yf.download(&quot;TSLA&quot;, start=&quot;2020-02-01&quot;, end=&quot;2020-02-06&quot;, interval = &quot;15m&quot;)
-tsla_df['Close'].plot(title=&quot;TSLA FROM  2020-02-01 TO 2020-02-06 &quot;)
-</code></pre>
-
-<p>具体结果如下：
-<img src="/images/economy/stock-telsa-timerange.png" alt="" /></p>
-
-<p>股票对比分析：</p>
-
-<pre><code>
-from plotly.offline import download_plotlyjs, init_notebook_mode, iplot
-
-import numpy as np
-import cufflinks as cf
-
-data_tam = yf.download(  # or pdr.get_data_yahoo(...
-        # tickers list or string as well
-        tickers = &quot;TSLA AAPL MSFT&quot;,
-
-        # use &quot;period&quot; instead of start/end
-        # valid periods: 1d,5d,1mo,3mo,6mo,1y,2y,5y,10y,ytd,max
-        # (optional, default is '1mo')
-        period = &quot;5y&quot;,
-
-        # fetch data by interval (including intraday if period &lt; 60 days)
-        # valid intervals: 1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo
-        # (optional, default is '1d')
-        interval = &quot;1wk&quot;,
-
-        # group by ticker (to access via data['SPY'])
-        # (optional, default is 'column')
-        group_by = 'ticker',
-
-        # adjust all OHLC automatically
-        # (optional, default is False)
-        auto_adjust = True,
-
-        # download pre/post regular market hours data
-        # (optional, default is False)
-        prepost = True,
-
-        # use threads for mass downloading? (True/False/Integer)
-        # (optional, default is True)
-        threads = True,
-
-        # proxy URL scheme use use when downloading?
-        # (optional, default is None)
-        proxy = None
-    )
-
-data_tam_close = data_tam.iloc[:, [3, 8, 13]]
-data_tam_close = data_tam_close.dropna()
-
-iplot(data_tam_close.iplot(asFigure=True, kind='line', title='TSLA VS MS VS APPLE', dimensions=(800,500)))
-
-</code></pre>
-
-<p>具体结果如下：</p>
-
-<p><img src="/images/economy/stock-telsa-ms-apple.png" alt="" /></p>
-
-<p>一眼可以看出在2020年前任何一个时间点买入telsa并持有是一个正确的选择，投资收益远超过了苹果与微软。</p>
-
-<h1 id="后记">后记</h1>
-
-<p>本文主要解决了如何获取美股交易数据的问题，对于这些数据的分析及预测后面再展开。</p>
+<p>Https证书虽然被攻击，但是互联网有去中心化特点，可以改变网络访问路径来避免问题。
+Https证书被攻击，影响是http协议，可以换成ssh协议来解决git下载的问题。
+总之，遇到问题对症下药，也要跳出框架，think out the box，从另一个角度或层次来解决问题。</p>
 
 <h1 id="欢迎关注">欢迎关注</h1>
 
@@ -510,37 +448,19 @@ iplot(data_tam_close.iplot(asFigure=True, kind='line', title='TSLA VS MS VS APPL
 
 <p><img src="/images/cfws.jpg" alt="沉风网事" /></p>
 
-<!-- 
-# 参考 
+<!-- # 参考 
 
-1. [Web Scraping Yahoo Finance](https://towardsdatascience.com/web-scraping-yahoo-finance-477fe3daa852)
-2. [How to Invest like a Data Scientist - Towards Data Science
-](https://towardsdatascience.com/how-to-invest-like-a-data-scientist-bada78787d57)
-3. [A comprehensive guide to downloading stock prices in Python](https://towardsdatascience.com/a-comprehensive-guide-to-downloading-stock-prices-in-python-2cd93ff821d4)
-4. [yfinance](https://github.com/ranaroussi/yfinance)
-5. [Tesla’s Stock Is Up 36% in Two Days. What’s Going On?](https://www.nytimes.com/2020/02/04/business/tesla-stock-price.html)
-6. [
-Creating Plotly Charts Directly from Pandas Data Frame](https://nbviewer.jupyter.org/github/pybokeh/jupyter_notebooks/blob/master/plotly/plotly_with_pandas.html)
-
-7. [Best 6 free and paid stock market APIs for 2020](https://towardsdatascience.com/best-free-and-paid-stock-market-apis-for-2020-11adb98e7023)
-8. [tencent quote](https://sg.finance.yahoo.com/quote/0700.HK/)
-9. [360 quoto](https://sg.finance.yahoo.com/quote/601360.SS) 
-10. [finnhub api](https://finnhub.io/docs/api#company-metrics)
-11. [Comparing the best free financial market data APIs](https://towardsdatascience.com/comparing-the-best-free-financial-market-data-apis-158ae73c16ba)
-12. [Impact of Coronavirus on Stock Prices](https://towardsdatascience.com/impact-of-coronavirus-on-stock-prices-41c108c1ec65)
-13. [Free Stock Data for Python Using Yahoo Finance API](https://towardsdatascience.com/free-stock-data-for-python-using-yahoo-finance-api-9dafd96cad2e)
-
-
--->
+1. [一些网站https证书出现问题的情况分析](https://blog.netlab.360.com/ongoing-websites-hijacking/)
+2. [How HTTPS Works to Keep You Secure 🔐 and How it Differs From HTTP](https://love2dev.com/blog/how-https-works/) -->
 
         </div>
         <footer class="article-footer">
-    <a data-url="https://blog.ipds.top/2020/02/06/%E6%8A%95%E8%B5%84%E7%BE%8E%E8%82%A1%E5%85%88%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E5%A7%8B/" data-id="2270fb7832b3b2cc2b4ffcfa2de7b6c5" class="article-share-link">
+    <a data-url="https://blog.ipds.top/2020/03/29/github%E8%A2%AB%E6%94%BB%E5%87%BB%E7%A8%8B%E5%BA%8F%E5%91%98%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E/" data-id="0c24a9077511a99daf04203dc8c1f49e" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://blog.ipds.top/2020/02/06/%E6%8A%95%E8%B5%84%E7%BE%8E%E8%82%A1%E5%85%88%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%80%E5%A7%8B/#disqus_thread" class="article-comment-link">
+    <a href="https://blog.ipds.top/2020/03/29/github%E8%A2%AB%E6%94%BB%E5%87%BB%E7%A8%8B%E5%BA%8F%E5%91%98%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -616,21 +536,14 @@ Creating Plotly Charts Directly from Pandas Data Frame](https://nbviewer.jupyter
     
 <nav id="article-nav">
     
-    <a href="https://blog.ipds.top/2020/01/30/%E8%AF%B4%E8%AF%B4%E6%88%91%E7%9C%BC%E4%B8%AD%E7%9A%84%E7%A7%91%E6%AF%94/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="https://blog.ipds.top/2020/03/22/%E6%8F%90%E9%AB%98%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E7%9A%84%E5%87%A0%E7%82%B9%E5%BB%BA%E8%AE%AE/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Older
       </strong>
-      <div class="article-nav-title">说说我眼中的科比</div>
+      <div class="article-nav-title">提高个人隐私数据安全的几点建议</div>
     </a>
     
 
-    
-    <a href="https://blog.ipds.top/2020/02/17/%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E9%A2%84%E6%B5%8B%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96%E9%9D%A0%E8%B0%B1%E5%90%97/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-          Newer
-      </strong>
-      <div class="article-nav-title">通过数据分析预测股票价格变化靠谱吗？</div>
-    </a>
     
 </nav>
 

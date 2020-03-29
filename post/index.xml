@@ -12,14 +12,14 @@
     
     
     <item>
-      <title>应对Github被攻击一些小建议</title>
-      <link>https://blog.ipds.top/2020/03/29/%E5%BA%94%E5%AF%B9github%E8%A2%AB%E6%94%BB%E5%87%BB%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%BB%BA%E8%AE%AE/</link>
+      <title>github被攻击，程序员该怎么办</title>
+      <link>https://blog.ipds.top/2020/03/29/github%E8%A2%AB%E6%94%BB%E5%87%BB%E7%A8%8B%E5%BA%8F%E5%91%98%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E/</link>
       <pubDate>Sun, 29 Mar 2020 11:58:06 +0200</pubDate>
       
-      <guid>https://blog.ipds.top/2020/03/29/%E5%BA%94%E5%AF%B9github%E8%A2%AB%E6%94%BB%E5%87%BB%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%BB%BA%E8%AE%AE/</guid>
+      <guid>https://blog.ipds.top/2020/03/29/github%E8%A2%AB%E6%94%BB%E5%87%BB%E7%A8%8B%E5%BA%8F%E5%91%98%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E/</guid>
       <description>2020年3月27日，全世界最大的同性交友网站github被攻击了，连正常的首页都打不开。
 Https并不是100%安全 github被攻击说明Https并不是100%安全，Https也有自己的阿喀琉斯之踵-Https证书。Https不能解决以下五种情况的攻击：
- 证书颁发机构被入侵 破坏任何证书颁发机构附近的路由器 破坏证书颁发机构的递归DNS服务器 攻击网络协议如TCP或者BGP 证书颁发机构作恶，恶意修改与替换证书  这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。
+ 证书颁发机构被入侵 攻击任何证书颁发机构附近的路由器 攻击证书颁发机构的递归DNS服务器 攻击网络协议如TCP或者BGP 证书颁发机构作恶，恶意修改与替换证书  这五种攻击方式不是攻击证书就是攻击证书的分发网络路径与协议。
 即然https并不是100%安全，那么怎么应对https证书攻击呢？
 发现网站Https证书被攻击 首先第一步发现网站Https证书被攻击。拿这次github被网站Https证书被攻击为例，github证书被攻击时，在chrome浏览品上访问github，会提示如下错误：
 从上图可以看出，不是通常HTTP的错误码，也不是超时错误，而是直接提示了证书错误。
@@ -29,7 +29,7 @@ Https证书被攻击如何正常的访问github 由于github证书出现了问�
 如何解决go get不能正常工作 作为一名golang程序员，发现go get出现错误：
 出现上面的问题的原因同样是因为github网站的证书被攻击导致。解决方法是不走Https，走ssh下载github的代码库。在终端上进行如下配置即可：
 git config --global url.&amp;quot;git@github.com:&amp;quot;.insteadOf &amp;quot;https://github.com/&amp;quot;  查看配置结果如下：
-$ cat ~/.gitconfig [user] email = myself659@163.com name = myself659 [url &amp;quot;git@github.com:&amp;quot;] insteadOf = https://github.com/  作了这些，程序员的基本工作没有受到影响。
+$ cat ~/.gitconfig [user] email = myself659@163.com name = myself659 [url &amp;quot;git@github.com:&amp;quot;] insteadOf = https://github.com/  小结 Https证书虽然被攻击，但是互联网有去中心化特点，可以改变网络访问路径来避免问题。 Https证书被攻击，影响是http协议，可以换成ssh协议来解决git下载的问题。 总之，遇到问题对症下药，也要跳出框架，think out the box，从另一个角度或层次来解决问题。
 欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
     </item>
     
