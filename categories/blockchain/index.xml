@@ -479,5 +479,30 @@ PS: 初学经济学，有不足与错误敬请指正。
 参考  bitcoin源码 bitcoinABC wiki developer-documentation  </description>
     </item>
     
+    <item>
+      <title>以太坊私链智能合约实践</title>
+      <link>https://blog.ipds.top/2017/08/24/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Thu, 24 Aug 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/08/24/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E8%B7%B5/</guid>
+      <description>环境说明  操作系统: macos.10.12.1 geth版本：1.5.9 solc版本：0.4.15
+  实践 1. 启动本地geth节点 Michaels-iMac:wallet eric$ geth --rpc --rpcaddr 127.0.0.1 --rpcport 8545 --dev --datadir myethchain  如上操作后，geth console输出如下：
+I0824 17:28:57.448455 p2p/server.go:340] Starting Server I0824 17:28:59.554115 p2p/discover/udp.go:227] Listening, enode://04697f62537244ee34aea28e613530a1f46a64de75d8174d963c9ca0c2e6b96d4aa756ef7a33e269de1b7c088163835b72dda8f4dea712cf39569db4e8d8e43a@[::]:54798 I0824 17:28:59.554264 p2p/server.go:608] Listening on [::]:58245 I0824 17:28:59.554324 whisper/whisperv2/whisper.go:176] Whisper started I0824 17:28:59.570668 node/node.go:341] IPC endpoint opened: /Users/eric/wallet/myethchain/geth.ipc I0824 17:28:59.581423 node/node.go:411] HTTP endpoint opened: http://127.0.0.1:8545  同时也创建在当前目录创建目录myethchain，其结构如下：
+Michaels-iMac:wallet eric$ tree myethchain/ myethchain/ ├── geth │ ├── LOCK │ ├── chaindata │ │ ├── 000002.</description>
+    </item>
+    
+    <item>
+      <title>以太坊开发环境问题记录</title>
+      <link>https://blog.ipds.top/2017/08/22/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Tue, 22 Aug 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/08/22/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
+      <description>说明 主要记录以太坊开发环境过程出现的问题
+getCompilers返回失败 问题描述 在搭建以太坊开发环境过程中，出现下面的错误信息：
+Welcome to the Geth JavaScript console! instance: Geth/v1.6.7-stable-ab5646c5/darwin-amd64/go1.8.3 modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 shh:1.0 txpool:1.0 web3:1.0 &amp;gt; web3.eth.getCompilers() Error: The method eth_getCompilers does not exist/is not available at web3.js:3104:20 at web3.js:6191:15 at web3.js:5004:36 at &amp;lt;anonymous&amp;gt;:1:1  问题原因 geth版本编译不在gopath目录下编译
+解决方法 在gopath目录重新编译即可
+Michaels-iMac:wallet eric$ geth attach ipc://Users/eric/wallet/privchain/geth.ipc Welcome to the Geth JavaScript console! instance: Geth/v1.5.9-stable-a07539fb/darwin/go1.8.3 modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 shh:1.</description>
+    </item>
+    
   </channel>
 </rss>

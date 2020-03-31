@@ -6,10 +6,19 @@
     <description>Recent content in Categories on 沉风网事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 22 Jan 2020 11:58:06 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 08 Apr 2017 11:58:06 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.ipds.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Arch</title>
+      <link>https://blog.ipds.top/categories/arch/</link>
+      <pubDate>Sat, 08 Apr 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/arch/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Blockchain</title>
@@ -116,6 +125,33 @@
       <pubDate>Sat, 09 Mar 2019 11:58:06 +0200</pubDate>
       
       <guid>https://blog.ipds.top/categories/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://blog.ipds.top/categories/linux/</link>
+      <pubDate>Wed, 10 May 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://blog.ipds.top/categories/network/</link>
+      <pubDate>Fri, 03 Nov 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://blog.ipds.top/categories/nginx/</link>
+      <pubDate>Sat, 08 Aug 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/nginx/</guid>
       <description></description>
     </item>
     

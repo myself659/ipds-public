@@ -78,5 +78,49 @@ $ cat ~/.gitconfig [user] email = myself659@163.com name = myself659 [url &amp;q
 欢迎关注 欢迎关注微信公众帐号：沉风网事(savewind)</description>
     </item>
     
+    <item>
+      <title>实现无符号整型数的分解</title>
+      <link>https://blog.ipds.top/2015/06/14/%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E5%9E%8B%E6%95%B0%E7%9A%84%E5%88%86%E8%A7%A3/</link>
+      <pubDate>Sun, 14 Jun 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/06/14/%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E5%9E%8B%E6%95%B0%E7%9A%84%E5%88%86%E8%A7%A3/</guid>
+      <description>题目 将一个无符号数N拆分为不多于M个数，使拆分的数之和等于N,条件：
+ N &amp;gt;= M； N与M都是无符号整型数  求：一共有多少中拆分方法？
+分析 参考代码
+代码 代码实现计算拆分方法及打印拆分组合信息
+ #include &amp;lt;iostream&amp;gt; #include &amp;lt;stdint.h&amp;gt; using namespace std; class CSolution { private: uint32_t uiM; uint32_t uiN; uint32_t uiCount; uint32_t *puiRecord; public: CSolution(); CSolution(uint32_t uiM, uint32_t uiN); ~CSolution(); uint32_t GetCount() {return uiCount;} void PrintCombinations(); uint32_t CountNum(uint32_t uiM, uint32_t uiN); void GetCombination(uint32_t uiMin, uint32_t uiLeft, uint32_t uiGetNum, uint32_t uiTargetNum, uint32_t *puiRecord); }; CSolution::CSolution(uint32_t uiM,uint32_t uiN){ this-&amp;gt;uiM = uiM; this-&amp;gt;uiN = uiN; this-&amp;gt;puiRecord = new unsigned int [uiM]; this-&amp;gt;uiCount = CountNum(uiM, uiN); return ; } CSolution::CSolution() { uiM = 1; uiN = 1; puiRecord = new unsigned int [uiM]; uiCount = CountNum(uiM, uiN); return ; } CSolution::~CSolution() { delete [] puiRecord; return ; } uint32_t CSolution::CountNum(uint32_t uiM, uint32_t uiN) { if((0 == uiM) || (0 == uiN) || ( 1 == uiM) || ( 1 == uiN)) { return 1; } if(uiN &amp;lt; uiM) { return CountNum(uiN,uiN); } return CountNum(uiM - 1, uiN) + CountNum(uiM, uiN - uiM); } /* UINT uiMin 最小值 UINT uiLeft 剩下值 UINT uiGetNum 已拆分元素个数 UINT uiTargetNum 需要拆分的个数 UINT *puiCombination 拆分组合首地址 */ void CSolution::GetCombination(uint32_t uiMin, uint32_t uiLeft, uint32_t uiGetNum, uint32_t uiTargetNum, uint32_t *puiRecord) { uint32_t i; uint32_t j; /*递归结束条件 */ if(1 == uiTargetNum) { cout &amp;lt;&amp;lt; uiLeft&amp;lt;&amp;lt;endl; return ; } /* 将剩下值拆分为多个数,除了最后一个拆分值，其他的拆分数都应小于等于uiLeft/2 */ for(i = uiMin; i &amp;lt;= uiLeft / 2; i++) { puiRecord[uiGetNum] = i; uiGetNum++; if(uiGetNum + 1 == uiTargetNum) { puiRecord[uiGetNum] = uiLeft - i; for(j = 0; j &amp;lt; uiTargetNum; j++) { cout &amp;lt;&amp;lt;puiRecord[j]&amp;lt;&amp;lt; &amp;quot; &amp;quot;; } cout &amp;lt;&amp;lt; endl; } else { GetCombination(i, uiLeft - i, uiGetNum, uiTargetNum, puiRecord); } uiGetNum--; } return ; } void CSolution::PrintCombinations() { uint32_t i; cout&amp;lt;&amp;lt;&amp;quot;print combinations as follow:&amp;quot;&amp;lt;&amp;lt;endl; for(i = 1; i &amp;lt;= uiM; i++) { GetCombination(1, uiN, 0, i, puiRecord); } cout&amp;lt;&amp;lt;&amp;quot;The Total num is &amp;quot;&amp;lt;&amp;lt; GetCount()&amp;lt;&amp;lt;endl; return ; } int main(void) { CSolution test(7, 11); test.</description>
+    </item>
+    
+    <item>
+      <title>C语言代码 review的总结</title>
+      <link>https://blog.ipds.top/2015/05/24/c%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81-review%E7%9A%84%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 24 May 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/05/24/c%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81-review%E7%9A%84%E6%80%BB%E7%BB%93/</guid>
+      <description> 代码review是保证代码质量在项目开发及代码修改中一项重要的环节，下面就代码reiew的一些总结，总结一些代码的review的关注点，提高代码review的效率与效果，提前发现问题，降低后期的测试成本，以及避免软件上线或交付出问题导致的经济损失和恶劣影响（ps:对每一行代码保持敬畏之心）。
+代码中的资源  以内存为例，C语言内存操作都是由程序员来定义与控制，内存的一些错误总是不断地出现，例如内存泄漏，踩内存，写越界等，如果这种问题在线上系统中出现，定位与修复的成本都是很高的。
+ 动态内存 信号量 文件描述符 锁 句柄 中断 资源的引用 资源的引用计数   代码的错误高发特征   冗余实现 异常处理 结构复杂 层次嵌套多 不合理实现 字符串处理 代码临界区 移植代码   代码的追求   正确性 可靠性 可读性 可维护性 可测试性 可扩展性 可移植性 可伸缩性 易用性 可用性 可重用性 互操作性 可管理性 一致性 安全性 性能 稳定性 精确性 可差异化性 魯棒性   </description>
+    </item>
+    
+    <item>
+      <title>一个linux网络丢包问题分析</title>
+      <link>https://blog.ipds.top/2015/05/24/%E4%B8%80%E4%B8%AAlinux%E7%BD%91%E7%BB%9C%E4%B8%A2%E5%8C%85%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sun, 24 May 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/05/24/%E4%B8%80%E4%B8%AAlinux%E7%BD%91%E7%BB%9C%E4%B8%A2%E5%8C%85%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/</guid>
+      <description> 丢包问题是十分常见一类问题，下面总结的一个网络丢包问题的分析过程。
+问题描述 组网：
+TC-PORT1&amp;mdash;&amp;mdash;-VSR-eth1
+TC-PORT2&amp;mdash;&amp;mdash;-VSR-eth2
+打流：
+报文从TC-Port1打入VSR-eth1，再从VSR-eth2出，到TC-Port2，打流的时候变换了源ip与源端口
+问题：
+测试同学在根据RFC2544打流测试转发性能中，发现报文有效转发性能总是小于40W pps，总是会出现丢包，而实际cpu利用率才20%左右
+问题分析 丢包的原因很多，需要根据现场进行具体问题分析，下面就一个一个排查怀疑点，没有怀疑点再分析的过程：
+ 昨天测试都ok的，检查一下测试打流报文，报文正确 查看报文处理过程中丢包计数，以确认丢包阶段，不幸地发现处理过程中无丢包统计 与打多条流有关？实测打一流问题同样存在，与多条流无关 再次回头检查报文是否有多种code path，导致第2步遗漏检查到丢包点，确认报文走一条code path 上面又被否认，继续分析怀疑点，没有分析出怀疑点，自已动手打流，观察TC收发包统计发现丢包有周斯性，大概周期是30s，这是一个重要信息 又回过头去确认一下丢包统计是否有漏统计，很欣慰又很失望的结果：丢包，错包统计没有遗漏统计 这时候收包处理过程丢包可能性已经排除 从上到下的报文流排查，报文丢在网卡上送cpu过程中？ 内核采用epoll收包存在问题？ 进程如果得到调度就没有问题 top 查看进程调度，这时候有重大发现了： 看tc丢包统计与top的里面的进程natlog运行就同步了，但是看到natlog的线程状态为D状态，同时检查配置，开启nat log功能   natlog进程设置为D状态，导致不响应异步信号，在natlog释放cpu前，在转发线程与natlog运行在同一个cpu的情况下，转发线程得不到调度，导致报文接收缓冲区溢出，导致部分报文丢弃；
+与natlog线程开发同学交流，natlog早期是基于多核开发，natlog根据运营商需求，每30s定时运行，natlog线程运行在控制核，转发线程运行在数据核，导致问题没有暴露出来
+ 问题总结  定位问题，特别是未知的问题是一步步有依据推断与确认的过程 获取现场的全方位消息，同时要对信息进行去噪，避免关键信息遗漏与无关干扰  </description>
+    </item>
+    
   </channel>
 </rss>

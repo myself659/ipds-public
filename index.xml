@@ -1296,6 +1296,18 @@ package main import ( &amp;quot;fmt&amp;quot; _ &amp;quot;github.com/go-sql-driv
     </item>
     
     <item>
+      <title>MacOS上设置终端代理</title>
+      <link>https://blog.ipds.top/2017/11/03/macos%E4%B8%8A%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Fri, 03 Nov 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/11/03/macos%E4%B8%8A%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/</guid>
+      <description>由于20-1大的原因，各种梯子损失惨重。自己也只好自己动手搭建VPS。关于如何搭建梯子这里暂不描述。
+说明 下面的操作是建立在成功搭建VPS基础上
+步骤 查看代理端口 代理客户端使用Shadowsocks-NG-R8,它解决了一个长久以来的痛点，Shadowsocks没有HTTP代理，导致需要使用polipo等软件进行协议转换。
+第一步：选择HTTP代理设置 第二步：点击查看 设置代理命令 vim打开vim ~/.bash_profile 在尾部添加如下内容： alias proxy-on=&#39;export http_proxy=127.0.0.1:1087;export https_proxy=$http_proxy&#39; alias proxy-off=&#39;unset http_proxy;unset https_proxy&#39;  修改立即生效: source ~/.bash_profile 测试 Michaels-iMac:~ eric$ proxy-on Michaels-iMac:~ eric$ go get -u google.golang.org/grpc package golang.org/x/net/context: golang.org/x/net is a custom import path for https://go.googlesource.com/net, but /Users/eric/go/src/golang.org/x/net is checked out from https://github.com/golang/net package golang.org/x/net/http2: golang.org/x/net is a custom import path for https://go.googlesource.com/net, but /Users/eric/go/src/golang.org/x/net is checked out from https://github.com/golang/net package golang.</description>
+    </item>
+    
+    <item>
       <title>说说智能合约</title>
       <link>https://blog.ipds.top/2017/11/01/%E8%AF%B4%E8%AF%B4%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</link>
       <pubDate>Wed, 01 Nov 2017 11:58:06 +0200</pubDate>
@@ -1392,6 +1404,177 @@ C/C++方面  《C与指针》 ☆☆☆☆☆，五星 入门推荐，不要上�
     </item>
     
     <item>
+      <title>IPFS与下一代网络安全</title>
+      <link>https://blog.ipds.top/2017/09/21/ipfs%E4%B8%8E%E4%B8%8B%E4%B8%80%E4%BB%A3%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</link>
+      <pubDate>Thu, 21 Sep 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/09/21/ipfs%E4%B8%8E%E4%B8%8B%E4%B8%80%E4%BB%A3%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</guid>
+      <description>IPFS 先简单说一下IPFS。 IPFS是点对点协议InterPlanetary File System的简称，它是一个面向全球的、点对点的分布式版本文件系统，试图将所有具有相同文件系统的计算设备连接在一起。它用基于内容的地址替代基于域名的地址，也就是用户寻找的不是某个地址而是储存在某个地方的内容，不需要验证发送者的身份，而只需要验证内容的哈希，通过这样可以让网页的速度更快、更安全、更健壮、更持久。IPFS目标是未来将替代HTTP。
+IPFS主要技术，用下面这张图说明：
+IPFS与安全 整个IPFS涉及很多方面的内容，这部分具体看一下IPFS对网络安全的影响。首先从DDOS防攻击展开，IPFS应对DDOS攻击主要如下： 1. 道哥在弹性安全网络中表达过DDOS存在的原因就是现在互联网严重依赖存在三大问题的DNS系统,而在IPFS中通过内容寻址方式绕开了DNS 2. IPFS底层网络是基于DHT，拥有大量节点的P2P网络，天生适合内容的分布式读写（PS：P2P网络安全需要另行考虑） 3. 内容签名，通过加密加大攻击的难度与成本
+上面的这些作法，很符合经济原理。DDOS存在主要经济学原因是DDOS获得的收益远大于DDOS的投资；IPFS的上述特点直接提高DDOS的成本。
+比较 上一篇分析了道哥的提出的弹性安全网络设想。那么，就在这里搞事情，对比一下两者。
+ 道哥和Juan Benet都是杰出的技术人员及创业者，富有远见 作为安全出身的道哥的出发点解决网络安全问题主要是DDOS安全攻击问题，而IPFS目标如下：We believe the internet has become humanity&#39;s most important technology. We build protocols, systems, and tools to improve how it works. Today, we are focused on how we store, locate, and move information.
+ IPFS是一种去中心化技术，而弹性安全网络接入技术可以是一种大规模的云计算技术（中心化技术）。
+ IPFS没有网络访问控制功能，自由开放；弹性安全网络有网络访问控制能力，方便监管与控制
+ IPFS是从数据角度来解决问题（解决数据分布，版本，访问，权限控制等）,弹性安全网络从网络安全的角度来解决问题
+ IPFS开放源码，弹性安全网络没有开源，开源的IPFS体现了去中心化技术的态度
+ IPFS现网运行，弹性安全网络在游戏盾中得到应用与实践，两者都有很长的路需要走
+ IPFS目标是取代HTTP,同时兼容HTTP，弹性安全网络将应用场景定位在非域名类的IP网络
+ IPFS对现有应用冲击很大，因为去中心化应用及基础设施（如去中心数据库）还在起步阶段；弹性安全网络考虑基于现有云计算（大规模中心化技术）应用作为出发点一种网络安全的解决方案，能够兼容云计算应用。
+ IPFS支持端对端加解密，保证数据的隐私。弹性安全网络不涉及这方面内容。</description>
+    </item>
+    
+    <item>
+      <title>关于弹性安全网络一点思考</title>
+      <link>https://blog.ipds.top/2017/09/20/%E5%85%B3%E4%BA%8E%E5%BC%B9%E6%80%A7%E5%AE%89%E5%85%A8%E7%BD%91%E7%BB%9C%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/</link>
+      <pubDate>Wed, 20 Sep 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/09/20/%E5%85%B3%E4%BA%8E%E5%BC%B9%E6%80%A7%E5%AE%89%E5%85%A8%E7%BD%91%E7%BB%9C%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/</guid>
+      <description> 作为网络研发出身的我，从事网络研发时间也最长，一直也关注道哥的微信公众号。
+下面就对道哥的提出弹性安全网络一些总结与思考。
+弹性安全网络 具体从以下几个方面解读弹性安全网络。
+来源 弹性安全网络这个设想来自阿里云游戏盾这个产品，而这个产品解决的问题就是如何解决DDOS问题。
+以前解决DDOS问题，很多厂商就是以暴制暴，准备大量带宽，抗住攻击流量，这种方式有以下问题：
+ 流量成本高 万一没有抗住，服务会中断 业务局限于一个数据中心，目标明显，容易受攻击（将鸡蛋放到同一个篮子）
+  而在游戏盾产品采用另一种方式来解决问题，主要要点如下：
+ 首先，业务访问支持多IP解析，分散流量（狡免三窟） 第二就是应对攻击，支持业务地址迁移，地址迁移难点就是如何快速通知到各个用户（你打我，我就闪）  定义  弹性安全网络是将DDoS防御前置到网络边缘处。但是，未来真正要做的事情是通过端到端的连接，通过风险控制技术，重新构建一个干净的、安全的互联网
+ 目标  弹性安全网络真正想要去做的，是替换掉整个互联网最核心的心脏，替换掉DNS，从而让网络变得有弹性，能够快速调度资源，形成一个全新的网络架构。
+弹性安全网络技术，不是为某一个客户设计的，它是为整个互联网设计的。
+ DNS三个问题  DNS是互联网的心脏
+第一个，是DNS完全解析的时间过长，这是整个DNS使用中遇到的一个非常大的痛点。
+第二个问题是今天DNS Server软件中的解析数遇到了瓶颈，没有办法一个名字解析到几千个、甚至上万个，甚至未来十几万个不同地址。一个名字可能最多也就解析到十几个或几十个地址就不能再扩大了。这种瓶颈限制了我们的一些能力拓展。
+第三个就是，原本可以基于DNS去实现的一些安全机制，比如风险控制，并没有建立起来。其实也比较好理解，在互联网1.0时代并没有如今天这般强大的数据能力和计算能力。
+ 实现 文中并没有提及具体的实现，主要要点是： 1. 基于大数据的足迹库 2. 基于人工智能的快速识别能力
+3. 分布式的统一网络访问入口，取代DNS，具体细节未知
+未来  主要机会就是在IoT和移动互联网，因为这两者实际上是没有DNS的需求的
+ 总结 道哥的弹性安全网络，是一个伟大的构思。
+弹性安全网络出发点主要是解决DDOS问题。
+主要目标应用于IOT和移动互联网。
+弹性安全网络思考主要出发点是如何应对网络攻击，主要从两个角度出发： 1. 如何快速应对攻击 2. 如何利用技术（大数据，人工智能等）识别攻击
+参考  弹性安全网络 &amp;ndash; 构建下一代安全的互联网 IPFS与下一代网络安全  </description>
+    </item>
+    
+    <item>
+      <title>以太坊私链智能合约实践</title>
+      <link>https://blog.ipds.top/2017/08/24/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Thu, 24 Aug 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/08/24/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E9%93%BE%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E8%B7%B5/</guid>
+      <description>环境说明  操作系统: macos.10.12.1 geth版本：1.5.9 solc版本：0.4.15
+  实践 1. 启动本地geth节点 Michaels-iMac:wallet eric$ geth --rpc --rpcaddr 127.0.0.1 --rpcport 8545 --dev --datadir myethchain  如上操作后，geth console输出如下：
+I0824 17:28:57.448455 p2p/server.go:340] Starting Server I0824 17:28:59.554115 p2p/discover/udp.go:227] Listening, enode://04697f62537244ee34aea28e613530a1f46a64de75d8174d963c9ca0c2e6b96d4aa756ef7a33e269de1b7c088163835b72dda8f4dea712cf39569db4e8d8e43a@[::]:54798 I0824 17:28:59.554264 p2p/server.go:608] Listening on [::]:58245 I0824 17:28:59.554324 whisper/whisperv2/whisper.go:176] Whisper started I0824 17:28:59.570668 node/node.go:341] IPC endpoint opened: /Users/eric/wallet/myethchain/geth.ipc I0824 17:28:59.581423 node/node.go:411] HTTP endpoint opened: http://127.0.0.1:8545  同时也创建在当前目录创建目录myethchain，其结构如下：
+Michaels-iMac:wallet eric$ tree myethchain/ myethchain/ ├── geth │ ├── LOCK │ ├── chaindata │ │ ├── 000002.</description>
+    </item>
+    
+    <item>
+      <title>以太坊开发环境问题记录</title>
+      <link>https://blog.ipds.top/2017/08/22/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Tue, 22 Aug 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/08/22/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
+      <description>说明 主要记录以太坊开发环境过程出现的问题
+getCompilers返回失败 问题描述 在搭建以太坊开发环境过程中，出现下面的错误信息：
+Welcome to the Geth JavaScript console! instance: Geth/v1.6.7-stable-ab5646c5/darwin-amd64/go1.8.3 modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 shh:1.0 txpool:1.0 web3:1.0 &amp;gt; web3.eth.getCompilers() Error: The method eth_getCompilers does not exist/is not available at web3.js:3104:20 at web3.js:6191:15 at web3.js:5004:36 at &amp;lt;anonymous&amp;gt;:1:1  问题原因 geth版本编译不在gopath目录下编译
+解决方法 在gopath目录重新编译即可
+Michaels-iMac:wallet eric$ geth attach ipc://Users/eric/wallet/privchain/geth.ipc Welcome to the Geth JavaScript console! instance: Geth/v1.5.9-stable-a07539fb/darwin/go1.8.3 modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 shh:1.</description>
+    </item>
+    
+    <item>
+      <title>slice复用的陷阱</title>
+      <link>https://blog.ipds.top/2017/07/28/slice%E5%A4%8D%E7%94%A8%E7%9A%84%E9%99%B7%E9%98%B1/</link>
+      <pubDate>Fri, 28 Jul 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/07/28/slice%E5%A4%8D%E7%94%A8%E7%9A%84%E9%99%B7%E9%98%B1/</guid>
+      <description>前言 先下结论：slice复用得当心，引用不当深埋雷。如若复用请分叉，分叉之后再使用。
+问题 先看一下代码吧
+package main import ( &amp;quot;fmt&amp;quot; ) func a() { x := []int{} x = append(x, 0) x = append(x, 1) // commonTags := labelsToTags(app.Labels) y := append(x, 2) // Tags: append(commonTags, labelsToTags(d.Labels)...) z := append(x, 3) // Tags: append(commonTags, labelsToTags(d.Labels)...) fmt.Println(y, z) } func b() { x := []int{} x = append(x, 0) x = append(x, 1) x = append(x, 2) // commonTags := labelsToTags(app.Labels) y := append(x, 3) // Tags: append(commonTags, labelsToTags(d.</description>
+    </item>
+    
+    <item>
+      <title>Linux进程诊断小结</title>
+      <link>https://blog.ipds.top/2017/05/10/linux%E8%BF%9B%E7%A8%8B%E8%AF%8A%E6%96%AD%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Wed, 10 May 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/05/10/linux%E8%BF%9B%E7%A8%8B%E8%AF%8A%E6%96%AD%E5%B0%8F%E7%BB%93/</guid>
+      <description>日常工作中最常见问题是如何诊断一个进程运行过程中出现的问题，下面的总结从进程诊断的角度来展示，而是不从工具与命令角度来展示，进程诊断是工作的主体，工具与命令只是工具。
+进程信息 获得进程PID 方式一：
+root@iZ2ze9qnmldt4l3l82gtviZ:~# pidof tmsf-zc 2064  方式2：
+root@iZ2ze9qnmldt4l3l82gtviZ:~# ps -ef | grep tmsf-zc root 2064 1 0 Mar17 ? 02:24:25 ./tmsf-zc root 7596 7288 0 15:07 pts/4 00:00:00 grep --color=auto tmsf-zc root@iZ2ze9qnmldt4l3l82gtviZ:~#  查看进程线程个数 及对应PID root@iZ2ze9qnmldt4l3l82gtviZ:~# ps -efL | grep tmsf-zc root 2064 1 2064 0 5 Mar17 ? 00:00:00 ./tmsf-zc root 2064 1 2066 0 5 Mar17 ? 01:04:46 ./tmsf-zc root 2064 1 2067 0 5 Mar17 ?</description>
+    </item>
+    
+    <item>
+      <title>使用golang present工具制作presentation</title>
+      <link>https://blog.ipds.top/2017/05/10/%E4%BD%BF%E7%94%A8golang-present%E5%B7%A5%E5%85%B7%E5%88%B6%E4%BD%9Cpresentation/</link>
+      <pubDate>Wed, 10 May 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/05/10/%E4%BD%BF%E7%94%A8golang-present%E5%B7%A5%E5%85%B7%E5%88%B6%E4%BD%9Cpresentation/</guid>
+      <description>依赖  依赖golang的开发环境  安装 present工具在golang.org/x/tools中，依赖golang.org/x/net包,安装过程如下：
+root@ia-VirtualBox:~# go get golang.org/x/net root@ia-VirtualBox:~# go get golang.org/x/tools root@ia-VirtualBox:~# go install golang.org/x/tools/cmd/present  安装结束后查看present位置
+root@ia-VirtualBox:~# which present /usr/local/go/bin/present  slide文件语法 具体参考准官方文档
+生成slide root@ia-VirtualBox:/share/gocode/src/github.com/pcrawfor# present golanguk/talk.slide 2017/05/09 23:53:15 Open your web browser and visit http://127.0.0.1:3999 2017/05/09 23:57:19 accepting connection from: 127.0.0.1:50852  共享slide 通过http选项指定外部访问地址
+root@ia-VirtualBox:/share/gocode/src/github.com/pcrawfor# present -http=&amp;quot;192.168.56.5:3999&amp;quot; golanguk/talk.slide 2017/05/10 00:02:47 WARNING! WARNING! WARNING! The present server appears to be listening on an address that is not localhost.</description>
+    </item>
+    
+    <item>
+      <title>对于系统设计的一些想法</title>
+      <link>https://blog.ipds.top/2017/04/08/%E5%AF%B9%E4%BA%8E%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</link>
+      <pubDate>Sat, 08 Apr 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/04/08/%E5%AF%B9%E4%BA%8E%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</guid>
+      <description>前言 学习了google，facebook等国际一流大厂的开源方案，也研究了国内BAT的一些设计案例，在平时工作自然也少不了一些系统设计的工作，想写一些自己的想法，同时也帮助自己梳理一下思路，实现自己的系统设计的套路。
+其实就是这一句话：立足需求与业务，利用工程与技术，得到最合适的tradeofff，追求更简单的设计与方案，以此不断推进系统的演化。
+下面对这句话展开说明（当然，下面是一堆费话，只是为了解决自己的不吐不快而已罢了）。
+立足需求与业务 套用一句话：一切脱离需求的设计都是耍流氓。这里不进行具体案例分析，主要从以下角度来细化需求，提供思考的方向。
+用户角度  performance（性能）
+ availability（可用性） usability（易用性） security（安全性）  研发角度  maintainablity （可维护性性） protability（可移植性） reusability（可重用性） scalable(可扩展性) testability（可测试性）  商业与市场角度  time to market（及时发布推向市场） cost and benifits（成本和收益） projected life time （产品生命周期） targeted market（目标市场） integration with legacy system (系统集成) roll back schedule （回退时间表）  KISS(Keep It Simple, Stupid) 有太多的例子，说明追求简单与遵循简单的设计原则的重要性，最典型就是unix的设计哲学成就伟大的linux的操作系统。
+什么是简单的系统设计呢？ 这是需要不断思考的问题，举个例子说明吧；在GFS实现中，针对client向chunk server写文件失败的问题，GFS的作法是直接返回失败，由client决定是否重写，这种作法就是聪明的简单之举。
+简单并不是随手可得的。关于这个可以参考rob pike，golang发明人之一的这篇演进： Simplicity is Complicated
+下面借此说明以下几个问题？
+ 什么是简单？  简单很难定义，还是举例说明吧 追求简单并不是单纯追求技术实现上的简单。简单追求是使用的简单，因为使用是高频，实现可能只有几次，例如上面演进谈到的GC,实现并不简单，想出这个GC算法就相当困难，实现那就更难了，但是有了GC，我们用golang编程的时候就不需要像C/C++那样关心内存的申请释放，再也不用担心踩内存的问题了，专心于设计与业务，给程序员带来了简单。（以我自己为例，学会了golang，我写代码都写得多，之前只会C/C++时候，业余时间主要是阅读代码，写代码都是工作驱动）
+另外还有一点，简单是先实现，再改进，例如golang的GC算法一开始并不好，GC导致应用 延迟大，到了1.5才有改进
+ 如何实现简单？  演进中const同c语言定义一个常量不一样，不需要关心类型，在生活中一般人说数字2017除了程序员谁关心它是整型数还是浮点数啊</description>
+    </item>
+    
+    <item>
+      <title>阿里云ECS基本安全检查小结</title>
+      <link>https://blog.ipds.top/2017/04/08/%E9%98%BF%E9%87%8C%E4%BA%91ecs%E5%9F%BA%E6%9C%AC%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Sat, 08 Apr 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/04/08/%E9%98%BF%E9%87%8C%E4%BA%91ecs%E5%9F%BA%E6%9C%AC%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5%E5%B0%8F%E7%BB%93/</guid>
+      <description>背景 查看阿里云ECS服务器日志发现如下：
+type=USER_AUTH msg=audit(1491669519.156:15631): pid=22938 uid=0 auid=4294967295 ses=4294967295 msg=&#39;op=PAM:authentication acct=&amp;quot;deploy&amp;quot; exe=&amp;quot;/usr/sbin/sshd&amp;quot; hostname=123.57.245.163 addr=123.57.245.163 terminal=ssh res=failed&#39; type=USER_LOGIN msg=audit(1491669519.156:15632): pid=22938 uid=0 auid=4294967295 ses=4294967295 msg=&#39;op=login acct=28696E76616C6964207573657229 exe=&amp;quot;/usr/sbin/sshd&amp;quot; hostname=? addr=123.57.245.163 terminal=sshd res=failed&#39; type=USER_LOGIN msg=audit(1491669587.368:15634): pid=22940 uid=0 auid=4294967295 ses=4294967295 msg=&#39;op=login acct=28756E6B6E6F776E207573657229 exe=&amp;quot;/usr/sbin/sshd&amp;quot; hostname=? addr=123.57.245.163 terminal=sshd res=failed&#39; type=USER_LOGIN msg=audit(1491669587.368:15635): pid=22940 uid=0 auid=4294967295 ses=4294967295 msg=&#39;op=login acct=28696E76616C6964207573657229 exe=&amp;quot;/usr/sbin/sshd&amp;quot; hostname=? addr=123.57.245.163 terminal=sshd res=failed&#39; type=USER_AUTH msg=audit(1491669589.420:15636): pid=22940 uid=0 auid=4294967295 ses=4294967295 msg=&#39;op=PAM:authentication acct=&amp;quot;deploy&amp;quot; exe=&amp;quot;/usr/sbin/sshd&amp;quot; hostname=123.57.245.163 addr=123.57.245.163 terminal=ssh res=failed&#39; type=USER_LOGIN msg=audit(1491669589.420:15637): pid=22940 uid=0 auid=4294967295 ses=4294967295 msg=&#39;op=login acct=28696E76616C6964207573657229 exe=&amp;quot;/usr/sbin/sshd&amp;quot; hostname=?</description>
+    </item>
+    
+    <item>
+      <title>不要忘记那些正在追赶互联网潮流的用户</title>
+      <link>https://blog.ipds.top/2017/03/27/%E4%B8%8D%E8%A6%81%E5%BF%98%E8%AE%B0%E9%82%A3%E4%BA%9B%E6%AD%A3%E5%9C%A8%E8%BF%BD%E8%B5%B6%E4%BA%92%E8%81%94%E7%BD%91%E6%BD%AE%E6%B5%81%E7%9A%84%E7%94%A8%E6%88%B7/</link>
+      <pubDate>Mon, 27 Mar 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/03/27/%E4%B8%8D%E8%A6%81%E5%BF%98%E8%AE%B0%E9%82%A3%E4%BA%9B%E6%AD%A3%E5%9C%A8%E8%BF%BD%E8%B5%B6%E4%BA%92%E8%81%94%E7%BD%91%E6%BD%AE%E6%B5%81%E7%9A%84%E7%94%A8%E6%88%B7/</guid>
+      <description>引子 在一家推拿店里，排队等叫号，遇到一个五十多数大叔，下面是我们之间的对话：
+大叔： 小伙子，帮我看一下怎么连接wifi？
+我： 好的。
+（他把手机给我，我弄好，把手机给他）
+我： 大叔，你连接wifi要看视频吗？
+大叔：不是的，我看直播
+我：（有点吃惊，直播一般不是年轻人看的吗？）那你用什么软件看直播？
+大叔将手机拿过来，对我说：我秀
+我：这是哪家直播？
+大叔：人人网旗下的，我还有来疯直播，youku下面的，还有快手
+我：想不到连你们都喜欢看直播，我一直以为只有年经人才爱看直播
+大叔： 下班后时间比较多，电视剧不好看，就看直播了
+想到前几天快手E轮融资3.5亿美元，就有下面的感想。
+互联网还有哪些没有覆盖到人群？ 上面引子的大叔虽然算是互联网用户，也只能是入门了，对于使用过程中一些wifi设置，app设置还是没有掌握。
+中国有14亿人口，网民有7亿，还有7亿不是网民，在这7亿中除了一些小孩子（高中生现在有相当一部分都有手机了）有相当一部分人，还是希望赶上互联网这躺车，他们不希望成为那些被抛弃的少数人，例如家里的一个伯母会主动让妈妈教她如何使用微信聊天。
+这里主要是想得出一个这样的人群：
+ 50岁以上使用手机，却没有使用智能手机的人群，帮他们跨过手机进入智能手机应该不是很难的事情,毕竟会使用手机升级到使用智能手机也不是件很难的事情。（Ps：当这些用户转化互联网用户，视频是他们第一消费内容， 这个用户群体有多大呢？ 快手主动满足三四线城市的“低俗”用户，到现在收割大量用户，E轮3.5亿融资）  互联网产品如果要覆盖更多的人群要做些什么？ 简单表达如下： 1. 追求产品更简单，打开app各个功能入口一目了然 2. 生活化的内容，例如快手定位为生活分享平台 3. 智能的推荐算法，例如今日头条在三四线及以下城市得到大量的使用，占据大量的用户时间 4. 针对性优化，手机有老人机，app也可以针对性优化，视频只会wifi下载和播放，字体变大 5. 剩下的，相信各位产品经理会有更深入的思考。
+不要忘记那些正在追赶互联网潮流的用户，用技术与产品帮助他们上车吧！
+希望未来让更多人享受到互联网技术和产品带来的便利。
+参考  2017各省网民人数公布，总数7亿，看你们省多少人  （end）</description>
+    </item>
+    
+    <item>
       <title>LeetCode</title>
       <link>https://blog.ipds.top/2017/03/18/leetcode/</link>
       <pubDate>Sat, 18 Mar 2017 21:49:20 +0200</pubDate>
@@ -1401,404 +1584,45 @@ C/C++方面  《C与指针》 ☆☆☆☆☆，五星 入门推荐，不要上�
     </item>
     
     <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Go的50度灰补充--http response只能读一次</title>
+      <link>https://blog.ipds.top/2017/02/20/go%E7%9A%8450%E5%BA%A6%E7%81%B0%E8%A1%A5%E5%85%85-http-response%E5%8F%AA%E8%83%BD%E8%AF%BB%E4%B8%80%E6%AC%A1/</link>
+      <pubDate>Mon, 20 Feb 2017 11:58:06 +0200</pubDate>
       
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;闲谈乱扯&amp;rdquo;] date = &amp;ldquo;2015-05-23T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;闲谈乱扯&amp;rdquo;] title = &amp;ldquo;Hello Github&amp;rdquo; draft = false +++
-hello,github 开始一段开源之旅</description>
+      <guid>https://blog.ipds.top/2017/02/20/go%E7%9A%8450%E5%BA%A6%E7%81%B0%E8%A1%A5%E5%85%85-http-response%E5%8F%AA%E8%83%BD%E8%AF%BB%E4%B8%80%E6%AC%A1/</guid>
+      <description>问题 还是从代码开始吧
+func fetch(url string) { tlsConfig := &amp;amp;tls.Config{ InsecureSkipVerify: true, } transport := &amp;amp;http.Transport{ TLSClientConfig: tlsConfig, } client := http.Client{Transport: transport} resp, err := client.Get(url) if err != nil { fmt.Println(err) &amp;lt;-time.After(300 * time.Second) go fetch(url) return } buf, err := ioutil.ReadAll(resp.Body) if err != nil { fmt.Println(&amp;quot;fetchyh:&amp;quot;, err) return } save(buf) //保存html到文件 defer resp.Body.Close() // http to doc doc, err := goquery.NewDocumentFromResponse(resp) if err != nil { fmt.</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>TCP连接下载文件失败，也许该看看这篇文章</title>
+      <link>https://blog.ipds.top/2017/02/16/tcp%E8%BF%9E%E6%8E%A5%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%A4%B1%E8%B4%A5%E4%B9%9F%E8%AE%B8%E8%AF%A5%E7%9C%8B%E7%9C%8B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Thu, 16 Feb 2017 11:58:06 +0200</pubDate>
       
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description> +++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;编程&amp;rdquo;] date = &amp;ldquo;2015-05-24T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;编程&amp;rdquo;] title = &amp;ldquo;C语言代码 review的总结&amp;rdquo; draft = false +++ 代码review是保证代码质量在项目开发及代码修改中一项重要的环节，下面就代码reiew的一些总结，总结一些代码的review的关注点，提高代码review的效率与效果，提前发现问题，降低后期的测试成本，以及避免软件上线或交付出问题导致的经济损失和恶劣影响（ps:对每一行代码保持敬畏之心）。
-代码中的资源  以内存为例，C语言内存操作都是由程序员来定义与控制，内存的一些错误总是不断地出现，例如内存泄漏，踩内存，写越界等，如果这种问题在线上系统中出现，定位与修复的成本都是很高的。
- 动态内存 信号量 文件描述符 锁 句柄 中断 资源的引用 资源的引用计数   代码的错误高发特征   冗余实现 异常处理 结构复杂 层次嵌套多 不合理实现 字符串处理 代码临界区 移植代码   代码的追求   正确性 可靠性 可读性 可维护性 可测试性 可扩展性 可移植性 可伸缩性 易用性 可用性 可重用性 互操作性 可管理性 一致性 安全性 性能 稳定性 精确性 可差异化性 魯棒性   </description>
+      <guid>https://blog.ipds.top/2017/02/16/tcp%E8%BF%9E%E6%8E%A5%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%A4%B1%E8%B4%A5%E4%B9%9F%E8%AE%B8%E8%AF%A5%E7%9C%8B%E7%9C%8B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
+      <description>体验一下标题党，现在自媒体横行，容我也放肆一回（多了我也不行，替自己码字能力捉急）！
+另起一行，到此为止，进入正题
+缘起 最近通过uc浏览器下载apk的时候，偶尔出现下载apk，下载了60%左右卡住，想到以前看到这篇文章：The curious case of slow downloads（PS：毕竟这个问题不是常出现，就算一次下载失败，反正可以重新下载，总能下载成功的）
+说明 由于本人英文水平有限，翻译水平更是不足，就不具体翻译上面的文章，仅作简单说明，更深的理解请阅读The curious case of slow downloads
+问题描述 Cloudflare是美国一家CDN厂商，他们的工程师发现下面的问题： &amp;gt;一些下载速度很慢的连接被突然关闭，导致用户下载失败
+ 这些连接不是客户端主动关闭，而是服务端主动关闭的
+ 问题原因 原文有具体解决这个问题详细过程，还是值得一看，这里不作描述。
+在满足如下条件情况下会出现下载失败：
+ socket发送缓冲区可用空间低于缓冲区总大小的三分之一 用户下载速度不能达到在60秒内使该socket发送缓冲区可用空间超过缓冲区总大小的三分之一
+ nginx配置项send_timeout对应值为60秒  当满足上述条件，当60秒超时后，nginx会关闭该连接
+这里大家可能有一个问题，网速慢也会不断发送，怎么会超时出现关闭连接？
+这里有一个普遍的误解：认为send像recv那样，每发送成功一个都上报epoll事件（以linux为例）,而实际send上报epoll事件条件如下：
+ send buffer有可用发送空间
+ 进入发送队列的数据一定要低于LOWAT的设置值（注意：linux 内核2.6版本没有这个限制，linux 内核4.5版本以上有此条件，其他版本情况未知） 发送缓存区的可用空间一定要超过大于发送空间的已使用的空间的二分之一  其中第三个条件对应内核代码如下：
+unsigned int tcp_poll(struct file *file, struct socket *sock, poll_table *wait) { unsigned int mask; struct sock *sk = sock-&amp;gt;sk; struct tcp_sock *tp = tcp_sk(sk); sock_poll_wait(file, sk-&amp;gt;sk_sleep, wait); if (sk-&amp;gt;sk_state == TCP_LISTEN) // 侦听状态，进入listen poll，即检查侦听socket的accpet队列是否为空 return inet_csk_listen_poll(sk); /* Socket is not locked.</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>互联网在农村-用户</title>
+      <link>https://blog.ipds.top/2017/02/03/%E4%BA%92%E8%81%94%E7%BD%91%E5%9C%A8%E5%86%9C%E6%9D%91-%E7%94%A8%E6%88%B7/</link>
+      <pubDate>Fri, 03 Feb 2017 11:58:06 +0200</pubDate>
       
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description> +++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;编程&amp;rdquo;] date = &amp;ldquo;2015-05-24T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;编程&amp;rdquo;] title = &amp;ldquo;一个linux网络丢包问题分析&amp;rdquo; draft = false +++
-丢包问题是十分常见一类问题，下面总结的一个网络丢包问题的分析过程。
-问题描述 组网：
-TC-PORT1&amp;mdash;&amp;mdash;-VSR-eth1
-TC-PORT2&amp;mdash;&amp;mdash;-VSR-eth2
-打流：
-报文从TC-Port1打入VSR-eth1，再从VSR-eth2出，到TC-Port2，打流的时候变换了源ip与源端口
-问题：
-测试同学在根据RFC2544打流测试转发性能中，发现报文有效转发性能总是小于40W pps，总是会出现丢包，而实际cpu利用率才20%左右
-问题分析 丢包的原因很多，需要根据现场进行具体问题分析，下面就一个一个排查怀疑点，没有怀疑点再分析的过程：
- 昨天测试都ok的，检查一下测试打流报文，报文正确 查看报文处理过程中丢包计数，以确认丢包阶段，不幸地发现处理过程中无丢包统计 与打多条流有关？实测打一流问题同样存在，与多条流无关 再次回头检查报文是否有多种code path，导致第2步遗漏检查到丢包点，确认报文走一条code path 上面又被否认，继续分析怀疑点，没有分析出怀疑点，自已动手打流，观察TC收发包统计发现丢包有周斯性，大概周期是30s，这是一个重要信息 又回过头去确认一下丢包统计是否有漏统计，很欣慰又很失望的结果：丢包，错包统计没有遗漏统计 这时候收包处理过程丢包可能性已经排除 从上到下的报文流排查，报文丢在网卡上送cpu过程中？ 内核采用epoll收包存在问题？ 进程如果得到调度就没有问题 top 查看进程调度，这时候有重大发现了： 看tc丢包统计与top的里面的进程natlog运行就同步了，但是看到natlog的线程状态为D状态，同时检查配置，开启nat log功能   natlog进程设置为D状态，导致不响应异步信号，在natlog释放cpu前，在转发线程与natlog运行在同一个cpu的情况下，转发线程得不到调度，导致报文接收缓冲区溢出，导致部分报文丢弃；
-与natlog线程开发同学交流，natlog早期是基于多核开发，natlog根据运营商需求，每30s定时运行，natlog线程运行在控制核，转发线程运行在数据核，导致问题没有暴露出来
- 问题总结  定位问题，特别是未知的问题是一步步有依据推断与确认的过程 获取现场的全方位消息，同时要对信息进行去噪，避免关键信息遗漏与无关干扰  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2015-05-24T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;Linux性能优化杂谈&amp;rdquo; draft = false +++
-性能不仅仅是一串串数字，性能体现更大的吞吐量及更低的延迟；如果网络延迟增加0.1秒，google每秒损失100W,不是人民币是美元；网页响应慢0.1秒，运营成本每天增加100万美金。亚马逊的数据也显示，网页延迟1秒可能导致全年损失16亿美金；移动页面加载时间时长超过5秒，74%的用户会选择离开，高性能主要体现下面三个方面：
- 少资源 高吞吐 低延迟  在具体网络转发性能优化过程中对性能优化有以下几点体会与总结：
-软硬结合 软件灵活，硬件高效，软硬结合就像双剑合壁，威力巨大；具体在网络设备中交换机就是一个很好的例子：通常由CPU完成协议的处理，下发转发表项到芯片，由芯片完成报文的转发，在这种思路下才会cisco，H3C，Huawei的大容量的交换机；如果完全交给CPU来处理成本很高，而且在现有技术下很难完成那么大的交换容量（1T以上）。在这种情况对于软件上来说基本不需要优化，本文后面的优化是针对软转的优化；
-分离与分解 控制与转发分离 由控制平面维护转发表项，转发平面根据表项完成转发
-针对性优化 性能优化一定要指定优化场景，例如对于收包优化针对不同的接入方式，不同报文类型；
-快慢结合，先慢后快 对于交换机与路由机这种网络转发设备，通过首包建流，后续报文匹配流实现快慢结合提高报文转发效率；
-缓存 缓存大法好，在现在各种系统与应用中缓存无处不在，硬件上看，有硬盘缓存，RAID卡缓存，存储缓存，主存，NUMA特性，CPU cache；软件架构上看，有全局数据缓存，私有数据缓存，连接池，应用服务器缓存，WEB服务器缓存，CDN缓存，客户端文件缓存，客户端内存缓存等等。
-do more with less 性能优化大体就是开源与节流，do more with less需要考虑如何提高cpu，存储，网络的利用效率
-预处理 兵马未动粮草先行 例如在报文发送针对不同流准备相应的链路层头，避免发送报文再逐字段填充，作到一次性完成报文贴头处理；其实很多应用系统的线程池，内存池，连接池等也是类似思想
-二八原则 主要体现如下:
- 对于优化的代码，集中精力优化是关键20%的代码 在具体的系统性能优化过程刚开始投入20%可以使取得整个优化成果的80%，而最后的20%需要花费80%的时间来完成，而且涉及的挑战会更多，更有难度，所以优化过程越到后面越难，需要良好的心态与意志  无profile，不优化 If you can&amp;rsquo;t measure it, you can&amp;rsquo;t improve it。若无度量，则无提高。优化一定要有一套profile方法，profile以下几个方面的作用：</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2015-05-26T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;在没有分支miss条件下，实现取最小值&amp;rdquo; draft = false +++
-在实际性能优化过程，加了一个if判断整个系统转发性能就有大约5%的下降，下面简单分享一种在没有分支miss条件下，实现取最小值的方法。
-一般实现 取两个数最小值，一般代码常见两种写法如下：
- 写法一：
-if(a &amp;lt; b ) { min = a } else { min = b}  写法二：
-min = a &amp;lt; b ? a:b;   这两种写法只是代码写法不一致，实际都是通过一个if的语句的比较，存在if语句就代码运行过程就存在分支miss，而一个分支的miss的开销范围40到60 cycles；在追求高性能代码，且没有太多的优化点的过程中这是极其宝贵，且这两个分支出现概率都相当，也就不能简单通过likely与unlikely来实现分支预测
-无分支miss实现 无分支实现代码如下：
-min = b ^ ((a ^ b) &amp;amp;-(a&amp;lt;b));  分两种情况分析如下：</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Network&amp;rdquo;] date = &amp;ldquo;2015-05-27T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Network&amp;rdquo;] title = &amp;ldquo;ping不通常见原因总结&amp;rdquo; draft = false +++
-ping不通从ping的流程分为两大类：请求报文没有到达对端与应答报文未收到
-请求报文没有到达对端的可能原因 1. 发送端发送流程出错 2. 源端,转发设备没有目的地址的路由 2. ttl 小于转发跳数 3. 分片丢包 4. MTU限制 5. 转发丢包 6. 报文错误 7. 防火墙规则不允许该类型报文通过 8. 中间进行nat转换等处理出错 8. 目的地址不存在 9. 接收端收包流程出错
-应答报文未收到的可能原因 1. 发送端发送流程出错 2. MTU限制 3. 目的端禁止应答 4. 接收报文错误 5. 防火墙规则不允许该类型报文通过 6. 接收到了报文，但是超出等待时间 7. 接收报文错误，ping 应答检查失败 8.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2015-05-27T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;那些可进入睡眠状态的Linux内核函数&amp;rdquo; draft = false +++
-在linux内核开发中断处理函数不能调用可能导致睡眠的函数，下面总结linux内核可能引起睡眠的函数如下：
-schedule函数   schedule_timeout schedule_timeout_uninterruptible schedule_timeout_interruptible cond_resched might_resched   sleep函数   msleep msleep_interruputible ssleep osal_usleep might_sleep   取信号量函数   down down_timeout down_read down_write down_interruptible wait_for_completion wait_for_completion_interruptible wait_for_completion_timeout wait_for_completion_interruptible_timeout   kmalloc相关函数含有标志GFP_KERNEL   kmalloc kzalloc krealloc kmem_cache_create kmem_cache_alloc kmem_cache_zalloc   取睡眠锁函数   mutex_lock mutex_lock_timeout mutex_lock_nested mutex_lock_interruptible mutex_lock_interruptible_nested   在中断处理函数不能使用睡眠函数原因 主要原因如下：</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;编程&amp;rdquo;] date = &amp;ldquo;2015-06-14T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;编程&amp;rdquo;] title = &amp;ldquo;实现无符号整型数的分解&amp;rdquo; draft = false +++
-题目 将一个无符号数N拆分为不多于M个数，使拆分的数之和等于N,条件：
- N &amp;gt;= M； N与M都是无符号整型数  求：一共有多少中拆分方法？
-分析 参考代码
-代码 代码实现计算拆分方法及打印拆分组合信息
- #include &amp;lt;iostream&amp;gt; #include &amp;lt;stdint.h&amp;gt; using namespace std; class CSolution { private: uint32_t uiM; uint32_t uiN; uint32_t uiCount; uint32_t *puiRecord; public: CSolution(); CSolution(uint32_t uiM, uint32_t uiN); ~CSolution(); uint32_t GetCount() {return uiCount;} void PrintCombinations(); uint32_t CountNum(uint32_t uiM, uint32_t uiN); void GetCombination(uint32_t uiMin, uint32_t uiLeft, uint32_t uiGetNum, uint32_t uiTargetNum, uint32_t *puiRecord); }; CSolution::CSolution(uint32_t uiM,uint32_t uiN){ this-&amp;gt;uiM = uiM; this-&amp;gt;uiN = uiN; this-&amp;gt;puiRecord = new unsigned int [uiM]; this-&amp;gt;uiCount = CountNum(uiM, uiN); return ; } CSolution::CSolution() { uiM = 1; uiN = 1; puiRecord = new unsigned int [uiM]; uiCount = CountNum(uiM, uiN); return ; } CSolution::~CSolution() { delete [] puiRecord; return ; } uint32_t CSolution::CountNum(uint32_t uiM, uint32_t uiN) { if((0 == uiM) || (0 == uiN) || ( 1 == uiM) || ( 1 == uiN)) { return 1; } if(uiN &amp;lt; uiM) { return CountNum(uiN,uiN); } return CountNum(uiM - 1, uiN) + CountNum(uiM, uiN - uiM); } /* UINT uiMin 最小值 UINT uiLeft 剩下值 UINT uiGetNum 已拆分元素个数 UINT uiTargetNum 需要拆分的个数 UINT *puiCombination 拆分组合首地址 */ void CSolution::GetCombination(uint32_t uiMin, uint32_t uiLeft, uint32_t uiGetNum, uint32_t uiTargetNum, uint32_t *puiRecord) { uint32_t i; uint32_t j; /*递归结束条件 */ if(1 == uiTargetNum) { cout &amp;lt;&amp;lt; uiLeft&amp;lt;&amp;lt;endl; return ; } /* 将剩下值拆分为多个数,除了最后一个拆分值，其他的拆分数都应小于等于uiLeft/2 */ for(i = uiMin; i &amp;lt;= uiLeft / 2; i++) { puiRecord[uiGetNum] = i; uiGetNum++; if(uiGetNum + 1 == uiTargetNum) { puiRecord[uiGetNum] = uiLeft - i; for(j = 0; j &amp;lt; uiTargetNum; j++) { cout &amp;lt;&amp;lt;puiRecord[j]&amp;lt;&amp;lt; &amp;quot; &amp;quot;; } cout &amp;lt;&amp;lt; endl; } else { GetCombination(i, uiLeft - i, uiGetNum, uiTargetNum, puiRecord); } uiGetNum--; } return ; } void CSolution::PrintCombinations() { uint32_t i; cout&amp;lt;&amp;lt;&amp;quot;print combinations as follow:&amp;quot;&amp;lt;&amp;lt;endl; for(i = 1; i &amp;lt;= uiM; i++) { GetCombination(1, uiN, 0, i, puiRecord); } cout&amp;lt;&amp;lt;&amp;quot;The Total num is &amp;quot;&amp;lt;&amp;lt; GetCount()&amp;lt;&amp;lt;endl; return ; } int main(void) { CSolution test(7, 11); test.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;闲谈乱扯&amp;rdquo;] date = &amp;ldquo;2015-07-03T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;闲谈乱扯&amp;rdquo;] title = &amp;ldquo;读书笔记：《从0到1&amp;mdash;开启商业与未来的秘密》&amp;rdquo; draft = false +++
-启发思考  在什么重要问题上你与其他有不同的看法？ &amp;gt;除了书中讲到参考模式:太多数人相信X，但是事实却是X的对立面；世界是多样的，我们应当追求正确的差异化
- 企业失败的共同的原因 &amp;gt;企业失败的原因却是相同：它们都无法逃脱竞争
- 应对趋势潮流 &amp;gt;最反主流的行动不是抵制潮流，而是在潮流中不丢弃自己的独立思考
- 从0到1vs从1到N &amp;gt;从0到1是创新，创造；从1到N是创新成果应用及商业化
-  ###关于团队 1. 现金奖励不是王道，股票报酬才能让员工全力以赴 2. 那些决定命运的基础元素：合伙人，早期团队成员 3. 所有权，经营权，控制权 4. 招聘要求：有才华+真正喜欢与团队合作及一起成长的意愿 5. 特立独行的创始人
-###关于销售 这一部分内容作者回答一系列问题：
- 销售是什么？ &amp;gt;产品离不开销售，销售是产品设计的一部分；销售是隐形的，销售人员第一要务是说服而不是真诚
- 谁是销售对象？ &amp;gt; 品牌无界限，销售对象除了产品与服务的潜在用户，还要社会，媒体销售公司，建立品牌
- 谁是销售员？ &amp;gt;不论是员工，创始人，还是投资者，都应该是销售，无人不销售，无时不销售
- 怎么进行销售？ &amp;gt;常用销售方法：复杂销售，人员销售，市场营销和广告，病毒式营销，粉丝营销；</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2015-07-28T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;Linux netstat 应用示例&amp;rdquo; draft = false +++
-关于netstat netstat 命令用于显示各种网络相关信息，如网络连接，路由表，接口状态 (Interface Statistics)，masquerade 连接，多播成员 (Multicast Memberships) 等等。
-常用参数 -a (all)显示所有选项，默认不显示LISTEN相关
--t (tcp)仅显示tcp相关选项
--u (udp)仅显示udp相关选项
--n 拒绝显示别名，能显示数字的全部转化成数字
--l 仅列出有在 Listen (监听) 的服務状态
--p 显示建立相关链接的程序名
--r 显示路由信息，路由表
--e 显示扩展信息，例如uid等
--s 按各个协议进行统计
--c 每隔一个固定时间，执行该netstat命令
-注意：LISTEN和LISTENING的状态只有用-a或者-l才能看到
-应用实例 1. 选项组合应用 命令：</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;nginx&amp;rdquo;] date = &amp;ldquo;2015-08-08T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;nginx&amp;rdquo;] title = &amp;ldquo;nginx实践-添加自定义模块hello&amp;rdquo; draft = false +++
-nginx是一个值得学习与研究的开源代码，写这篇文章主要目的是让自己能够能够从最简单的任务开始，通过写作促进自己一步一步地深入学习与分析nginx。本文是这个系列的第一篇，主要是记录自己实现一个自定义的模块hello的过程。
-1. 下载源码 下载nginx 1.8.0 源代码
-root@localhost github]# wget http://nginx.org/download/nginx-1.8.0.tar.gz root@localhost github]# tar zxf  2. 准备文件与代码 在nginx解压目录下，添加如下文件：
-[root@localhost nginx-1.8.0]# tree | more . |-- **addon** | `-- **hello** | |-- **config** | `-- **ngx_http_hello_module.c** |-- auto | |-- cc | | |-- acc | | |-- bcc  新增文件分析参考nginx-hello</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2015-08-28T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;gdb自定义断点操作&amp;rdquo; draft = false +++
-gdb是c/c++上调试利器，有很多技巧能让调试程序与解决问题更加方便与高效，下面关于command 命令的使用一个实例，具体如下：
-1. 设置断点 (gdb) b GenVedioSeekPoint Breakpoint 1 at 0x402e58: file GenIndex.cpp, line 140. (gdb)  2. 利用commad自定义断点操作 (gdb) command 1 Type commands for breakpoint(s) 1, one per line. End with a line saying just &amp;quot;end&amp;quot;. &amp;gt;p *pstPktHead &amp;gt;continue &amp;gt;end (gdb)  3.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2015-12-13T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;升级Linux内核，搭建docker环境&amp;rdquo; draft = false +++
-docker可以说是去年最热的技术，也是业界大谈特谈的技术，到了今年有很多公司已经将docker应用于自己的生产环境。Docker已经从一个工具转化成平台，小生态圈。作为一名程序员应该与时俱进，学习新技术，不断地提高自己。
-升级内核 docker要求linux内核版本3.12以上，作为常用linux2.26.32版本，虽然也可以安装docker，但是有一些特性不支持，所以第一步就是升级内核。个人选择最新的长期维护版本升级linux4.13,内核升级最关键的一件事情就是配置内核，关于内核支持docker的内核配置文件，如果不想自己动手配置内核，可以参考Linux-4.13-configfordocker;
-在未正确配置linux内核会出现以下一些错误：
- docker启动过程中iptables命令执行失败，原因是 iptables模块没有配置  [root@localhost ~]# docker -d INFO[0000] Listening for HTTP on unix (/var/run/docker.sock) INFO[0000] [graphdriver] using prior storage driver &amp;quot;devicemapper&amp;quot; FATA[0000] Error starting daemon: Error initializing network controller: Error creating default &amp;quot;bridge&amp;quot; network: Failed to Setup IP tables: Unable to enable NAT rule: iptables failed: iptables -t nat -I POSTROUTING -s 172.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2016-01-28T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;docker image命令实践&amp;rdquo; draft = false +++
-搭建了docker环境，就来体验一下Docker，常用docker image命令如下：
-1. 搜索docker image root@localhost ~]# docker search ubuntu NAME DESCRIPTION STARS OFFICIAL AUTOMATED ubuntu Ubuntu is a Debian-based Linux operating s... 2954 [OK] ubuntu-upstart Upstart is an event-based replacement for ... 58 [OK] dorowu/ubuntu-desktop-lxde-vnc Ubuntu with openssh-server and NoVNC on po.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;闲谈乱扯&amp;rdquo;] date = &amp;ldquo;2016-03-05T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;闲谈乱扯&amp;rdquo;] title = &amp;ldquo;代码是核心，但不仅仅是代码&amp;rdquo; draft = false +++
-其实以前也有类似的想法，但是决定写这篇文章是由下面一件事情引起的。
-引子 同事自已造轮子要实现一个rtmp协议，在调试过程由于有一个问题有没有解决，影响团队的联调，对于他造主动造轮子，我是不支持的。重复实现一个完整的rtmp协议，会走很多坑的，需要花费较多的时间，而开源的librtmp已经实现完整的rtmp协议功能，我决定将librtmp协议移植到现在系统。
-接着就自己开始干，了解librtmp实现，动手写一个利用librtmp支持epoll的rtmpserver。 在调试过程出现rtmp握手失败的问题，初看定位无果的情况下，我修改了makefile，生成调试的符号表，同时打开调试开关。这些弄好之后，试了一下，没有我期待的符号表与调试信息。
-于是我怀疑自己对makefile是否正确。重新学习makefile与编译的一些知识还是无果，觉得makefile修改是正确的。这时候灵光一现，看看进程加载的是哪些lib
-(gdb) info sharedlibrary From To Syms Read Shared Object Library 0x0000003a74600b00 0x0000003a746198db Yes (*) /lib64/ld-linux-x86-64.so.2 0x00007ffff7dd57e0 0x00007ffff7de4358 Yes (*) /usr/local/lib/librtmp.so.1 #加载的librtmp库 0x0000003c39a18340 0x0000003c39a53558 Yes (*) /usr/lib64/libssl.so.10 0x0000003c39669cc0 0x0000003c3975dbe8 Yes (*) /usr/lib64/libcrypto.so.10 0x0000003a76602120 0x0000003a7660d3a8 Yes (*) /lib64/libz.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2016-03-09T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;Linux x86-64 函数调用栈实例分析&amp;rdquo; draft = false +++
-前言 动手实践并写文章花5倍的时间一次性把事情做到90分，好过读别人文章只能做到60分，后面还需要花时间继续深入学习。本文目的希望通过分析一个简单的函数调用加深对x86-64寄存器及栈帧的结构的认识，以便在定位问题需要的时候能够熟练运用。
-环境 1.操作系统和内核
-[root@localhost ~]# cat /proc/version Linux version 3.10.0-229.4.2.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.2 20140120 (Red Hat 4.8.2-16) (GCC) ) #1 SMP Wed May 13 10:06:09 UTC 2015  2.GCC版本
-[root@localhost ~]# gcc -v Using built-in specs. COLLECT_GCC=gcc COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2016-04-17T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;Linux内核常见crash原因&amp;rdquo; draft = false +++
-前言 与前同事交流，发现以前的技术经历与解决的问题，现在接触不多，但是想想还是很有意思，虽然很多细节现在已经不能表达出来或展示出来，但是还得写出来。下面写的得主要个人经历的linux内核crash原因。
-内存类 这一类同用户态类似，主要有以下几种情况，
- 访问NULL 访问释放后的内存 非法访问内存 内存被踩 内存耗尽 野指针操作  堆栈类  内核调用栈溢出
- 写坏调用栈  锁  死锁 rcu使用错误 锁内存被写坏 长期获取不到锁，导致看门狗饿死，狗叫重启  调度  线程陷入死循环或者长时间占用cpu，在非抢占模式下其他线程得不到调度  中断上下文  在中断上下文调用错误的函数，例如在中断上下文使用信号量，更多参考那些可进入睡眠状态的Linux内核函数  硬件故障 在系统运行过程出现硬件故障也会导致内核crash。接触较少，不作说明。
-后记 能力有限，条件有限，写的很虚，也不全面，以后有机会再来点实际的，这个目的主要是回忆总结自己的知识体系。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2016-05-21T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;git常用命令总结&amp;rdquo; draft = false +++
-git仓库  初始化一个版本仓库
-git init  clone远程版本库
-git clone git@github.com:myself659/FFmpeg.git  添加远程版本库origin
-git remote add origin git@github.com:myself659/rtmpserver_demo.git  查看远程仓库信息
-git remote -v  删除远程仓库
-git remote rm &amp;lt;repository&amp;gt;   git修改  添加当前修改的文件到暂存区
-git add .  提交修改到本地
-git commit -m &amp;quot;fix bug 0001&amp;quot;  提交修改到远程</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Arch&amp;rdquo;] date = &amp;ldquo;2016-05-27T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Arch&amp;rdquo;] title = &amp;ldquo;Facebook live一些技术细节&amp;rdquo; draft = false +++
-协议选择 最初选择HLS,后面切换为RTMP，切换为RTMP主要为了降低延迟，提供更好直播用户体验。
-解决并发问题  分发架构
-采用Live stream server， origin server， edge server 三层架构；如下图如示：   一句话就是：通过遍布各地的CDN节点（edge server）实现海量用户的播放请求。
- 请求合并应对高并发 采用的CDN方案，应对一般数量级的播放是没有问题，但是facebook上有很多名人与网红，他们每个人都有几百万个粉丝，这就要求facebook live 直播系统能够处理超过一亿人同时播放的能力。假如一个名人的直播有100万粉丝同时观看，edge server缓存命中率为98%，那么未命中用户为2万，这2万用户回源到origin server甚至回源到Live stream server，服务器压力可想而知，这不是2W个连接而已，而是2W个视频播放，带宽，cpu都是一个很大的考验。用数字说话，以带宽为例； 假设一个HLS切片为3S，高清视频码率为1800K bps，那么一秒带宽需求为：  20K /3 *1800K b/s * 1s = 20*600 Mb = 12 Gb  每秒的带宽超过10Gb，服务器网卡高配也才10Gb。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Arch&amp;rdquo;] date = &amp;ldquo;2016-06-02T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Arch&amp;rdquo;] title = &amp;ldquo;10 Lessons from 10 Years of Amazon Web Services（译文）&amp;rdquo; draft = false +++
-前言  亚马逊在2006年3月14日发布AWS，到现在差不多10年了。回首过去的10年里，我们在构建 安全，高可用性，可扩展性，低成本的服务方面积累了几百条经验与教训。 由于AWS是建设并在全球运营这些服务的先驱，这些教训对我们的业务至关重要。正如我们以前多次说，“没有压缩经验的算法”，每月有超过百万的活跃客户，这些客户服务几个亿的用户，在这个过程我们不乏机会积累经验并持续优化从而为客户提供更好的服务。
-我选择了下面这些经验教训，与大家分享，希望它们对你们有用。
- 1. 构建不断进化的系统  几乎从第一天开始,我们知道自己开发的软件在一年后将不会继续运行。我们需要重新审视和改进架构，以确保我们可以解决订单规模增长一到二个数量级所带来的问题。但是我们不能采取停电检修这种旧方法升级系统，这是因为遍布世界各地的海量业务需要我们的平台提供7*24小时高可用性服务。我们需要建立这样架构：能够在不停止服务的情况下引入新的组件。Marvin Theimer,亚马逊杰出工程师，曾开玩笑地说，亚马逊S3的演变可以被描述为从当初的单引擎飞机，随着时间的推移飞机不断升级，先是升级到737，然后是一组747，现在成了3805的空中舰队。在此期间，我们在飞行过程中完成加油，而客户甚至没有觉察到这一点。
- 感悟： 唯有变化才是确定，系统应该保证灵活性与扩展性。云计算系统是需要不断进化，开发人员也需要不断进化
-2. 总有想不到的  异常总是会发生的，随着时间的推移，一切都会出现异常：从路由器到硬盘，从操作系统到内存单元，从瞬态错误到永久性故障。无论你使用的是最高品质的硬件或最低成本的硬件，这些总是会发生的。在大规模系统中更是如此，例如，在S3中处理和存储的万亿交易，任何异常，即使是最小的可能性也将成为现实。部分这样的异常可以事先预见的，但更多的异常却在设计和开发过程中未能被发现。
-我们需要开发一个视异常为常态的系统，即使我们不知道会有什么样的异常。即使“房子着火了”，系统也需要保持运行。重要的是在整个系统在不宕机的情况下能够处理这些异常。我们掌握隔离异常与控制异常的影响范围的方法从而使整个系统能够正常运行。
- 感悟：异常是常态，如何处理异常是系统设计阶段必须考虑到的问题。
-3. 提供基元而不是框架  我们很快意识到，客户的需求是不断变化的。当客户摆脱传统的IT硬件和数据中心的限制，他们开始使用感兴趣却没有应用过的模式搭建系统。因此，我们努力做到超级敏捷以确保满足客户的需求。
-其中一个最重要的策略是向客户提供的基元和工具，让客户从中选择最合适他们的集合，而不是只提供一个框架中，迫使他们不得不使用。这种做法使我们的客户取得了成功，其后的AWS服务也同样利用这些客户已经熟悉的基础服务。
-同样重要的是我们不知道客户下一个关心问题是什么，直到他们开始使用我们的服务。这就是为什么我们经常用最少的功能集提供新的服务，让我们的客户能够帮助推动产品路线图规划与新功能的开发。
- 感悟： 客户的需求是下一个产品。立足基础，理解客户的需求，才能满足客户。
-4. 自动化是关键  提供云计算服务不同于开发并交付软件，管理大规模系统需要不同的思维方式，以确保满足用户的高可用性，高性能和可扩展性的需求。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;golang&amp;rdquo;] date = &amp;ldquo;2016-07-26T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;golang&amp;rdquo;] title = &amp;ldquo;Go channel 特点篇&amp;rdquo; draft = false +++
-channel模式 根据同步方式不同，channel有两种模式：
-1、同步模式,形式如下：
-ch := make(chan int)  2、队列模式，形式如下：
-ch := make(chan int, 10)  根据数据方向流不同，channel类型可以有以下三种模式：
- 写操作模式（只发送） 读操作模式（只接收） 读写操作模式（不限发送与接收）  channel操作 channel有以下操作：
- 创建 关闭 写(发送)操作 读(接收)操作
-  这些操作都是原子操作
-channel状态 根据模式与操作，channel有以下状态：
- 同步写阻塞 同步读阻塞 关闭状态
- 队列写阻塞 队列读阻塞 队列可读写 nil状态  channel状态与操作之间关系    状态/操作 写操作 读操作 关闭 创建     nil状态 写阻塞 写阻塞 产生panic(close of nil channel) -   同步写阻塞 写阻塞 成功读取数据 进入关闭状态，产生panic -   同步读阻塞 成功写入数据 读阻塞 进入关闭状态 -   关闭状态 产生panic 立即返回(nil，false) 产生panic -   队列写阻塞 写阻塞 成功读取队列中数据 进入关闭状态，成功写入队列的数据可读 -   队列读阻塞 成功写入数据 读阻塞 进入关闭状态 -   队列可读写 成功写入数据 成功读取数据 进入关闭状态，成功写入队列的数据可读 -    由于个人水平有限，有什么不足与错误，敬请指正！</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Arch&amp;rdquo;] date = &amp;ldquo;2016-07-29T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Arch&amp;rdquo;] title = &amp;ldquo;IM后端系统设计总结(1)&amp;rdquo; draft = false +++
-定义IM 为用户提供即时消息服务，这里面有三个关键词：用户，消息，服务；下面根据三个关键词来展开总结，先从消息开始。
-消息 消息分类 对消息分类，很简单但是重要，方便后面业务的拆分。
- 注册 登录 用户信息 聊天消息 群组 好友 文件 版本 内部服务器之间消息 客户端诊断 其他业务消息  信息语义描述 在互联网和移动互联网时代常见有以下几种方式：
- XML 文本 MQTT 自定义二进制（这里一般默认为google protobuf）  这四种类型比较如下表所示：
-   比较项 XML 文本 MQTT 自定义二进制     可读性 好 好 差 差   通用性 标准协议，易通用 支持通用http协议，也可自定义 通用标准协议 私有协议，无法通用   扩展性 易扩展，支持第三方 易扩展 可扩展 仅协议可扩展，不支持第三方   流量消耗 极大 大 小 小   处理效率 低 一般 高 高   网络适应性 差 一般 较好 较好   业内应用 新浪微博/GTalk MSN facebook messenger QQ/weixin    再补充说一点，采用二进制协议，在网络带宽及消息存储方面可以节约成本，特别用户量达到千万级以上</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Arch&amp;rdquo;] date = &amp;ldquo;2016-08-05T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Arch&amp;rdquo;] title = &amp;ldquo;IM后端系统设计总结(2)&amp;rdquo; draft = false +++
-这篇具体写一下用户在线状态系统的具体设计。
-后端架构 这个后端系统设计如下图：
-很大众，国内基本都这么干，不多说
-用户状态系统设计 初期设计 单IDC部署，设计如下:
-相关说明  AG：接入网关，负责用户的连接 ConnRouter：连接路由服务器，主要提供以下功能： 所有用户状态的维护 用户状态查询 用户状态推送 用户状态同步 异步消息路由与转发 状态通知流: 用户登录成功或者下线状态通知 状态同步流：ConnRouter服务器之间用户状态的同步，不需要推送给订阅者
- 用户消息流: 异步发送给用户的消息在服务器内部的传输  设计要点  参考Kafka的模型，将用户状态改变作为事件，将事件描述为消息，将消息队列化成消息队列 AG对应Kafka中的Producer角色，主要原因是用户状态是用户连接的影子，AG能真实快速感知用户状态 ConnRouter对应Kafka中的Broker UserStat（用户统计与分析）与StateNotify（用户状态通知）对应Kafka中的Consumer 减少耦合，以异步发送消息到用户为例，整个流程三步走： 第一步：生成发送消息，发送到ConnRouter
- 第二步：根据目的用户ID，查找到出口AG，将消息转发到出口AG 第三步：出口AG查找用户连接，通过连接发送到目的用户
-  ConnRouter设计 用户状态数据存储设计 用户状态数据存储设计，如下图所示：
- 内存消耗 主要内存消耗来自用户状态数组（与ConnRouter连接都是长连接，可以忽略不计） 每种客户端类型下每个用户占用一个1Byte，那么1G内存可以存1073741824个用户的状态，超过了10亿，支持亿级用户内存不是瓶颈</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;golang&amp;rdquo;] date = &amp;ldquo;2016-08-20T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;golang&amp;rdquo;] title = &amp;ldquo;Go channel 编程篇&amp;rdquo; draft = false +++
-本篇以ChanBroker版本迭代过程，总结常见Channel编程问题
-简介 ChanBroker设计主要参考Kafka模型，主要提供进程内goroutine之间通信，实现以下功能：
- 支持多个Publisher发布内容 支持Subscriber注册与去注册订阅 发布内容可以是任何形式 ChanBroker根据订阅情况完成内容推送  版本1 具体代码如下:
-package ChanBroker type Content interface{} type Subscriber chan Content type ChanBroker struct { RegSub chan Subscriber UnRegSub chan Subscriber Contents chan Content Stop chan bool Subscribers map[Subscriber]bool } func NewChanBroker() *ChanBroker { ChanBroker := new(ChanBroker) ChanBroker.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;golang&amp;rdquo;] date = &amp;ldquo;2016-09-10T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;golang&amp;rdquo;] title = &amp;ldquo;从C语言epoll编程到go net实现分析&amp;rdquo; draft = false +++
-说明  go源码版本：1.7 go源码运行环境：Linux  epoll在c语言编程示例 先看一下大家比较熟悉的epoll在c语言中应用，代码取自rtmpserver_demo中的文件rtmpepollsrv.c
-int RtmpSessionHandle(int iFd, int iEvent, void *pContext) { int iRet; RTMP_SESSION *pSession = (RTMP_SESSION *)pContext; if(iEvent&amp;amp;EPOLLIN ) { if(0 == pSession-&amp;gt;handshake) { iRet = RtmpSessionHandshake(pSession); if(0 != iRet) { RtmpSessionHandleFin(pSession); } } else { iRet = RtmpPktHandle(pSession); } } if(iEvent &amp;amp; (EPOLLERR |EPOLLHUP) ) { RtmpSessionHandleFin(pSession); } return iRet; } int ListenHandle(int iFd, int iEvent, void *pContext) { int iNewFd; int iRet = 0; struct sockaddr tmpAddr; memset(&amp;amp;tmpAddr, 0, sizeof(tmpAddr)); int iSocketSize = sizeof(tmpAddr); EPOLL_CTX *pCtx; RTMP_SESSION *pServer; if(iEvent|EPOLLIN) { iNewFd = accept(iFd, &amp;amp;tmpAddr, (socklen_t *)&amp;amp;iSocketSize); if(RTMP_EPOLLSRV_INVALIDFD &amp;lt; iNewFd) { pServer = (RTMP_SESSION *)malloc(sizeof(RTMP_SESSION)); if(NULL == pServer) { return -1; } pServer-&amp;gt;handshake = 0; pCtx = (EPOLL_CTX *)malloc(sizeof(EPOLL_CTX)); if(NULL == pCtx) { free(pServer); return -1; } pServer-&amp;gt;socket = iNewFd; pCtx-&amp;gt;iFd = iNewFd; pCtx-&amp;gt;pContext = pServer; pCtx-&amp;gt;pfHandle = RtmpSessionHandle; /* 加入epoll */ iRet = epoll_op(g_iEpollFd, EPOLL_CTL_ADD, iNewFd, EPOLLIN|EPOLLERR|EPOLLHUP, pCtx); } else { printf(&amp;quot;accept errno:%s&amp;quot;,strerror(errno)); } } return iRet; } int epoll_op(int iEpollFd, int iOp, int iFd, int iEvent, EPOLL_CTX *pCtx) { int iRet; struct epoll_event ev; ev.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;闲谈乱扯&amp;rdquo;] date = &amp;ldquo;2017-02-02T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;闲谈乱扯&amp;rdquo;] title = &amp;ldquo;互联网在农村-基础设施&amp;rdquo; draft = false +++
-说明 老家在安徽省安庆市的一个小山村里，作为一名互联网从业人员，这次回家特地花了一点心思来观察家乡的互联网应用情况。
-这是第一篇，先看农村互联网基础设施情况，上网要有电，要有接入网络，所以下面内容分为两个方面：
- 电 物理网络  电 电这一部分是我要大力吐槽的，拿除夕晚上来说，来电，断电，来电，断电。。。这样的循环至少五次，原因大概有下面这些：
- 功率不足，除夕晚上电视，家家晚上都把自己家的灯点亮（家乡的风俗习惯） 电工技能水平有限 农村电力基础本身就差 农村有一些人家的线程本身就有问题，例如老化，漏电，甚至还有偷电的行为  除此之外，发现大多数人对于服务质量也没有意识，对于突然的停电也习以为常，毕竟大部分一直在生活在这里，不知道外面的供电服务是什么情况。
-物理网络 物理网络分为两个方面来写吧：
- 固定宽带 移动网络  固定宽带 固定宽带基本在10年到17年这七年的时间实现从无到有，从ADSL到光纤接入的发展。了解情况如下：
- 接入方式：光纤接入与ADSL并存，新接入方式以光纤为准 网络速度：光纤接入可以达到50M，个人在家使用与在杭州感觉不到什么差异，相反网络还更好一些，这主要可能是开通网络人数不多吧 接入高可用性：在家这十天左右的时间内基本没有出现连接不上的情况 接入费用： 我家的套餐是1500包两年电信套餐，与城市相差无异 网络开通率：了解到一个40户左右的村民小组只有4户开通宽带，开通率才10%左右  移动网络 07年放假回家，当时号称移动信号最好的移动手机回家基本上没有信号，要选好位置，作好姿势才能蹭到黄冈的移动网络，发短信，收短信变成一个十分美好的事情，现在回想起来还能感觉到那一刻自己的心情的美好：有信号真好。慢慢地几年内（具体时间已经记不清楚了）移动基站来了，电信基站来了，联通基站也来了
-15-16两年4G商用，想想也知道，这里还是3G，移动网络的速度正如段子所说：
- 2G看苍井空.txt，3G看苍井空.jpg，4G看苍井空.avi
- 这里速度当然不利于农村互联网喜欢的视频应用的使用。
-总结 虽然农村基础设施大大落后城市，但是进步迅速，想想在2010年村里才刚开始有ADSL接入，到现在支持50M光纤接入，在网速方面与城市基本上没有区别。希望今后能够网络连接可靠性方面有较大的进步，这样一年当中有一段时间在老家工作也是不错的，空气好，安静适合思考，而且还能吃到妈妈做的美食。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;闲谈乱扯&amp;rdquo;] date = &amp;ldquo;2017-02-03T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;闲谈乱扯&amp;rdquo;] title = &amp;ldquo;互联网在农村-用户&amp;rdquo; draft = false +++
-上一篇从电和物理网络两个方面说明自己所看到的农村互联网基础设施情况。这一篇就看看在农村的互联网用户的一些情况。 根据对app使用情况分为以下几种情况：
+      <guid>https://blog.ipds.top/2017/02/03/%E4%BA%92%E8%81%94%E7%BD%91%E5%9C%A8%E5%86%9C%E6%9D%91-%E7%94%A8%E6%88%B7/</guid>
+      <description>上一篇从电和物理网络两个方面说明自己所看到的农村互联网基础设施情况。这一篇就看看在农村的互联网用户的一些情况。 根据对app使用情况分为以下几种情况：
  基本不使用智能手机 需要引导使用智能手机 自主使用智能手机一些应用 自主使用智能手机大多数应用  基本不使用智能手机 代表人物：大伯父，大伯母
 出生年代：50年代
 教育背景：小学未毕业
@@ -1826,6 +1650,424 @@ int RtmpSessionHandle(int iFd, int iEvent, void *pContext) { int iRet; RTMP_SESS
     </item>
     
     <item>
+      <title>互联网在农村-基础设施</title>
+      <link>https://blog.ipds.top/2017/02/02/%E4%BA%92%E8%81%94%E7%BD%91%E5%9C%A8%E5%86%9C%E6%9D%91-%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD/</link>
+      <pubDate>Thu, 02 Feb 2017 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2017/02/02/%E4%BA%92%E8%81%94%E7%BD%91%E5%9C%A8%E5%86%9C%E6%9D%91-%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD/</guid>
+      <description>说明 老家在安徽省安庆市的一个小山村里，作为一名互联网从业人员，这次回家特地花了一点心思来观察家乡的互联网应用情况。
+这是第一篇，先看农村互联网基础设施情况，上网要有电，要有接入网络，所以下面内容分为两个方面：
+ 电 物理网络  电 电这一部分是我要大力吐槽的，拿除夕晚上来说，来电，断电，来电，断电。。。这样的循环至少五次，原因大概有下面这些：
+ 功率不足，除夕晚上电视，家家晚上都把自己家的灯点亮（家乡的风俗习惯） 电工技能水平有限 农村电力基础本身就差 农村有一些人家的线程本身就有问题，例如老化，漏电，甚至还有偷电的行为  除此之外，发现大多数人对于服务质量也没有意识，对于突然的停电也习以为常，毕竟大部分一直在生活在这里，不知道外面的供电服务是什么情况。
+物理网络 物理网络分为两个方面来写吧：
+ 固定宽带 移动网络  固定宽带 固定宽带基本在10年到17年这七年的时间实现从无到有，从ADSL到光纤接入的发展。了解情况如下：
+ 接入方式：光纤接入与ADSL并存，新接入方式以光纤为准 网络速度：光纤接入可以达到50M，个人在家使用与在杭州感觉不到什么差异，相反网络还更好一些，这主要可能是开通网络人数不多吧 接入高可用性：在家这十天左右的时间内基本没有出现连接不上的情况 接入费用： 我家的套餐是1500包两年电信套餐，与城市相差无异 网络开通率：了解到一个40户左右的村民小组只有4户开通宽带，开通率才10%左右  移动网络 07年放假回家，当时号称移动信号最好的移动手机回家基本上没有信号，要选好位置，作好姿势才能蹭到黄冈的移动网络，发短信，收短信变成一个十分美好的事情，现在回想起来还能感觉到那一刻自己的心情的美好：有信号真好。慢慢地几年内（具体时间已经记不清楚了）移动基站来了，电信基站来了，联通基站也来了
+15-16两年4G商用，想想也知道，这里还是3G，移动网络的速度正如段子所说：
+ 2G看苍井空.txt，3G看苍井空.jpg，4G看苍井空.avi
+ 这里速度当然不利于农村互联网喜欢的视频应用的使用。
+总结 虽然农村基础设施大大落后城市，但是进步迅速，想想在2010年村里才刚开始有ADSL接入，到现在支持50M光纤接入，在网速方面与城市基本上没有区别。希望今后能够网络连接可靠性方面有较大的进步，这样一年当中有一段时间在老家工作也是不错的，空气好，安静适合思考，而且还能吃到妈妈做的美食。
+最后再说明，这是自己的片面之词，写出来仅是记录一下自己见到的一些真实情况，为以后观察提供一个参考。
+（end）</description>
+    </item>
+    
+    <item>
+      <title>从C语言epoll编程到go net实现分析</title>
+      <link>https://blog.ipds.top/2016/09/10/%E4%BB%8Ec%E8%AF%AD%E8%A8%80epoll%E7%BC%96%E7%A8%8B%E5%88%B0go-net%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sat, 10 Sep 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/09/10/%E4%BB%8Ec%E8%AF%AD%E8%A8%80epoll%E7%BC%96%E7%A8%8B%E5%88%B0go-net%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90/</guid>
+      <description>说明  go源码版本：1.7 go源码运行环境：Linux  epoll在c语言编程示例 先看一下大家比较熟悉的epoll在c语言中应用，代码取自rtmpserver_demo中的文件rtmpepollsrv.c
+int RtmpSessionHandle(int iFd, int iEvent, void *pContext) { int iRet; RTMP_SESSION *pSession = (RTMP_SESSION *)pContext; if(iEvent&amp;amp;EPOLLIN ) { if(0 == pSession-&amp;gt;handshake) { iRet = RtmpSessionHandshake(pSession); if(0 != iRet) { RtmpSessionHandleFin(pSession); } } else { iRet = RtmpPktHandle(pSession); } } if(iEvent &amp;amp; (EPOLLERR |EPOLLHUP) ) { RtmpSessionHandleFin(pSession); } return iRet; } int ListenHandle(int iFd, int iEvent, void *pContext) { int iNewFd; int iRet = 0; struct sockaddr tmpAddr; memset(&amp;amp;tmpAddr, 0, sizeof(tmpAddr)); int iSocketSize = sizeof(tmpAddr); EPOLL_CTX *pCtx; RTMP_SESSION *pServer; if(iEvent|EPOLLIN) { iNewFd = accept(iFd, &amp;amp;tmpAddr, (socklen_t *)&amp;amp;iSocketSize); if(RTMP_EPOLLSRV_INVALIDFD &amp;lt; iNewFd) { pServer = (RTMP_SESSION *)malloc(sizeof(RTMP_SESSION)); if(NULL == pServer) { return -1; } pServer-&amp;gt;handshake = 0; pCtx = (EPOLL_CTX *)malloc(sizeof(EPOLL_CTX)); if(NULL == pCtx) { free(pServer); return -1; } pServer-&amp;gt;socket = iNewFd; pCtx-&amp;gt;iFd = iNewFd; pCtx-&amp;gt;pContext = pServer; pCtx-&amp;gt;pfHandle = RtmpSessionHandle; /* 加入epoll */ iRet = epoll_op(g_iEpollFd, EPOLL_CTL_ADD, iNewFd, EPOLLIN|EPOLLERR|EPOLLHUP, pCtx); } else { printf(&amp;quot;accept errno:%s&amp;quot;,strerror(errno)); } } return iRet; } int epoll_op(int iEpollFd, int iOp, int iFd, int iEvent, EPOLL_CTX *pCtx) { int iRet; struct epoll_event ev; ev.</description>
+    </item>
+    
+    <item>
+      <title>Go channel 编程篇</title>
+      <link>https://blog.ipds.top/2016/08/20/go-channel-%E7%BC%96%E7%A8%8B%E7%AF%87/</link>
+      <pubDate>Sat, 20 Aug 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/08/20/go-channel-%E7%BC%96%E7%A8%8B%E7%AF%87/</guid>
+      <description>本篇以ChanBroker版本迭代过程，总结常见Channel编程问题
+简介 ChanBroker设计主要参考Kafka模型，主要提供进程内goroutine之间通信，实现以下功能：
+ 支持多个Publisher发布内容 支持Subscriber注册与去注册订阅 发布内容可以是任何形式 ChanBroker根据订阅情况完成内容推送  版本1 具体代码如下:
+package ChanBroker type Content interface{} type Subscriber chan Content type ChanBroker struct { RegSub chan Subscriber UnRegSub chan Subscriber Contents chan Content Stop chan bool Subscribers map[Subscriber]bool } func NewChanBroker() *ChanBroker { ChanBroker := new(ChanBroker) ChanBroker.RegSub = make(chan Subscriber) ChanBroker.UnRegSub = make(chan Subscriber) ChanBroker.Contents = make(chan Content) ChanBroker.Stop = make(chan bool) ChanBroker.Subscribers = make(map[Subscriber]bool) ChanBroker.run() return ChanBroker } func (self *ChanBroker) run() { go func() { // Broker goroutine for { select { case content := &amp;lt;-self.</description>
+    </item>
+    
+    <item>
+      <title>IM后端系统设计总结(2)</title>
+      <link>https://blog.ipds.top/2016/08/05/im%E5%90%8E%E7%AB%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%932/</link>
+      <pubDate>Fri, 05 Aug 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/08/05/im%E5%90%8E%E7%AB%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%932/</guid>
+      <description>这篇具体写一下用户在线状态系统的具体设计。
+后端架构 这个后端系统设计如下图：
+很大众，国内基本都这么干，不多说
+用户状态系统设计 初期设计 单IDC部署，设计如下:
+相关说明  AG：接入网关，负责用户的连接 ConnRouter：连接路由服务器，主要提供以下功能： 所有用户状态的维护 用户状态查询 用户状态推送 用户状态同步 异步消息路由与转发 状态通知流: 用户登录成功或者下线状态通知 状态同步流：ConnRouter服务器之间用户状态的同步，不需要推送给订阅者
+ 用户消息流: 异步发送给用户的消息在服务器内部的传输  设计要点  参考Kafka的模型，将用户状态改变作为事件，将事件描述为消息，将消息队列化成消息队列 AG对应Kafka中的Producer角色，主要原因是用户状态是用户连接的影子，AG能真实快速感知用户状态 ConnRouter对应Kafka中的Broker UserStat（用户统计与分析）与StateNotify（用户状态通知）对应Kafka中的Consumer 减少耦合，以异步发送消息到用户为例，整个流程三步走： 第一步：生成发送消息，发送到ConnRouter
+ 第二步：根据目的用户ID，查找到出口AG，将消息转发到出口AG 第三步：出口AG查找用户连接，通过连接发送到目的用户
+  ConnRouter设计 用户状态数据存储设计 用户状态数据存储设计，如下图所示：
+ 内存消耗 主要内存消耗来自用户状态数组（与ConnRouter连接都是长连接，可以忽略不计） 每种客户端类型下每个用户占用一个1Byte，那么1G内存可以存1073741824个用户的状态，超过了10亿，支持亿级用户内存不是瓶颈
+ 查找用户所在AG与状态O(1)
+  高可用性  服务器级Master-Master模式 根据用户ID选择ConnRouter Master实现用户级Master-Standby模式  高性能  epoll事件驱动
+ 无锁数据访问 流程无阻塞 O(1)查找 多核并发
+ 支持批量处理  支持Failover，方便升级  当ConnRouter宕机或者主动升级重启时，各AG重新建立连接时，将自身的用户状态同步到ConnRouter，完成用户状态数据恢复  无状态与单点自治  ConnRouter用户状态数据是各个AG的同步，真正用户状态保存在AG网关 单点可以独立工作  数据冲突处理 主要是一个数据优先级的原则（根据数据源，从高到低）：</description>
+    </item>
+    
+    <item>
+      <title>IM后端系统设计总结(1)</title>
+      <link>https://blog.ipds.top/2016/07/29/im%E5%90%8E%E7%AB%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%931/</link>
+      <pubDate>Fri, 29 Jul 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/07/29/im%E5%90%8E%E7%AB%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%931/</guid>
+      <description>定义IM 为用户提供即时消息服务，这里面有三个关键词：用户，消息，服务；下面根据三个关键词来展开总结，先从消息开始。
+消息 消息分类 对消息分类，很简单但是重要，方便后面业务的拆分。
+ 注册 登录 用户信息 聊天消息 群组 好友 文件 版本 内部服务器之间消息 客户端诊断 其他业务消息  信息语义描述 在互联网和移动互联网时代常见有以下几种方式：
+ XML 文本 MQTT 自定义二进制（这里一般默认为google protobuf）  这四种类型比较如下表所示：
+   比较项 XML 文本 MQTT 自定义二进制     可读性 好 好 差 差   通用性 标准协议，易通用 支持通用http协议，也可自定义 通用标准协议 私有协议，无法通用   扩展性 易扩展，支持第三方 易扩展 可扩展 仅协议可扩展，不支持第三方   流量消耗 极大 大 小 小   处理效率 低 一般 高 高   网络适应性 差 一般 较好 较好   业内应用 新浪微博/GTalk MSN facebook messenger QQ/weixin    再补充说一点，采用二进制协议，在网络带宽及消息存储方面可以节约成本，特别用户量达到千万级以上</description>
+    </item>
+    
+    <item>
+      <title>Go channel 特点篇</title>
+      <link>https://blog.ipds.top/2016/07/26/go-channel-%E7%89%B9%E7%82%B9%E7%AF%87/</link>
+      <pubDate>Tue, 26 Jul 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/07/26/go-channel-%E7%89%B9%E7%82%B9%E7%AF%87/</guid>
+      <description>channel模式 根据同步方式不同，channel有两种模式：
+1、同步模式,形式如下：
+ch := make(chan int)  2、队列模式，形式如下：
+ch := make(chan int, 10)  根据数据方向流不同，channel类型可以有以下三种模式：
+ 写操作模式（只发送） 读操作模式（只接收） 读写操作模式（不限发送与接收）  channel操作 channel有以下操作：
+ 创建 关闭 写(发送)操作 读(接收)操作
+  这些操作都是原子操作
+channel状态 根据模式与操作，channel有以下状态：
+ 同步写阻塞 同步读阻塞 关闭状态
+ 队列写阻塞 队列读阻塞 队列可读写 nil状态  channel状态与操作之间关系    状态/操作 写操作 读操作 关闭 创建     nil状态 写阻塞 写阻塞 产生panic(close of nil channel) -   同步写阻塞 写阻塞 成功读取数据 进入关闭状态，产生panic -   同步读阻塞 成功写入数据 读阻塞 进入关闭状态 -   关闭状态 产生panic 立即返回(nil，false) 产生panic -   队列写阻塞 写阻塞 成功读取队列中数据 进入关闭状态，成功写入队列的数据可读 -   队列读阻塞 成功写入数据 读阻塞 进入关闭状态 -   队列可读写 成功写入数据 成功读取数据 进入关闭状态，成功写入队列的数据可读 -    由于个人水平有限，有什么不足与错误，敬请指正！</description>
+    </item>
+    
+    <item>
+      <title>10 Lessons from 10 Years of Amazon Web Services（译文）</title>
+      <link>https://blog.ipds.top/2016/06/02/10-lessons-from-10-years-of-amazon-web-services%E8%AF%91%E6%96%87/</link>
+      <pubDate>Thu, 02 Jun 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/06/02/10-lessons-from-10-years-of-amazon-web-services%E8%AF%91%E6%96%87/</guid>
+      <description>前言  亚马逊在2006年3月14日发布AWS，到现在差不多10年了。回首过去的10年里，我们在构建 安全，高可用性，可扩展性，低成本的服务方面积累了几百条经验与教训。 由于AWS是建设并在全球运营这些服务的先驱，这些教训对我们的业务至关重要。正如我们以前多次说，“没有压缩经验的算法”，每月有超过百万的活跃客户，这些客户服务几个亿的用户，在这个过程我们不乏机会积累经验并持续优化从而为客户提供更好的服务。
+我选择了下面这些经验教训，与大家分享，希望它们对你们有用。
+ 1. 构建不断进化的系统  几乎从第一天开始,我们知道自己开发的软件在一年后将不会继续运行。我们需要重新审视和改进架构，以确保我们可以解决订单规模增长一到二个数量级所带来的问题。但是我们不能采取停电检修这种旧方法升级系统，这是因为遍布世界各地的海量业务需要我们的平台提供7*24小时高可用性服务。我们需要建立这样架构：能够在不停止服务的情况下引入新的组件。Marvin Theimer,亚马逊杰出工程师，曾开玩笑地说，亚马逊S3的演变可以被描述为从当初的单引擎飞机，随着时间的推移飞机不断升级，先是升级到737，然后是一组747，现在成了3805的空中舰队。在此期间，我们在飞行过程中完成加油，而客户甚至没有觉察到这一点。
+ 感悟： 唯有变化才是确定，系统应该保证灵活性与扩展性。云计算系统是需要不断进化，开发人员也需要不断进化
+2. 总有想不到的  异常总是会发生的，随着时间的推移，一切都会出现异常：从路由器到硬盘，从操作系统到内存单元，从瞬态错误到永久性故障。无论你使用的是最高品质的硬件或最低成本的硬件，这些总是会发生的。在大规模系统中更是如此，例如，在S3中处理和存储的万亿交易，任何异常，即使是最小的可能性也将成为现实。部分这样的异常可以事先预见的，但更多的异常却在设计和开发过程中未能被发现。
+我们需要开发一个视异常为常态的系统，即使我们不知道会有什么样的异常。即使“房子着火了”，系统也需要保持运行。重要的是在整个系统在不宕机的情况下能够处理这些异常。我们掌握隔离异常与控制异常的影响范围的方法从而使整个系统能够正常运行。
+ 感悟：异常是常态，如何处理异常是系统设计阶段必须考虑到的问题。
+3. 提供基元而不是框架  我们很快意识到，客户的需求是不断变化的。当客户摆脱传统的IT硬件和数据中心的限制，他们开始使用感兴趣却没有应用过的模式搭建系统。因此，我们努力做到超级敏捷以确保满足客户的需求。
+其中一个最重要的策略是向客户提供的基元和工具，让客户从中选择最合适他们的集合，而不是只提供一个框架中，迫使他们不得不使用。这种做法使我们的客户取得了成功，其后的AWS服务也同样利用这些客户已经熟悉的基础服务。
+同样重要的是我们不知道客户下一个关心问题是什么，直到他们开始使用我们的服务。这就是为什么我们经常用最少的功能集提供新的服务，让我们的客户能够帮助推动产品路线图规划与新功能的开发。
+ 感悟： 客户的需求是下一个产品。立足基础，理解客户的需求，才能满足客户。
+4. 自动化是关键  提供云计算服务不同于开发并交付软件，管理大规模系统需要不同的思维方式，以确保满足用户的高可用性，高性能和可扩展性的需求。
+这其中关键的一点是尽可能地实现自动化管理以避免容易出错的手动操作。要做到这一点，我们需要实现管理API从而管理我们的业务的关键功能。AWS可以帮助客户做到这一点。通过为应用程序的每一个分解组件提供管理API，从而应用自动化的规则来保证可靠性和预期的性能。
+如果你需要SSH到一个服务器或一个实例，那么你仍然需要更多的自动化，这是一个衡量自动化水平的好方法。
+ 感悟： 用人管理代码，用代码管理机器
+5. APIs are forever（API是不会变的）  这是我们从亚马逊零售业务经验中吸取的教训，它的重要性甚至超过了AWS中那些以API为中心的业务。
+一旦客户开始使用我们的API构建他们的应用程序和系统，改变这些API变得不可能，因我们修改这些API,会影响客户的业务运营。我们只有一次机会定义API,所以设计API是一个非常重要的工作。
+ 感悟： 接口优先，实现其次，实现可以调整，而接口一旦上线就没有什么回旋的余地。
+6. 监控资源应用  当构建一个服务，一定要有服务及其运营成本的数据以确定相应的计费方式，尤其是对于运行高营业额-低利润率的业务。AWS理所应当关注服务的成本，这样我们在为客户的提供服务的同时能够明确在哪些地方可以提高运营效率，以进一步削减成本，以更低的价格回馈客户。
+在创业初期，我们不知道S3服务应该采用哪种计费方式：我们曾认为应该对存储和带宽资源计费;经过一段时间，我们认识到请求的数量也应当计费。如果客户有许多微小的文件，即使他们上百万次数请求服务，消耗的存储和带宽都不会很高。我们不得不针对资源使用各个维度调整计费方式使AWS成为是一个可持续发展的业务。
+ 感悟： 无监控不系统，无度量不优化。 作任何商业服务不仅要有成本意识，而且应该作到度量成本。
+7. 从一开始集成安全  保护你的客户应该永远是你的首选，对于AWS来说亦是如此。不管运营的角度，还是策略方面，这将永远是我们的头号投资领域。
+我们很快地发现只有在一开始就把安全考虑进去才能提供安全的服务。安全团队的工作不是服务开发完成之后进行验证，他们必须在服务设计的第一天确认安全已经落实，且稳如泰山。总之对于安全，没有任何妥协。
+ 感悟： 安全是基本功能。
+8. 加密是一等公民  加密是为确保客户能控制谁有权访问他们的数据一个关键机制。十年前，加密工具和服务很难使用，直到几年前我们学会更好地将加密集成到我们的服务当中。最早的加密是从S3服务端开始的。如果您想检查我们的数据中心的任何磁盘，任何数据都不可访问的。但随着亚马逊推出CloudHSM（硬件安全模块）和Amazon Key Management Service（密钥管理服务），客户可以加密自己的密钥，从而不再需要AWS来管理钥匙。一段时间以来，每个新服务均支持加密。例如，Amazon Redshift的每个数据块默认以随机密钥加密，随后这些随机密钥被私钥再加密。私钥由客户提供，确保他们是唯一可以解密和访问他们的关键业务数据或个人身份信息。</description>
+    </item>
+    
+    <item>
+      <title>Facebook live一些技术细节</title>
+      <link>https://blog.ipds.top/2016/05/27/facebook-live%E4%B8%80%E4%BA%9B%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82/</link>
+      <pubDate>Fri, 27 May 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/05/27/facebook-live%E4%B8%80%E4%BA%9B%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82/</guid>
+      <description>协议选择 最初选择HLS,后面切换为RTMP，切换为RTMP主要为了降低延迟，提供更好直播用户体验。
+解决并发问题  分发架构
+采用Live stream server， origin server， edge server 三层架构；如下图如示：   一句话就是：通过遍布各地的CDN节点（edge server）实现海量用户的播放请求。
+ 请求合并应对高并发 采用的CDN方案，应对一般数量级的播放是没有问题，但是facebook上有很多名人与网红，他们每个人都有几百万个粉丝，这就要求facebook live 直播系统能够处理超过一亿人同时播放的能力。假如一个名人的直播有100万粉丝同时观看，edge server缓存命中率为98%，那么未命中用户为2万，这2万用户回源到origin server甚至回源到Live stream server，服务器压力可想而知，这不是2W个连接而已，而是2W个视频播放，带宽，cpu都是一个很大的考验。用数字说话，以带宽为例； 假设一个HLS切片为3S，高清视频码率为1800K bps，那么一秒带宽需求为：  20K /3 *1800K b/s * 1s = 20*600 Mb = 12 Gb  每秒的带宽超过10Gb，服务器网卡高配也才10Gb。
+业务驱动方案，其具体解决方案如下： 在edge server 对同一个视频切片的多人cache miss请求进行合并，只发送一个到 origin server，待origin server 返回该视频切片，同时发送给该视频切片的所有请求。这样就可以大量减少回源的请求数量。origin server亦是如此。
+想到下面的问题：
+ 最近520，林心如与霍建华在微博宣布恋爱关系，微博是怎么搞定推送信息众粉丝的呢？ 一个直播有100W在线观看，如何实现海量消息的转发？
+ 既然想到了，以微博为例写一下自己的方案：
+ 微博消息是一种pub-sub模型，简单的在问题的场景下林心如这样明星是pub，粉丝是sub，粉丝数量是7000W 微博发布了，如何发送到7000W粉丝？不可能直接将立即将消息推送到各个粉丝，不可能是一个推模型，瞬间大并发写与大量存储都会有问题，可能是拉模型吗？拉模型好处只写一条微博，新上线的用户会主动拉取订阅（关注）用户的发布的微博；僵尸用户，活不过来用户，睡眠用户是可以忽略的，怎么触发在线用户主动获取关注的人的动态保证消息的实时性呢？ 在用户线用户定时获取更新，例如60秒定时获取订阅用户是否有更新，这是一个很大的开销，假如微博有2000W同时在线，那么一秒有30多W个拉取更新的请求，每个请求都会查询订阅用户的微博，虽然可以承受的，但是代价还是很大的，同时这种定时拉取会消耗用户的流量，长期下来用户是无法忍受的，所以在线用户拉取是不可行的 对于在线用户采用推消息，7000W粉丝假设有5%用户在线，那在线粉丝为350W，如果在60S内完成，那一秒要完成60W个推送（发送60W个包，更新60W个用户订阅微博信息），如果整个系统只处理这一件事，是可以的，但是微博大V多，假如1分钟有10个类似的情况，同时也还有其他在线千万级用户（数据是乱猜的）; 系统容量是有限的，总会出现抗不住的情况的，墨菲定律告诉我们：这种情况总会发生的，只是我们不知道什么时候会发生。 抗住是目的，这时候需要作好监控，限流，扩容，降级服务保证核心功能 针对粉丝数量超过1000W以上的大V进行特殊处理  实现RTMP 选择基于nginx rtmp改造，并开发rtmp proxy，采用nginx rtmp有如下好处：</description>
+    </item>
+    
+    <item>
+      <title>git常用命令总结</title>
+      <link>https://blog.ipds.top/2016/05/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sat, 21 May 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/05/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</guid>
+      <description>git仓库  初始化一个版本仓库
+git init  clone远程版本库
+git clone git@github.com:myself659/FFmpeg.git  添加远程版本库origin
+git remote add origin git@github.com:myself659/rtmpserver_demo.git  查看远程仓库信息
+git remote -v  删除远程仓库
+git remote rm &amp;lt;repository&amp;gt;   git修改  添加当前修改的文件到暂存区
+git add .  提交修改到本地
+git commit -m &amp;quot;fix bug 0001&amp;quot;  提交修改到远程
+git push -u origin master  查看修改状态
+git status  重命名文件
+git mv README readme  从版本库中删除文件
+git rm readme  取消对文件修改
+git checkout -- readme  修改最新一次修改注释</description>
+    </item>
+    
+    <item>
+      <title>Linux内核常见crash原因</title>
+      <link>https://blog.ipds.top/2016/04/17/linux%E5%86%85%E6%A0%B8%E5%B8%B8%E8%A7%81crash%E5%8E%9F%E5%9B%A0/</link>
+      <pubDate>Sun, 17 Apr 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/04/17/linux%E5%86%85%E6%A0%B8%E5%B8%B8%E8%A7%81crash%E5%8E%9F%E5%9B%A0/</guid>
+      <description>前言 与前同事交流，发现以前的技术经历与解决的问题，现在接触不多，但是想想还是很有意思，虽然很多细节现在已经不能表达出来或展示出来，但是还得写出来。下面写的得主要个人经历的linux内核crash原因。
+内存类 这一类同用户态类似，主要有以下几种情况，
+ 访问NULL 访问释放后的内存 非法访问内存 内存被踩 内存耗尽 野指针操作  堆栈类  内核调用栈溢出
+ 写坏调用栈  锁  死锁 rcu使用错误 锁内存被写坏 长期获取不到锁，导致看门狗饿死，狗叫重启  调度  线程陷入死循环或者长时间占用cpu，在非抢占模式下其他线程得不到调度  中断上下文  在中断上下文调用错误的函数，例如在中断上下文使用信号量，更多参考那些可进入睡眠状态的Linux内核函数  硬件故障 在系统运行过程出现硬件故障也会导致内核crash。接触较少，不作说明。
+后记 能力有限，条件有限，写的很虚，也不全面，以后有机会再来点实际的，这个目的主要是回忆总结自己的知识体系。</description>
+    </item>
+    
+    <item>
+      <title>Linux x86-64 函数调用栈实例分析</title>
+      <link>https://blog.ipds.top/2016/03/09/linux-x86-64-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90/</link>
+      <pubDate>Wed, 09 Mar 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/03/09/linux-x86-64-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90/</guid>
+      <description>前言 动手实践并写文章花5倍的时间一次性把事情做到90分，好过读别人文章只能做到60分，后面还需要花时间继续深入学习。本文目的希望通过分析一个简单的函数调用加深对x86-64寄存器及栈帧的结构的认识，以便在定位问题需要的时候能够熟练运用。
+环境 1.操作系统和内核
+[root@localhost ~]# cat /proc/version Linux version 3.10.0-229.4.2.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.2 20140120 (Red Hat 4.8.2-16) (GCC) ) #1 SMP Wed May 13 10:06:09 UTC 2015  2.GCC版本
+[root@localhost ~]# gcc -v Using built-in specs. COLLECT_GCC=gcc COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.3/lto-wrapper Target: x86_64-redhat-linux Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.3-20140911/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.3-20140911/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux Thread model: posix gcc version 4.</description>
+    </item>
+    
+    <item>
+      <title>代码是核心，但不仅仅是代码</title>
+      <link>https://blog.ipds.top/2016/03/05/%E4%BB%A3%E7%A0%81%E6%98%AF%E6%A0%B8%E5%BF%83%E4%BD%86%E4%B8%8D%E4%BB%85%E4%BB%85%E6%98%AF%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Sat, 05 Mar 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/03/05/%E4%BB%A3%E7%A0%81%E6%98%AF%E6%A0%B8%E5%BF%83%E4%BD%86%E4%B8%8D%E4%BB%85%E4%BB%85%E6%98%AF%E4%BB%A3%E7%A0%81/</guid>
+      <description>其实以前也有类似的想法，但是决定写这篇文章是由下面一件事情引起的。
+引子 同事自已造轮子要实现一个rtmp协议，在调试过程由于有一个问题有没有解决，影响团队的联调，对于他造主动造轮子，我是不支持的。重复实现一个完整的rtmp协议，会走很多坑的，需要花费较多的时间，而开源的librtmp已经实现完整的rtmp协议功能，我决定将librtmp协议移植到现在系统。
+接着就自己开始干，了解librtmp实现，动手写一个利用librtmp支持epoll的rtmpserver。 在调试过程出现rtmp握手失败的问题，初看定位无果的情况下，我修改了makefile，生成调试的符号表，同时打开调试开关。这些弄好之后，试了一下，没有我期待的符号表与调试信息。
+于是我怀疑自己对makefile是否正确。重新学习makefile与编译的一些知识还是无果，觉得makefile修改是正确的。这时候灵光一现，看看进程加载的是哪些lib
+(gdb) info sharedlibrary From To Syms Read Shared Object Library 0x0000003a74600b00 0x0000003a746198db Yes (*) /lib64/ld-linux-x86-64.so.2 0x00007ffff7dd57e0 0x00007ffff7de4358 Yes (*) /usr/local/lib/librtmp.so.1 #加载的librtmp库 0x0000003c39a18340 0x0000003c39a53558 Yes (*) /usr/lib64/libssl.so.10 0x0000003c39669cc0 0x0000003c3975dbe8 Yes (*) /usr/lib64/libcrypto.so.10 0x0000003a76602120 0x0000003a7660d3a8 Yes (*) /lib64/libz.so.1 0x0000003a74a1ea20 0x0000003a74b3f76c Yes (*) /lib64/libc.so.6 0x0000003a8260ac30 0x0000003a82638728 Yes (*) /lib64/libgssapi_krb5.so.2 0x0000003a8161b430 0x0000003a81694a78 Yes (*) /lib64/libkrb5.so.3 0x0000003a806013f0 0x0000003a80601fc8 Yes (*) /lib64/libcom_err.so.2 0x0000003a812043d0 0x0000003a8121d5a8 Yes (*) /lib64/libk5crypto.so.3 0x0000003a74e00de0 0x0000003a74e01998 Yes (*) /lib64/libdl.</description>
+    </item>
+    
+    <item>
+      <title>docker image命令实践</title>
+      <link>https://blog.ipds.top/2016/01/28/docker-image%E5%91%BD%E4%BB%A4%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Thu, 28 Jan 2016 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2016/01/28/docker-image%E5%91%BD%E4%BB%A4%E5%AE%9E%E8%B7%B5/</guid>
+      <description>搭建了docker环境，就来体验一下Docker，常用docker image命令如下：
+1. 搜索docker image root@localhost ~]# docker search ubuntu NAME DESCRIPTION STARS OFFICIAL AUTOMATED ubuntu Ubuntu is a Debian-based Linux operating s... 2954 [OK] ubuntu-upstart Upstart is an event-based replacement for ... 58 [OK] dorowu/ubuntu-desktop-lxde-vnc Ubuntu with openssh-server and NoVNC on po... 32 [OK] torusware/speedus-ubuntu Always updated official Ubuntu docker imag... 25 [OK] ubuntu-debootstrap debootstrap --variant=minbase --components... 22 [OK] tleyden5iwx/ubuntu-cuda Ubuntu 14.04 with CUDA drivers pre-installed 18 [OK] rastasheep/ubuntu-sshd Dockerized SSH service, built on top of of.</description>
+    </item>
+    
+    <item>
+      <title>升级Linux内核，搭建docker环境</title>
+      <link>https://blog.ipds.top/2015/12/13/%E5%8D%87%E7%BA%A7linux%E5%86%85%E6%A0%B8%E6%90%AD%E5%BB%BAdocker%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Sun, 13 Dec 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/12/13/%E5%8D%87%E7%BA%A7linux%E5%86%85%E6%A0%B8%E6%90%AD%E5%BB%BAdocker%E7%8E%AF%E5%A2%83/</guid>
+      <description>docker可以说是去年最热的技术，也是业界大谈特谈的技术，到了今年有很多公司已经将docker应用于自己的生产环境。Docker已经从一个工具转化成平台，小生态圈。作为一名程序员应该与时俱进，学习新技术，不断地提高自己。
+升级内核 docker要求linux内核版本3.12以上，作为常用linux2.26.32版本，虽然也可以安装docker，但是有一些特性不支持，所以第一步就是升级内核。个人选择最新的长期维护版本升级linux4.13,内核升级最关键的一件事情就是配置内核，关于内核支持docker的内核配置文件，如果不想自己动手配置内核，可以参考Linux-4.13-configfordocker;
+在未正确配置linux内核会出现以下一些错误：
+ docker启动过程中iptables命令执行失败，原因是 iptables模块没有配置  [root@localhost ~]# docker -d INFO[0000] Listening for HTTP on unix (/var/run/docker.sock) INFO[0000] [graphdriver] using prior storage driver &amp;quot;devicemapper&amp;quot; FATA[0000] Error starting daemon: Error initializing network controller: Error creating default &amp;quot;bridge&amp;quot; network: Failed to Setup IP tables: Unable to enable NAT rule: iptables failed: iptables -t nat -I POSTROUTING -s 172.17.42.1/16 ! -o docker0 -j MASQUERADE: iptables v1.4.7: can&#39;t initialize iptables table `nat&#39;: Table does not exist (do you need to insmod?</description>
+    </item>
+    
+    <item>
+      <title>gdb自定义断点操作</title>
+      <link>https://blog.ipds.top/2015/08/28/gdb%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%AD%E7%82%B9%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Fri, 28 Aug 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/08/28/gdb%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%AD%E7%82%B9%E6%93%8D%E4%BD%9C/</guid>
+      <description>gdb是c/c++上调试利器，有很多技巧能让调试程序与解决问题更加方便与高效，下面关于command 命令的使用一个实例，具体如下：
+1. 设置断点 (gdb) b GenVedioSeekPoint Breakpoint 1 at 0x402e58: file GenIndex.cpp, line 140. (gdb)  2. 利用commad自定义断点操作 (gdb) command 1 Type commands for breakpoint(s) 1, one per line. End with a line saying just &amp;quot;end&amp;quot;. &amp;gt;p *pstPktHead &amp;gt;continue &amp;gt;end (gdb)  3. 设置gdb log信息输出到指定文件 (gdb) set logging file genindex.txt (gdb) set logging on Copying output to genindex.txt. (gdb) set pagination off (gdb)  4. 开始或继续执行程序 (gdb) run  有输出信息如下：</description>
+    </item>
+    
+    <item>
+      <title>nginx实践-添加自定义模块hello</title>
+      <link>https://blog.ipds.top/2015/08/08/nginx%E5%AE%9E%E8%B7%B5-%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97hello/</link>
+      <pubDate>Sat, 08 Aug 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/08/08/nginx%E5%AE%9E%E8%B7%B5-%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97hello/</guid>
+      <description>nginx是一个值得学习与研究的开源代码，写这篇文章主要目的是让自己能够能够从最简单的任务开始，通过写作促进自己一步一步地深入学习与分析nginx。本文是这个系列的第一篇，主要是记录自己实现一个自定义的模块hello的过程。
+1. 下载源码 下载nginx 1.8.0 源代码
+root@localhost github]# wget http://nginx.org/download/nginx-1.8.0.tar.gz root@localhost github]# tar zxf  2. 准备文件与代码 在nginx解压目录下，添加如下文件：
+[root@localhost nginx-1.8.0]# tree | more . |-- **addon** | `-- **hello** | |-- **config** | `-- **ngx_http_hello_module.c** |-- auto | |-- cc | | |-- acc | | |-- bcc  新增文件分析参考nginx-hello
+[root@localhost nginx-1.8.0]# grep -r ngx_addon_name /share/github/nginx-1.8.0 /share/github/nginx-1.8.0/auto/modules: echo &amp;quot; + $ngx_addon_name was configured&amp;quot; /share/github/nginx-1.8.0/addon/hello/config:ngx_addon_name=ngx_http_hello_module [root@localhost nginx-1.8.0]# [root@localhost nginx-1.8.0]# grep -r add-module /share/github/nginx-1.</description>
+    </item>
+    
+    <item>
+      <title>Linux netstat 应用示例</title>
+      <link>https://blog.ipds.top/2015/07/28/linux-netstat-%E5%BA%94%E7%94%A8%E7%A4%BA%E4%BE%8B/</link>
+      <pubDate>Tue, 28 Jul 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/07/28/linux-netstat-%E5%BA%94%E7%94%A8%E7%A4%BA%E4%BE%8B/</guid>
+      <description>关于netstat netstat 命令用于显示各种网络相关信息，如网络连接，路由表，接口状态 (Interface Statistics)，masquerade 连接，多播成员 (Multicast Memberships) 等等。
+常用参数 -a (all)显示所有选项，默认不显示LISTEN相关
+-t (tcp)仅显示tcp相关选项
+-u (udp)仅显示udp相关选项
+-n 拒绝显示别名，能显示数字的全部转化成数字
+-l 仅列出有在 Listen (监听) 的服務状态
+-p 显示建立相关链接的程序名
+-r 显示路由信息，路由表
+-e 显示扩展信息，例如uid等
+-s 按各个协议进行统计
+-c 每隔一个固定时间，执行该netstat命令
+注意：LISTEN和LISTENING的状态只有用-a或者-l才能看到
+应用实例 1. 选项组合应用 命令：
+netstat -tlnp  说明：显示处于listen状态的tcp连接，并显示对应进程pid
+示例：
+ [root@localhost default]# netstat -tlnp Active Internet connections (only servers) Proto Recv-Q Send-Q Local Address Foreign Address State PID/Program name tcp 0 0 0.0.0.0:21 0.0.0.0:* LISTEN 1284/pure-ftpd tcp 0 0 0.</description>
+    </item>
+    
+    <item>
+      <title>读书笔记：《从0到1---开启商业与未来的秘密》</title>
+      <link>https://blog.ipds.top/2015/07/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BB%8E0%E5%88%B01-%E5%BC%80%E5%90%AF%E5%95%86%E4%B8%9A%E4%B8%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E7%A7%98%E5%AF%86/</link>
+      <pubDate>Fri, 03 Jul 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/07/03/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BB%8E0%E5%88%B01-%E5%BC%80%E5%90%AF%E5%95%86%E4%B8%9A%E4%B8%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E7%A7%98%E5%AF%86/</guid>
+      <description>启发思考  在什么重要问题上你与其他有不同的看法？ &amp;gt;除了书中讲到参考模式:太多数人相信X，但是事实却是X的对立面；世界是多样的，我们应当追求正确的差异化
+ 企业失败的共同的原因 &amp;gt;企业失败的原因却是相同：它们都无法逃脱竞争
+ 应对趋势潮流 &amp;gt;最反主流的行动不是抵制潮流，而是在潮流中不丢弃自己的独立思考
+ 从0到1vs从1到N &amp;gt;从0到1是创新，创造；从1到N是创新成果应用及商业化
+  ###关于团队 1. 现金奖励不是王道，股票报酬才能让员工全力以赴 2. 那些决定命运的基础元素：合伙人，早期团队成员 3. 所有权，经营权，控制权 4. 招聘要求：有才华+真正喜欢与团队合作及一起成长的意愿 5. 特立独行的创始人
+###关于销售 这一部分内容作者回答一系列问题：
+ 销售是什么？ &amp;gt;产品离不开销售，销售是产品设计的一部分；销售是隐形的，销售人员第一要务是说服而不是真诚
+ 谁是销售对象？ &amp;gt; 品牌无界限，销售对象除了产品与服务的潜在用户，还要社会，媒体销售公司，建立品牌
+ 谁是销售员？ &amp;gt;不论是员工，创始人，还是投资者，都应该是销售，无人不销售，无时不销售
+ 怎么进行销售？ &amp;gt;常用销售方法：复杂销售，人员销售，市场营销和广告，病毒式营销，粉丝营销；
+ 销售的法则？ &amp;gt; 选择一个最有效的销售方法或者销售渠道
+  绿色能源与特斯拉 绿色能源与特斯拉是《从0到1》这本书倒数是第二章，这一章是对前面章节讲到竞争，团队，未来，销售等观点在具体行业与具体公司的具体应用的一个展示，有意创业，投资或者像我有时仅好分析一个企业的人，可以细细口味。
+这一章节提到的七个必须回答的问题，可以作为分析一家企业的checklist问题，具体如下：
+ 工程问题： &amp;gt; 你的技术具有突破性，而不是仅仅是稍有改进吗？
+ 时机问题： &amp;gt; 现在开创事业，时机合适吗？
+ 垄断问题： &amp;gt;开创之初，是在一个小市场抢占大份额吗？
+ 人员问题： &amp;gt; 你有合适的团队吗？
+ 销售问题： &amp;gt; 除了创造产品，你有没有办法销售产品？</description>
+    </item>
+    
+    <item>
+      <title>实现无符号整型数的分解</title>
+      <link>https://blog.ipds.top/2015/06/14/%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E5%9E%8B%E6%95%B0%E7%9A%84%E5%88%86%E8%A7%A3/</link>
+      <pubDate>Sun, 14 Jun 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/06/14/%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E5%9E%8B%E6%95%B0%E7%9A%84%E5%88%86%E8%A7%A3/</guid>
+      <description>题目 将一个无符号数N拆分为不多于M个数，使拆分的数之和等于N,条件：
+ N &amp;gt;= M； N与M都是无符号整型数  求：一共有多少中拆分方法？
+分析 参考代码
+代码 代码实现计算拆分方法及打印拆分组合信息
+ #include &amp;lt;iostream&amp;gt; #include &amp;lt;stdint.h&amp;gt; using namespace std; class CSolution { private: uint32_t uiM; uint32_t uiN; uint32_t uiCount; uint32_t *puiRecord; public: CSolution(); CSolution(uint32_t uiM, uint32_t uiN); ~CSolution(); uint32_t GetCount() {return uiCount;} void PrintCombinations(); uint32_t CountNum(uint32_t uiM, uint32_t uiN); void GetCombination(uint32_t uiMin, uint32_t uiLeft, uint32_t uiGetNum, uint32_t uiTargetNum, uint32_t *puiRecord); }; CSolution::CSolution(uint32_t uiM,uint32_t uiN){ this-&amp;gt;uiM = uiM; this-&amp;gt;uiN = uiN; this-&amp;gt;puiRecord = new unsigned int [uiM]; this-&amp;gt;uiCount = CountNum(uiM, uiN); return ; } CSolution::CSolution() { uiM = 1; uiN = 1; puiRecord = new unsigned int [uiM]; uiCount = CountNum(uiM, uiN); return ; } CSolution::~CSolution() { delete [] puiRecord; return ; } uint32_t CSolution::CountNum(uint32_t uiM, uint32_t uiN) { if((0 == uiM) || (0 == uiN) || ( 1 == uiM) || ( 1 == uiN)) { return 1; } if(uiN &amp;lt; uiM) { return CountNum(uiN,uiN); } return CountNum(uiM - 1, uiN) + CountNum(uiM, uiN - uiM); } /* UINT uiMin 最小值 UINT uiLeft 剩下值 UINT uiGetNum 已拆分元素个数 UINT uiTargetNum 需要拆分的个数 UINT *puiCombination 拆分组合首地址 */ void CSolution::GetCombination(uint32_t uiMin, uint32_t uiLeft, uint32_t uiGetNum, uint32_t uiTargetNum, uint32_t *puiRecord) { uint32_t i; uint32_t j; /*递归结束条件 */ if(1 == uiTargetNum) { cout &amp;lt;&amp;lt; uiLeft&amp;lt;&amp;lt;endl; return ; } /* 将剩下值拆分为多个数,除了最后一个拆分值，其他的拆分数都应小于等于uiLeft/2 */ for(i = uiMin; i &amp;lt;= uiLeft / 2; i++) { puiRecord[uiGetNum] = i; uiGetNum++; if(uiGetNum + 1 == uiTargetNum) { puiRecord[uiGetNum] = uiLeft - i; for(j = 0; j &amp;lt; uiTargetNum; j++) { cout &amp;lt;&amp;lt;puiRecord[j]&amp;lt;&amp;lt; &amp;quot; &amp;quot;; } cout &amp;lt;&amp;lt; endl; } else { GetCombination(i, uiLeft - i, uiGetNum, uiTargetNum, puiRecord); } uiGetNum--; } return ; } void CSolution::PrintCombinations() { uint32_t i; cout&amp;lt;&amp;lt;&amp;quot;print combinations as follow:&amp;quot;&amp;lt;&amp;lt;endl; for(i = 1; i &amp;lt;= uiM; i++) { GetCombination(1, uiN, 0, i, puiRecord); } cout&amp;lt;&amp;lt;&amp;quot;The Total num is &amp;quot;&amp;lt;&amp;lt; GetCount()&amp;lt;&amp;lt;endl; return ; } int main(void) { CSolution test(7, 11); test.</description>
+    </item>
+    
+    <item>
+      <title>ping不通常见原因总结</title>
+      <link>https://blog.ipds.top/2015/05/27/ping%E4%B8%8D%E9%80%9A%E5%B8%B8%E8%A7%81%E5%8E%9F%E5%9B%A0%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Wed, 27 May 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/05/27/ping%E4%B8%8D%E9%80%9A%E5%B8%B8%E8%A7%81%E5%8E%9F%E5%9B%A0%E6%80%BB%E7%BB%93/</guid>
+      <description>ping不通从ping的流程分为两大类：请求报文没有到达对端与应答报文未收到
+请求报文没有到达对端的可能原因 1. 发送端发送流程出错 2. 源端,转发设备没有目的地址的路由 2. ttl 小于转发跳数 3. 分片丢包 4. MTU限制 5. 转发丢包 6. 报文错误 7. 防火墙规则不允许该类型报文通过 8. 中间进行nat转换等处理出错 8. 目的地址不存在 9. 接收端收包流程出错
+应答报文未收到的可能原因 1. 发送端发送流程出错 2. MTU限制 3. 目的端禁止应答 4. 接收报文错误 5. 防火墙规则不允许该类型报文通过 6. 接收到了报文，但是超出等待时间 7. 接收报文错误，ping 应答检查失败 8. 转发丢包</description>
+    </item>
+    
+    <item>
+      <title>那些可进入睡眠状态的Linux内核函数</title>
+      <link>https://blog.ipds.top/2015/05/27/%E9%82%A3%E4%BA%9B%E5%8F%AF%E8%BF%9B%E5%85%A5%E7%9D%A1%E7%9C%A0%E7%8A%B6%E6%80%81%E7%9A%84linux%E5%86%85%E6%A0%B8%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Wed, 27 May 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/05/27/%E9%82%A3%E4%BA%9B%E5%8F%AF%E8%BF%9B%E5%85%A5%E7%9D%A1%E7%9C%A0%E7%8A%B6%E6%80%81%E7%9A%84linux%E5%86%85%E6%A0%B8%E5%87%BD%E6%95%B0/</guid>
+      <description> 在linux内核开发中断处理函数不能调用可能导致睡眠的函数，下面总结linux内核可能引起睡眠的函数如下：
+schedule函数   schedule_timeout schedule_timeout_uninterruptible schedule_timeout_interruptible cond_resched might_resched   sleep函数   msleep msleep_interruputible ssleep osal_usleep might_sleep   取信号量函数   down down_timeout down_read down_write down_interruptible wait_for_completion wait_for_completion_interruptible wait_for_completion_timeout wait_for_completion_interruptible_timeout   kmalloc相关函数含有标志GFP_KERNEL   kmalloc kzalloc krealloc kmem_cache_create kmem_cache_alloc kmem_cache_zalloc   取睡眠锁函数   mutex_lock mutex_lock_timeout mutex_lock_nested mutex_lock_interruptible mutex_lock_interruptible_nested   在中断处理函数不能使用睡眠函数原因 主要原因如下：
+ 中断是一种紧急事务，中断处理函数要求快 linux是以进程为调度单位的，调度器只看到进程内核栈，而看不到中断栈，在独立中断栈的模式下，如果linux内核在中断处理函数内发生了调度或者睡眠，导致无法找到回家的路，未执行的中断处理代码再也无法获得执行机会（贪睡开小差是有代价哦）  </description>
+    </item>
+    
+    <item>
+      <title>C语言代码 review的总结</title>
+      <link>https://blog.ipds.top/2015/05/24/c%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81-review%E7%9A%84%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 24 May 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/05/24/c%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81-review%E7%9A%84%E6%80%BB%E7%BB%93/</guid>
+      <description> 代码review是保证代码质量在项目开发及代码修改中一项重要的环节，下面就代码reiew的一些总结，总结一些代码的review的关注点，提高代码review的效率与效果，提前发现问题，降低后期的测试成本，以及避免软件上线或交付出问题导致的经济损失和恶劣影响（ps:对每一行代码保持敬畏之心）。
+代码中的资源  以内存为例，C语言内存操作都是由程序员来定义与控制，内存的一些错误总是不断地出现，例如内存泄漏，踩内存，写越界等，如果这种问题在线上系统中出现，定位与修复的成本都是很高的。
+ 动态内存 信号量 文件描述符 锁 句柄 中断 资源的引用 资源的引用计数   代码的错误高发特征   冗余实现 异常处理 结构复杂 层次嵌套多 不合理实现 字符串处理 代码临界区 移植代码   代码的追求   正确性 可靠性 可读性 可维护性 可测试性 可扩展性 可移植性 可伸缩性 易用性 可用性 可重用性 互操作性 可管理性 一致性 安全性 性能 稳定性 精确性 可差异化性 魯棒性   </description>
+    </item>
+    
+    <item>
+      <title>Linux性能优化杂谈</title>
+      <link>https://blog.ipds.top/2015/05/24/linux%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%9D%82%E8%B0%88/</link>
+      <pubDate>Sun, 24 May 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/05/24/linux%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%9D%82%E8%B0%88/</guid>
+      <description>性能不仅仅是一串串数字，性能体现更大的吞吐量及更低的延迟；如果网络延迟增加0.1秒，google每秒损失100W,不是人民币是美元；网页响应慢0.1秒，运营成本每天增加100万美金。亚马逊的数据也显示，网页延迟1秒可能导致全年损失16亿美金；移动页面加载时间时长超过5秒，74%的用户会选择离开，高性能主要体现下面三个方面：
+ 少资源 高吞吐 低延迟  在具体网络转发性能优化过程中对性能优化有以下几点体会与总结：
+软硬结合 软件灵活，硬件高效，软硬结合就像双剑合壁，威力巨大；具体在网络设备中交换机就是一个很好的例子：通常由CPU完成协议的处理，下发转发表项到芯片，由芯片完成报文的转发，在这种思路下才会cisco，H3C，Huawei的大容量的交换机；如果完全交给CPU来处理成本很高，而且在现有技术下很难完成那么大的交换容量（1T以上）。在这种情况对于软件上来说基本不需要优化，本文后面的优化是针对软转的优化；
+分离与分解 控制与转发分离 由控制平面维护转发表项，转发平面根据表项完成转发
+针对性优化 性能优化一定要指定优化场景，例如对于收包优化针对不同的接入方式，不同报文类型；
+快慢结合，先慢后快 对于交换机与路由机这种网络转发设备，通过首包建流，后续报文匹配流实现快慢结合提高报文转发效率；
+缓存 缓存大法好，在现在各种系统与应用中缓存无处不在，硬件上看，有硬盘缓存，RAID卡缓存，存储缓存，主存，NUMA特性，CPU cache；软件架构上看，有全局数据缓存，私有数据缓存，连接池，应用服务器缓存，WEB服务器缓存，CDN缓存，客户端文件缓存，客户端内存缓存等等。
+do more with less 性能优化大体就是开源与节流，do more with less需要考虑如何提高cpu，存储，网络的利用效率
+预处理 兵马未动粮草先行 例如在报文发送针对不同流准备相应的链路层头，避免发送报文再逐字段填充，作到一次性完成报文贴头处理；其实很多应用系统的线程池，内存池，连接池等也是类似思想
+二八原则 主要体现如下:
+ 对于优化的代码，集中精力优化是关键20%的代码 在具体的系统性能优化过程刚开始投入20%可以使取得整个优化成果的80%，而最后的20%需要花费80%的时间来完成，而且涉及的挑战会更多，更有难度，所以优化过程越到后面越难，需要良好的心态与意志  无profile，不优化 If you can&amp;rsquo;t measure it, you can&amp;rsquo;t improve it。若无度量，则无提高。优化一定要有一套profile方法，profile以下几个方面的作用：
+ profile建立一个性能基线，有利于优化过程中比较与参考 profile查找系统的瓶颈，在一个大型的系统查找到性能瓶颈是一件很有挑战的事情,通过profile有利于快速定位瓶颈 profile评估优化结果，对每一个优化点有一个数字化清晰的记录 profile指导优化的方向  避免过度优化 在性能优化过程中切忌一味追求性能，忽略了业务，没有关注优化对系统带来的哪些不好影响，例如：
+ 优化使系统变得更复杂，不利于维护 优化影响了其他业务 优化忽略了业务功能（功能正确性，功能可扩展性等等） 优化只是特定环境下数据提升并不适用具体应用  减少状态的改变 在报文处理与协议处理过程中设计更精简的状态机，避免过多的状态变化处理的开销。
+避免代码的黑盒 避免代码的黑盒，主要有下面几点：
+1.优化过程忽略部分代码，导致这一部分代码未能出现优化对象中
+2.虽然考虑了所有该关注的代码，但是没有理解代码，特别这一部分代码涉及跨团队，个人经验：这一部分代码需要重点关注，往往有意想不到的收获
+总之，性能优化需要充分理解业务，根据数据，实现硬件，系统，业务三者最佳协同。</description>
+    </item>
+    
+    <item>
+      <title>一个linux网络丢包问题分析</title>
+      <link>https://blog.ipds.top/2015/05/24/%E4%B8%80%E4%B8%AAlinux%E7%BD%91%E7%BB%9C%E4%B8%A2%E5%8C%85%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sun, 24 May 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/05/24/%E4%B8%80%E4%B8%AAlinux%E7%BD%91%E7%BB%9C%E4%B8%A2%E5%8C%85%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/</guid>
+      <description> 丢包问题是十分常见一类问题，下面总结的一个网络丢包问题的分析过程。
+问题描述 组网：
+TC-PORT1&amp;mdash;&amp;mdash;-VSR-eth1
+TC-PORT2&amp;mdash;&amp;mdash;-VSR-eth2
+打流：
+报文从TC-Port1打入VSR-eth1，再从VSR-eth2出，到TC-Port2，打流的时候变换了源ip与源端口
+问题：
+测试同学在根据RFC2544打流测试转发性能中，发现报文有效转发性能总是小于40W pps，总是会出现丢包，而实际cpu利用率才20%左右
+问题分析 丢包的原因很多，需要根据现场进行具体问题分析，下面就一个一个排查怀疑点，没有怀疑点再分析的过程：
+ 昨天测试都ok的，检查一下测试打流报文，报文正确 查看报文处理过程中丢包计数，以确认丢包阶段，不幸地发现处理过程中无丢包统计 与打多条流有关？实测打一流问题同样存在，与多条流无关 再次回头检查报文是否有多种code path，导致第2步遗漏检查到丢包点，确认报文走一条code path 上面又被否认，继续分析怀疑点，没有分析出怀疑点，自已动手打流，观察TC收发包统计发现丢包有周斯性，大概周期是30s，这是一个重要信息 又回过头去确认一下丢包统计是否有漏统计，很欣慰又很失望的结果：丢包，错包统计没有遗漏统计 这时候收包处理过程丢包可能性已经排除 从上到下的报文流排查，报文丢在网卡上送cpu过程中？ 内核采用epoll收包存在问题？ 进程如果得到调度就没有问题 top 查看进程调度，这时候有重大发现了： 看tc丢包统计与top的里面的进程natlog运行就同步了，但是看到natlog的线程状态为D状态，同时检查配置，开启nat log功能   natlog进程设置为D状态，导致不响应异步信号，在natlog释放cpu前，在转发线程与natlog运行在同一个cpu的情况下，转发线程得不到调度，导致报文接收缓冲区溢出，导致部分报文丢弃；
+与natlog线程开发同学交流，natlog早期是基于多核开发，natlog根据运营商需求，每30s定时运行，natlog线程运行在控制核，转发线程运行在数据核，导致问题没有暴露出来
+ 问题总结  定位问题，特别是未知的问题是一步步有依据推断与确认的过程 获取现场的全方位消息，同时要对信息进行去噪，避免关键信息遗漏与无关干扰  </description>
+    </item>
+    
+    <item>
+      <title>在没有分支miss条件下，实现取最小值</title>
+      <link>https://blog.ipds.top/2015/05/24/%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%88%86%E6%94%AFmiss%E6%9D%A1%E4%BB%B6%E4%B8%8B%E5%AE%9E%E7%8E%B0%E5%8F%96%E6%9C%80%E5%B0%8F%E5%80%BC/</link>
+      <pubDate>Sun, 24 May 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/05/24/%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%88%86%E6%94%AFmiss%E6%9D%A1%E4%BB%B6%E4%B8%8B%E5%AE%9E%E7%8E%B0%E5%8F%96%E6%9C%80%E5%B0%8F%E5%80%BC/</guid>
+      <description> 在实际性能优化过程，加了一个if判断整个系统转发性能就有大约5%的下降，下面简单分享一种在没有分支miss条件下，实现取最小值的方法。
+一般实现 取两个数最小值，一般代码常见两种写法如下：
+ 写法一：
+if(a &amp;lt; b ) { min = a } else { min = b}  写法二：
+min = a &amp;lt; b ? a:b;   这两种写法只是代码写法不一致，实际都是通过一个if的语句的比较，存在if语句就代码运行过程就存在分支miss，而一个分支的miss的开销范围40到60 cycles；在追求高性能代码，且没有太多的优化点的过程中这是极其宝贵，且这两个分支出现概率都相当，也就不能简单通过likely与unlikely来实现分支预测
+无分支miss实现 无分支实现代码如下：
+min = b ^ ((a ^ b) &amp;amp;-(a&amp;lt;b));  分两种情况分析如下：
+当a&amp;lt;b时,-(a&amp;lt;b)为True，表达式等价于min= b ^(a ^ b) = a;
+当a&amp;gt;=b时，-（a &amp;lt; b）为False，表达式等价于min= b ^ 0 = b
+故可以宏定义如下：
+#define min(a,b) = (b) ^ ( ((a) ^ (b)) &amp;amp; (-((a)&amp;lt;(b))) )  </description>
+    </item>
+    
+    <item>
+      <title>Hello Github</title>
+      <link>https://blog.ipds.top/2015/05/23/hello-github/</link>
+      <pubDate>Sat, 23 May 2015 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/2015/05/23/hello-github/</guid>
+      <description>hello,github 开始一段开源之旅</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://blog.ipds.top/1/01/01/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1846,210 +2088,9 @@ int RtmpSessionHandle(int iFd, int iEvent, void *pContext) { int iRet; RTMP_SESS
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Network&amp;rdquo;] date = &amp;ldquo;2017-02-16T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Network&amp;rdquo;] title = &amp;ldquo;TCP连接下载文件失败，也许该看看这篇文章&amp;rdquo; draft = false +++
-体验一下标题党，现在自媒体横行，容我也放肆一回（多了我也不行，替自己码字能力捉急）！
-另起一行，到此为止，进入正题
-缘起 最近通过uc浏览器下载apk的时候，偶尔出现下载apk，下载了60%左右卡住，想到以前看到这篇文章：The curious case of slow downloads（PS：毕竟这个问题不是常出现，就算一次下载失败，反正可以重新下载，总能下载成功的）
-说明 由于本人英文水平有限，翻译水平更是不足，就不具体翻译上面的文章，仅作简单说明，更深的理解请阅读The curious case of slow downloads
-问题描述 Cloudflare是美国一家CDN厂商，他们的工程师发现下面的问题： &amp;gt;一些下载速度很慢的连接被突然关闭，导致用户下载失败
- 这些连接不是客户端主动关闭，而是服务端主动关闭的
- 问题原因 原文有具体解决这个问题详细过程，还是值得一看，这里不作描述。
-在满足如下条件情况下会出现下载失败：
- socket发送缓冲区可用空间低于缓冲区总大小的三分之一 用户下载速度不能达到在60秒内使该socket发送缓冲区可用空间超过缓冲区总大小的三分之一
- nginx配置项send_timeout对应值为60秒  当满足上述条件，当60秒超时后，nginx会关闭该连接
-这里大家可能有一个问题，网速慢也会不断发送，怎么会超时出现关闭连接？
-这里有一个普遍的误解：认为send像recv那样，每发送成功一个都上报epoll事件（以linux为例）,而实际send上报epoll事件条件如下：
- send buffer有可用发送空间
- 进入发送队列的数据一定要低于LOWAT的设置值（注意：linux 内核2.6版本没有这个限制，linux 内核4.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;golang&amp;rdquo;] date = &amp;ldquo;2017-02-20T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;golang&amp;rdquo;] title = &amp;ldquo;Go的50度灰补充&amp;ndash;http response只能读一次&amp;rdquo; draft = false +++
-问题 还是从代码开始吧
-func fetch(url string) { tlsConfig := &amp;amp;tls.Config{ InsecureSkipVerify: true, } transport := &amp;amp;http.Transport{ TLSClientConfig: tlsConfig, } client := http.Client{Transport: transport} resp, err := client.Get(url) if err != nil { fmt.Println(err) &amp;lt;-time.After(300 * time.Second) go fetch(url) return } buf, err := ioutil.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;闲谈乱扯&amp;rdquo;] date = &amp;ldquo;2017-03-27T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;闲谈乱扯&amp;rdquo;] title = &amp;ldquo;不要忘记那些正在追赶互联网潮流的用户&amp;rdquo; draft = false +++
-引子 在一家推拿店里，排队等叫号，遇到一个五十多数大叔，下面是我们之间的对话：
-大叔： 小伙子，帮我看一下怎么连接wifi？
-我： 好的。
-（他把手机给我，我弄好，把手机给他）
-我： 大叔，你连接wifi要看视频吗？
-大叔：不是的，我看直播
-我：（有点吃惊，直播一般不是年轻人看的吗？）那你用什么软件看直播？
-大叔将手机拿过来，对我说：我秀
-我：这是哪家直播？
-大叔：人人网旗下的，我还有来疯直播，youku下面的，还有快手
-我：想不到连你们都喜欢看直播，我一直以为只有年经人才爱看直播
-大叔： 下班后时间比较多，电视剧不好看，就看直播了
-想到前几天快手E轮融资3.5亿美元，就有下面的感想。
-互联网还有哪些没有覆盖到人群？ 上面引子的大叔虽然算是互联网用户，也只能是入门了，对于使用过程中一些wifi设置，app设置还是没有掌握。
-中国有14亿人口，网民有7亿，还有7亿不是网民，在这7亿中除了一些小孩子（高中生现在有相当一部分都有手机了）有相当一部分人，还是希望赶上互联网这躺车，他们不希望成为那些被抛弃的少数人，例如家里的一个伯母会主动让妈妈教她如何使用微信聊天。
-这里主要是想得出一个这样的人群：
- 50岁以上使用手机，却没有使用智能手机的人群，帮他们跨过手机进入智能手机应该不是很难的事情,毕竟会使用手机升级到使用智能手机也不是件很难的事情。（Ps：当这些用户转化互联网用户，视频是他们第一消费内容， 这个用户群体有多大呢？ 快手主动满足三四线城市的“低俗”用户，到现在收割大量用户，E轮3.5亿融资）  互联网产品如果要覆盖更多的人群要做些什么？ 简单表达如下： 1. 追求产品更简单，打开app各个功能入口一目了然 2. 生活化的内容，例如快手定位为生活分享平台 3. 智能的推荐算法，例如今日头条在三四线及以下城市得到大量的使用，占据大量的用户时间 4. 针对性优化，手机有老人机，app也可以针对性优化，视频只会wifi下载和播放，字体变大 5. 剩下的，相信各位产品经理会有更深入的思考。
-不要忘记那些正在追赶互联网潮流的用户，用技术与产品帮助他们上车吧！</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;sec&amp;rdquo;] date = &amp;ldquo;2017-04-08T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;sec&amp;rdquo;] title = &amp;ldquo;阿里云ECS基本安全检查小结&amp;rdquo; draft = false +++
-背景 查看阿里云ECS服务器日志发现如下：
-type=USER_AUTH msg=audit(1491669519.156:15631): pid=22938 uid=0 auid=4294967295 ses=4294967295 msg=&#39;op=PAM:authentication acct=&amp;quot;deploy&amp;quot; exe=&amp;quot;/usr/sbin/sshd&amp;quot; hostname=123.57.245.163 addr=123.57.245.163 terminal=ssh res=failed&#39; type=USER_LOGIN msg=audit(1491669519.156:15632): pid=22938 uid=0 auid=4294967295 ses=4294967295 msg=&#39;op=login acct=28696E76616C6964207573657229 exe=&amp;quot;/usr/sbin/sshd&amp;quot; hostname=? addr=123.57.245.163 terminal=sshd res=failed&#39; type=USER_LOGIN msg=audit(1491669587.368:15634): pid=22940 uid=0 auid=4294967295 ses=4294967295 msg=&#39;op=login acct=28756E6B6E6F776E207573657229 exe=&amp;quot;/usr/sbin/sshd&amp;quot; hostname=? addr=123.57.245.163 terminal=sshd res=failed&#39; type=USER_LOGIN msg=audit(1491669587.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Arch&amp;rdquo;] date = &amp;ldquo;2017-04-08T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Arch&amp;rdquo;] title = &amp;ldquo;对于系统设计的一些想法&amp;rdquo; draft = false +++
-前言 学习了google，facebook等国际一流大厂的开源方案，也研究了国内BAT的一些设计案例，在平时工作自然也少不了一些系统设计的工作，想写一些自己的想法，同时也帮助自己梳理一下思路，实现自己的系统设计的套路。
-其实就是这一句话：立足需求与业务，利用工程与技术，得到最合适的tradeofff，追求更简单的设计与方案，以此不断推进系统的演化。
-下面对这句话展开说明（当然，下面是一堆费话，只是为了解决自己的不吐不快而已罢了）。
-立足需求与业务 套用一句话：一切脱离需求的设计都是耍流氓。这里不进行具体案例分析，主要从以下角度来细化需求，提供思考的方向。
-用户角度  performance（性能）
- availability（可用性） usability（易用性） security（安全性）  研发角度  maintainablity （可维护性性） protability（可移植性） reusability（可重用性） scalable(可扩展性) testability（可测试性）  商业与市场角度  time to market（及时发布推向市场） cost and benifits（成本和收益） projected life time （产品生命周期） targeted market（目标市场） integration with legacy system (系统集成) roll back schedule （回退时间表）  KISS(Keep It Simple, Stupid) 有太多的例子，说明追求简单与遵循简单的设计原则的重要性，最典型就是unix的设计哲学成就伟大的linux的操作系统。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
       <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Arch&amp;rdquo;] date = &amp;ldquo;2017-05-09T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Arch&amp;rdquo;] title = &amp;ldquo;高性能服务器设计与优化&amp;rdquo; draft = false +++
 为了构建自己的知识体系，对高性能服务器设计与优化一点想法，其中不足与错误，欢迎指正。
 高性能服务器设计与优化</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;golang&amp;rdquo;] date = &amp;ldquo;2017-05-10T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;golang&amp;rdquo;] title = &amp;ldquo;使用golang present工具制作presentation&amp;rdquo; draft = false +++
-依赖  依赖golang的开发环境  安装 present工具在golang.org/x/tools中，依赖golang.org/x/net包,安装过程如下：
-root@ia-VirtualBox:~# go get golang.org/x/net root@ia-VirtualBox:~# go get golang.org/x/tools root@ia-VirtualBox:~# go install golang.org/x/tools/cmd/present  安装结束后查看present位置
-root@ia-VirtualBox:~# which present /usr/local/go/bin/present  slide文件语法 具体参考准官方文档
-生成slide root@ia-VirtualBox:/share/gocode/src/github.com/pcrawfor# present golanguk/talk.slide 2017/05/09 23:53:15 Open your web browser and visit http://127.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Linux&amp;rdquo;] date = &amp;ldquo;2017-05-10T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Linux&amp;rdquo;] title = &amp;ldquo;Linux进程诊断小结&amp;rdquo; draft = false +++
-日常工作中最常见问题是如何诊断一个进程运行过程中出现的问题，下面的总结从进程诊断的角度来展示，而是不从工具与命令角度来展示，进程诊断是工作的主体，工具与命令只是工具。
-进程信息 获得进程PID 方式一：
-root@iZ2ze9qnmldt4l3l82gtviZ:~# pidof tmsf-zc 2064  方式2：
-root@iZ2ze9qnmldt4l3l82gtviZ:~# ps -ef | grep tmsf-zc root 2064 1 0 Mar17 ? 02:24:25 ./tmsf-zc root 7596 7288 0 15:07 pts/4 00:00:00 grep --color=auto tmsf-zc root@iZ2ze9qnmldt4l3l82gtviZ:~#  查看进程线程个数 及对应PID root@iZ2ze9qnmldt4l3l82gtviZ:~# ps -efL | grep tmsf-zc root 2064 1 2064 0 5 Mar17 ?</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;golang&amp;rdquo;] date = &amp;ldquo;2017-07-28T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;golang&amp;rdquo;] title = &amp;ldquo;slice复用的陷阱&amp;rdquo; draft = false +++
-前言 先下结论：slice复用得当心，引用不当深埋雷。如若复用请分叉，分叉之后再使用。
-问题 先看一下代码吧
-package main import ( &amp;quot;fmt&amp;quot; ) func a() { x := []int{} x = append(x, 0) x = append(x, 1) // commonTags := labelsToTags(app.Labels) y := append(x, 2) // Tags: append(commonTags, labelsToTags(d.Labels)...) z := append(x, 3) // Tags: append(commonTags, labelsToTags(d.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;blockchain&amp;rdquo;] date = &amp;ldquo;2017-08-22T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;blockchain&amp;rdquo;] title = &amp;ldquo;以太坊开发环境问题记录&amp;rdquo; draft = false +++
-说明 主要记录以太坊开发环境过程出现的问题
-getCompilers返回失败 问题描述 在搭建以太坊开发环境过程中，出现下面的错误信息：
-Welcome to the Geth JavaScript console! instance: Geth/v1.6.7-stable-ab5646c5/darwin-amd64/go1.8.3 modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 shh:1.0 txpool:1.0 web3:1.0 &amp;gt; web3.eth.getCompilers() Error: The method eth_getCompilers does not exist/is not available at web3.js:3104:20 at web3.js:6191:15 at web3.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;blockchain&amp;rdquo;] date = &amp;ldquo;2017-08-24T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;blockchain&amp;rdquo;] title = &amp;ldquo;以太坊私链智能合约实践&amp;rdquo; draft = false +++
-环境说明  操作系统: macos.10.12.1 geth版本：1.5.9 solc版本：0.4.15
-  实践 1. 启动本地geth节点 Michaels-iMac:wallet eric$ geth --rpc --rpcaddr 127.0.0.1 --rpcport 8545 --dev --datadir myethchain  如上操作后，geth console输出如下：
-I0824 17:28:57.448455 p2p/server.go:340] Starting Server I0824 17:28:59.554115 p2p/discover/udp.go:227] Listening, enode://04697f62537244ee34aea28e613530a1f46a64de75d8174d963c9ca0c2e6b96d4aa756ef7a33e269de1b7c088163835b72dda8f4dea712cf39569db4e8d8e43a@[::]:54798 I0824 17:28:59.554264 p2p/server.go:608] Listening on [::]:58245 I0824 17:28:59.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;ipfs&amp;rdquo;] date = &amp;ldquo;2017-08-24T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;ipfs&amp;rdquo;] title = &amp;ldquo;关于弹性安全网络一点思考&amp;rdquo; draft = false +++
-作为网络研发出身的我，从事网络研发时间也最长，一直也关注道哥的微信公众号。
-下面就对道哥的提出弹性安全网络一些总结与思考。
-弹性安全网络 具体从以下几个方面解读弹性安全网络。
-来源 弹性安全网络这个设想来自阿里云游戏盾这个产品，而这个产品解决的问题就是如何解决DDOS问题。
-以前解决DDOS问题，很多厂商就是以暴制暴，准备大量带宽，抗住攻击流量，这种方式有以下问题：
- 流量成本高 万一没有抗住，服务会中断 业务局限于一个数据中心，目标明显，容易受攻击（将鸡蛋放到同一个篮子）
-  而在游戏盾产品采用另一种方式来解决问题，主要要点如下：
- 首先，业务访问支持多IP解析，分散流量（狡免三窟） 第二就是应对攻击，支持业务地址迁移，地址迁移难点就是如何快速通知到各个用户（你打我，我就闪）  定义  弹性安全网络是将DDoS防御前置到网络边缘处。但是，未来真正要做的事情是通过端到端的连接，通过风险控制技术，重新构建一个干净的、安全的互联网
- 目标  弹性安全网络真正想要去做的，是替换掉整个互联网最核心的心脏，替换掉DNS，从而让网络变得有弹性，能够快速调度资源，形成一个全新的网络架构。
-弹性安全网络技术，不是为某一个客户设计的，它是为整个互联网设计的。
- DNS三个问题  DNS是互联网的心脏
-第一个，是DNS完全解析的时间过长，这是整个DNS使用中遇到的一个非常大的痛点。
-第二个问题是今天DNS Server软件中的解析数遇到了瓶颈，没有办法一个名字解析到几千个、甚至上万个，甚至未来十几万个不同地址。一个名字可能最多也就解析到十几个或几十个地址就不能再扩大了。这种瓶颈限制了我们的一些能力拓展。
-第三个就是，原本可以基于DNS去实现的一些安全机制，比如风险控制，并没有建立起来。其实也比较好理解，在互联网1.0时代并没有如今天这般强大的数据能力和计算能力。
- 实现 文中并没有提及具体的实现，主要要点是： 1. 基于大数据的足迹库 2. 基于人工智能的快速识别能力</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;IPFS&amp;rdquo;] date = &amp;ldquo;2017-09-21T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;IPFS&amp;rdquo;] title = &amp;ldquo;IPFS与下一代网络安全&amp;rdquo; draft = false +++
-IPFS 先简单说一下IPFS。 IPFS是点对点协议InterPlanetary File System的简称，它是一个面向全球的、点对点的分布式版本文件系统，试图将所有具有相同文件系统的计算设备连接在一起。它用基于内容的地址替代基于域名的地址，也就是用户寻找的不是某个地址而是储存在某个地方的内容，不需要验证发送者的身份，而只需要验证内容的哈希，通过这样可以让网页的速度更快、更安全、更健壮、更持久。IPFS目标是未来将替代HTTP。
-IPFS主要技术，用下面这张图说明：
-IPFS与安全 整个IPFS涉及很多方面的内容，这部分具体看一下IPFS对网络安全的影响。首先从DDOS防攻击展开，IPFS应对DDOS攻击主要如下： 1. 道哥在弹性安全网络中表达过DDOS存在的原因就是现在互联网严重依赖存在三大问题的DNS系统,而在IPFS中通过内容寻址方式绕开了DNS 2. IPFS底层网络是基于DHT，拥有大量节点的P2P网络，天生适合内容的分布式读写（PS：P2P网络安全需要另行考虑） 3. 内容签名，通过加密加大攻击的难度与成本
-上面的这些作法，很符合经济原理。DDOS存在主要经济学原因是DDOS获得的收益远大于DDOS的投资；IPFS的上述特点直接提高DDOS的成本。
-比较 上一篇分析了道哥的提出的弹性安全网络设想。那么，就在这里搞事情，对比一下两者。
- 道哥和Juan Benet都是杰出的技术人员及创业者，富有远见 作为安全出身的道哥的出发点解决网络安全问题主要是DDOS安全攻击问题，而IPFS目标如下：We believe the internet has become humanity&#39;s most important technology. We build protocols, systems, and tools to improve how it works.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://blog.ipds.top/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.ipds.top/1/01/01/</guid>
-      <description>+++ banner = &amp;ldquo;&amp;rdquo; categories = [&amp;ldquo;Network&amp;rdquo;] date = &amp;ldquo;2017-11-03T11:58:06+02:00&amp;rdquo; description = &amp;ldquo;&amp;rdquo; images = [] menu = &amp;ldquo;&amp;rdquo; tags = [&amp;ldquo;Network&amp;rdquo;] title = &amp;ldquo;IPFS与下一代网络安全&amp;rdquo; draft = false +++
-由于20-1大的原因，各种梯子损失惨重。自己也只好自己动手搭建VPS。关于如何搭建梯子这里暂不描述。
-说明 下面的操作是建立在成功搭建VPS基础上
-步骤 查看代理端口 代理客户端使用Shadowsocks-NG-R8,它解决了一个长久以来的痛点，Shadowsocks没有HTTP代理，导致需要使用polipo等软件进行协议转换。
-第一步：选择HTTP代理设置 第二步：点击查看 设置代理命令 vim打开vim ~/.bash_profile 在尾部添加如下内容： alias proxy-on=&#39;export http_proxy=127.0.0.1:1087;export https_proxy=$http_proxy&#39; alias proxy-off=&#39;unset http_proxy;unset https_proxy&#39;  修改立即生效: source ~/.bash_profile 测试 Michaels-iMac:~ eric$ proxy-on Michaels-iMac:~ eric$ go get -u google.golang.org/grpc package golang.org/x/net/context: golang.org/x/net is a custom import path for https://go.</description>
     </item>
     
     <item>
