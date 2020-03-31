@@ -380,7 +380,7 @@
 
 <p>这个后端系统设计如下图：</p>
 
-<p><img src="../image/im-arch.png" alt="基础架构" /></p>
+<p><img src="/images/im-arch.png" alt="基础架构" /></p>
 
 <p>很大众，国内基本都这么干，不多说</p>
 
@@ -390,7 +390,7 @@
 
 <p>单IDC部署，设计如下:</p>
 
-<p><img src="../image/user-state-flow-1.png" alt="用户状态系统设计-1" /></p>
+<p><img src="/images/user-state-flow-1.png" alt="用户状态系统设计-1" /></p>
 
 <h4 id="相关说明">相关说明</h4>
 
@@ -426,7 +426,7 @@
 
 <p>用户状态数据存储设计，如下图所示：</p>
 
-<p><img src="../image/user-state-router-data.png" alt="用户状态数据存储设计" /></p>
+<p><img src="/images/user-state-router-data.png" alt="用户状态数据存储设计" /></p>
 
 <ol>
 <li>内存消耗
@@ -481,7 +481,7 @@
 
 <p>保证更高可用性，需要支持多机房部署，实现两城三中心甚至更多节点异地多活，具体设计如下图：</p>
 
-<p><img src="../image/user-state-flow-2.png" alt="用户状态系统设计-2" /></p>
+<p><img src="/images/user-state-flow-2.png" alt="用户状态系统设计-2" /></p>
 
 <p>这里主要是引入了RouterProxy，将跨IDC ConnRouter连接起来，其中RouterProxy主要功能如下：</p>
 
@@ -494,7 +494,7 @@
 <h3 id="connrouter扩展">ConnRouter扩展</h3>
 
 <p>随着用户量增长，ConnRouter转发消息量，状态通知量，消息转发量都会不断增长，当然可以简单采用更好机器来scale up;下面是考虑进行业务拆分方式进行scale out，具体设计如下图：
-<img src="../image/user-state-flow-3.png" alt="用户状态系统设计-3" /></p>
+<img src="/images/user-state-flow-3.png" alt="用户状态系统设计-3" /></p>
 
 <p>从上图可知主要方案：</p>
 
