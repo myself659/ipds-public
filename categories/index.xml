@@ -7,19 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>沉风网事</copyright>
-    <lastBuildDate>Wed, 08 Jul 2020 11:58:06 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2020 11:58:06 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.ipds.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Rust</title>
-      <link>https://blog.ipds.top/categories/rust/</link>
-      <pubDate>Wed, 08 Jul 2020 11:58:06 +0200</pubDate>
-      
-      <guid>https://blog.ipds.top/categories/rust/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>成长</title>
@@ -144,6 +135,15 @@
       <pubDate>Fri, 06 Sep 2019 11:58:06 +0200</pubDate>
       
       <guid>https://blog.ipds.top/categories/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rust</title>
+      <link>https://blog.ipds.top/categories/rust/</link>
+      <pubDate>Sun, 11 Aug 2019 11:58:06 +0200</pubDate>
+      
+      <guid>https://blog.ipds.top/categories/rust/</guid>
       <description></description>
     </item>
     
